@@ -1,0 +1,21 @@
+= GryphonDOR SW Integration Tests
+
+A ruby "application" that tests each GryphonDOR collection in SearchWorks for completeness and for expected Solr fields and field values.
+
+It uses rspec-solr and rsolr gems.  
+
+== Usage
+
+# Adjust the url in config/solr.yml
+# run  rake passing
+
+OR
+Use a command line argument:
+ rake passing URL=http://your_solr_baseurl
+ 
+=== For more info
+
+See rspec-solr Gem documentation for the full syntax.  Documentation around here somewhere:
+* http://rubydoc.info/github/sul-dlss/rspec-solr
+* https://github.com/sul-dlss/rspec-solr/blob/master/MATCHERS.rdoc
+* https://github.com/sul-dlss/rspec-solr
