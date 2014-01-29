@@ -185,14 +185,7 @@ describe "Index Contents" do
       end
       
     end # Hydrus collections
-    context "Inspector General Semiannual Reports" do
-      context "Department of Defense" do
-        it_behaves_like "collection has all its items", '2933010', 4
-        it_behaves_like "DOR collection object", '2933010', 'ng056wy3948'
-        it_behaves_like "DOR item objects", "semiannual report to congress defense", ['xh307bp5065'], 10, '2933010'
-        
-      end
-    end
+
     
   end # DOR Digital Collections
   
