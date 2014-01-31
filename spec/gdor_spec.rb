@@ -215,8 +215,7 @@ describe "Index Contents" do
         it_behaves_like "DOR item objects", "Advisory Board decision in the matter of professor H. Bruce Franklin", ['cm175mf2096'], 5, 'pn278bq2224'
         it_behaves_like "hydrus item object", 'cm175mf2096'
       end
-      
-      
+
       
     end # Hydrus collections
     
