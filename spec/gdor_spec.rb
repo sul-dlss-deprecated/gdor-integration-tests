@@ -184,7 +184,17 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'hj582pj3902'
       end
       
+      context "Stanford Artificial Intelligence Laboratory Records" do
+        it_behaves_like "collection has all its items", 'jb056mm1304', 3
+        it_behaves_like "DOR collection object", 'jb056mm1304', 'jb056mm1304'
+        it_behaves_like "hydrus collection object", 'jb056mm1304'
+        it_behaves_like "DOR item objects", "35th reunion 2009", ['pb496bf3201'], 5, 'jb056mm1304'
+        it_behaves_like "hydrus item object", 'pb496bf3201'
+      end
+      
     end # Hydrus collections
+    
+    
     context "Inspector General Semiannual Reports" do
      context "Department of Defense" do
        it_behaves_like "collection has all its items", '2933010', 4
