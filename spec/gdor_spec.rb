@@ -244,6 +244,12 @@ describe "Index Contents" do
        it_behaves_like "DOR collection object", '3026762', 'wf189dk1775'
        it_behaves_like "DOR item objects", "inspector general treasury", ['mr633wy5808'], 50, '3026762'
      end
+
+     context "Department of State" do
+       it_behaves_like "collection has all its items", '4823691', 14
+       it_behaves_like "DOR collection object", '4823691', 'xn240hy3817'
+       it_behaves_like "DOR item objects", "semiannual report to congress department of state", ['cp867xh7666'], 10, '4823691'
+     end
      
     end
     
