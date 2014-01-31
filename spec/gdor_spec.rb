@@ -197,6 +197,11 @@ describe "Index Contents" do
        it_behaves_like "DOR collection object", '8422414', 'yf340nx0094'
        it_behaves_like "DOR item objects", "semiannual report to congress justice", ['cx148rm2108'], 150, '8422414'
      end
+     context "Department of State" do
+       it_behaves_like "collection has all its items", '4823691', 14
+       it_behaves_like "DOR collection object", '4823691', 'xn240hy3817'
+       it_behaves_like "DOR item objects", "semiannual report to congress department of state", ['cp867xh7666'], 10, '4823691'
+     end
     end
     
   end # DOR Digital Collections
