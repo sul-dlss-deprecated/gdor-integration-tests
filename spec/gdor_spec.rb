@@ -204,6 +204,12 @@ describe "Index Contents" do
        it_behaves_like "DOR item objects", "semiannual report to congress energy", ['bn558th7305'], 50, '5459243'
      end
      
+     context "Department of Treasury" do
+       it_behaves_like "collection has all its items", '3026762', 14
+       it_behaves_like "DOR collection object", '3026762', 'wf189dk1775'
+       it_behaves_like "DOR item objects", "inspector general treasury", ['mr633wy5808'], 50, '3026762'
+     end
+     
     end
     
   end # DOR Digital Collections
