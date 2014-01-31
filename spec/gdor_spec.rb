@@ -208,6 +208,14 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'zv044zr8616'
       end
       
+      context "H. Bruce Franklin Collection" do
+        it_behaves_like "collection has all its items", 'pn278bq2224', 11
+        it_behaves_like "DOR collection object", 'pn278bq2224', 'pn278bq2224'
+        it_behaves_like "hydrus collection object", 'pn278bq2224'
+        it_behaves_like "DOR item objects", "Advisory Board decision in the matter of professor H. Bruce Franklin", ['cm175mf2096'], 5, 'pn278bq2224'
+        it_behaves_like "hydrus item object", 'cm175mf2096'
+      end
+      
       
       
     end # Hydrus collections
