@@ -192,6 +192,15 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'pb496bf3201'
       end
       
+      context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
+        it_behaves_like "collection has all its items", 'cm018rf5314', 6
+        it_behaves_like "DOR collection object", 'cm018rf5314', 'cm018rf5314'
+        it_behaves_like "hydrus collection object", 'cm018rf5314'
+        it_behaves_like "DOR item objects", "Stanford Streaming Mobile Augmented Reality Dataset", ['ph459zk5920'], 5, 'cm018rf5314'
+        it_behaves_like "hydrus item object", 'ph459zk5920'
+      end
+      
+      
     end # Hydrus collections
     
     
