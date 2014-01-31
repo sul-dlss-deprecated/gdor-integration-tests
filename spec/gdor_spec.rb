@@ -200,6 +200,15 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'ph459zk5920'
       end
       
+      context "Stanford University Film Collection" do
+        it_behaves_like "collection has all its items", 'tm335zd3912', 1
+        it_behaves_like "DOR collection object", 'tm335zd3912', 'tm335zd3912'
+        it_behaves_like "hydrus collection object", 'tm335zd3912'
+        it_behaves_like "DOR item objects", "Films: 1937-1975", ['zv044zr8616'], 5, 'tm335zd3912'
+        it_behaves_like "hydrus item object", 'zv044zr8616'
+      end
+      
+      
       
     end # Hydrus collections
     
