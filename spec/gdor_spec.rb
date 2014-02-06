@@ -240,6 +240,13 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'ts408hz9199'
       end
       
+      context "Stanford Student Letters and Memoirs" do
+        it_behaves_like "collection has all its items", 'mt423yd8582', 1
+        it_behaves_like "DOR collection object", 'mt423yd8582', 'mt423yd8582'
+        it_behaves_like "hydrus collection object", 'mt423yd8582'
+        it_behaves_like "DOR item objects", "letters and memoirs", ['jv222bg0652'], 10, 'mt423yd8582'
+        it_behaves_like "hydrus item object", 'ts408hz9199'
+      end
       
 
       
