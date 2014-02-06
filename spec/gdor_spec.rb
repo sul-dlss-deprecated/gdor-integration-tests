@@ -215,6 +215,14 @@ describe "Index Contents" do
         it_behaves_like "DOR item objects", "Advisory Board decision in the matter of professor H. Bruce Franklin", ['cm175mf2096'], 5, 'pn278bq2224'
         it_behaves_like "hydrus item object", 'cm175mf2096'
       end
+      
+      context "Rigler-Deutsch Computer Tapes" do
+        it_behaves_like "collection has all its items", 'jd276dz9994', 3
+        it_behaves_like "DOR collection object", 'jd276dz9994', 'jd276dz9994'
+        it_behaves_like "hydrus collection object", 'jd276dz9994'
+        it_behaves_like "DOR item objects", "Rigler & Deutsch Record Index", ['cr661vw3932'], 10, 'jd276dz9994'
+        it_behaves_like "hydrus item object", 'cr661vw3932'
+      end
 
       
     end # Hydrus collections
