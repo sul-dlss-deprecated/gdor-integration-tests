@@ -223,6 +223,15 @@ describe "Index Contents" do
         it_behaves_like "DOR item objects", "Rigler & Deutsch Record Index", ['cr661vw3932'], 10, 'jd276dz9994'
         it_behaves_like "hydrus item object", 'cr661vw3932'
       end
+      
+      context "Jane Lathrop Stanford Papers" do
+        it_behaves_like "collection has all its items", 'hs468px3695', 3
+        it_behaves_like "DOR collection object", 'hs468px3695', 'hs468px3695'
+        it_behaves_like "hydrus collection object", 'hs468px3695'
+        it_behaves_like "DOR item objects", "death and estate papers", ['fk544dk9538'], 10, 'hs468px3695'
+        it_behaves_like "hydrus item object", 'fk544dk9538'
+      end
+      
 
       
     end # Hydrus collections
