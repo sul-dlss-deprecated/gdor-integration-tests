@@ -264,6 +264,15 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'bv723rv4628'
       end
       
+      context "Leland Stanford Papers" do
+        it_behaves_like "collection has all its items", 'zx692xz8270', 3
+        it_behaves_like "DOR collection object", 'zx692xz8270', 'zx692xz8270'
+        it_behaves_like "hydrus collection object", 'zx692xz8270'
+        it_behaves_like "DOR item objects", "leland stanford legal papers", ['kh510mt0132'], 10, 'zx692xz8270'
+        it_behaves_like "hydrus item object", 'kh510mt0132'
+      end
+      
+      
 
       
     end # Hydrus collections
