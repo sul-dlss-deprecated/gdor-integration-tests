@@ -255,6 +255,15 @@ describe "Index Contents" do
         it_behaves_like "DOR item objects", "david starr jordan business correspondence", ['sw878zc4588'], 10, 'jy460rb9016'
         it_behaves_like "hydrus item object", 'sw878zc4588'
       end
+      
+      context "The Stanford Flipside" do
+        it_behaves_like "collection has all its items", 'dq441rn2614', 3
+        it_behaves_like "DOR collection object", 'dq441rn2614', 'dq441rn2614'
+        it_behaves_like "hydrus collection object", 'dq441rn2614'
+        it_behaves_like "DOR item objects", "stanford flipside 2008", ['bv723rv4628'], 10, 'dq441rn2614'
+        it_behaves_like "hydrus item object", 'bv723rv4628'
+      end
+      
 
       
     end # Hydrus collections
