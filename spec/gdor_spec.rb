@@ -232,6 +232,15 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'fk544dk9538'
       end
       
+      context "Stanford University Video Collection" do
+        it_behaves_like "collection has all its items", 'gn946cw3927', 1
+        it_behaves_like "DOR collection object", 'gn946cw3927', 'gn946cw3927'
+        it_behaves_like "hydrus collection object", 'gn946cw3927'
+        it_behaves_like "DOR item objects", "stanford university video collection 2013", ['ts408hz9199'], 10, 'gn946cw3927'
+        it_behaves_like "hydrus item object", 'ts408hz9199'
+      end
+      
+      
 
       
     end # Hydrus collections
