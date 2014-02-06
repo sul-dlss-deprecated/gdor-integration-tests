@@ -248,6 +248,13 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'ts408hz9199'
       end
       
+      context "David Starr Jordan Papers" do
+        it_behaves_like "collection has all its items", 'jy460rb9016', 2
+        it_behaves_like "DOR collection object", 'jy460rb9016', 'jy460rb9016'
+        it_behaves_like "hydrus collection object", 'jy460rb9016'
+        it_behaves_like "DOR item objects", "david starr jordan business correspondence", ['sw878zc4588'], 10, 'jy460rb9016'
+        it_behaves_like "hydrus item object", 'sw878zc4588'
+      end
 
       
     end # Hydrus collections
