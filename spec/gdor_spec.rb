@@ -280,7 +280,13 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'mp840zw9344'
       end
       
-      
+      context "Martin Luther King at Stanford" do
+        it_behaves_like "collection has all its items", 'yt337pb3236', 2
+        it_behaves_like "DOR collection object", 'yt337pb3236', 'yt337pb3236'
+        it_behaves_like "hydrus collection object", 'yt337pb3236'
+        it_behaves_like "DOR item objects", "martin luther king at stanford", ['dn923nh8281'], 10, 'yt337pb3236'
+        it_behaves_like "hydrus item object", 'dn923nh8281'
+      end
 
       
     end # Hydrus collections
