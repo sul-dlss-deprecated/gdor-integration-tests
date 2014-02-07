@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe "Index Contents" do
 
-  shared_examples_for 'collection has all its items' do | coll_val, min_num_exp |
+  shared_examples_for 'collection has all its items' do | coll_val, num_exp |
     it "collection filter query should return enough results" do
       resp = solr_resp_doc_ids_only({'fq'=>"collection:#{coll_val}", 'rows'=>'0'})
-      resp.should have_at_least(min_num_exp).documents
+      resp.should have_exactly(num_exp).documents
     end
   end
   
@@ -17,8 +17,11 @@ describe "Index Contents" do
       @resp = solr_response({'q'=>query_str, 'fl'=>'id,url_fulltext,collection', 'facet'=>false})
     end
     it "item objects should be discoverable via everything search" do
-      resp = solr_resp_ids_from_query query_str
       @resp.should include(exp_ids).in_first(max_res_num)
+    end
+    it "should have no items with a date of 499 or less" do
+      resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "pub_year_tisim:[* TO 499]"], 'rows'=>'0'})
+      resp.should_not have_documents
     end
     it "item objects should have gdor fields" do
       exp_ids.each { |druid|
@@ -281,7 +284,7 @@ describe "Index Contents" do
       end
       
       context "Martin Luther King at Stanford" do
-        it_behaves_like "collection has all its items", 'yt337pb3236', 2
+        it_behaves_like "collection has all its items", 'yt337pb3236', 3
         it_behaves_like "DOR collection object", 'yt337pb3236', 'yt337pb3236'
         it_behaves_like "hydrus collection object", 'yt337pb3236'
         it_behaves_like "DOR item objects", "martin luther king at stanford", ['dn923nh8281'], 10, 'yt337pb3236'
