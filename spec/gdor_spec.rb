@@ -272,6 +272,14 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'kh510mt0132'
       end
       
+      context "Stanford University Commencement Collection" do
+        it_behaves_like "collection has all its items", 'nz928tt4938', 3
+        it_behaves_like "DOR collection object", 'nz928tt4938', 'nz928tt4938'
+        it_behaves_like "hydrus collection object", 'nz928tt4938'
+        it_behaves_like "DOR item objects", "commencement addresses", ['mp840zw9344'], 10, 'nz928tt4938'
+        it_behaves_like "hydrus item object", 'mp840zw9344'
+      end
+      
       
 
       
