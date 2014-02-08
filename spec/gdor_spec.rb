@@ -323,7 +323,7 @@ describe "Index Contents" do
      context "Department of State" do
        it_behaves_like "collection has all its items", '4823691', 14
        it_behaves_like "DOR collection object", '4823691', 'xn240hy3817'
-       it_behaves_like "DOR item objects", "\"semiannual report to congress united states department of state\"", ['cp867xh7666'], 14, '4823691'
+       it_behaves_like "DOR item objects", "auditing \"Semiannual report to the congress\" \"United States Dept. of State. Office of Inspector General\"", ['cp867xh7666'], 50, '4823691'
      end
      
     end
