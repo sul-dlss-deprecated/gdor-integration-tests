@@ -60,19 +60,19 @@ describe "Index Contents" do
   context "DOR Digital Collections" do
     
     context "Kolb" do
-      it_behaves_like "collection has all its items", '4084372', 1150
+      it_behaves_like "collection has all its items", '4084372', 1402
       it_behaves_like "DOR collection object", '4084372', 'bs646cd8717'
       it_behaves_like "DOR item objects", "Addison Joseph", ['vb267mw8946'], 10, '4084372'
     end
 
     context "Reid Dennis" do
-      it_behaves_like "collection has all its items", '6780453', 46
+      it_behaves_like "collection has all its items", '6780453', 47
       it_behaves_like "DOR collection object", '6780453', 'sg213ph2100'
       it_behaves_like "DOR item objects", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15, '6780453'
     end
 
     context "Walters Manuscripts" do
-      it_behaves_like "collection has all its items", 'ww121ss5000', 265
+      it_behaves_like "collection has all its items", 'ww121ss5000', 281
       it_behaves_like "DOR collection object", 'ww121ss5000', 'ww121ss5000'
       it_behaves_like "DOR item objects", "walters brasses", ['cn006dx2288'], 3, 'ww121ss5000'
     end
