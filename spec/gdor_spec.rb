@@ -302,39 +302,6 @@ describe "Index Contents" do
     end
     
     
-    context "Inspector General Semiannual Reports" do
-     context "Department of Defense" do
-       it_behaves_like "collection has all its items", '2933010', 4
-       it_behaves_like "DOR collection object", '2933010', 'ng056wy3948'
-       it_behaves_like "DOR item objects", "semiannual report to congress defense", ['xh307bp5065'], 10, '2933010'
-
-     end
-     context "Department of Justice" do
-       it_behaves_like "collection has all its items", '8422414', 6
-       it_behaves_like "DOR collection object", '8422414', 'yf340nx0094'
-       it_behaves_like "DOR item objects", "semiannual report to congress justice", ['cx148rm2108'], 150, '8422414'
-     end
-     
-     context "Department of energy" do
-       it_behaves_like "collection has all its items", '5459243', 16
-       it_behaves_like "DOR collection object", '5459243', 'bx237rw7019'
-       it_behaves_like "DOR item objects", "semiannual report to congress energy", ['bn558th7305'], 50, '5459243'
-     end
-     
-     context "Department of Treasury" do
-       it_behaves_like "collection has all its items", '3026762', 14
-       it_behaves_like "DOR collection object", '3026762', 'wf189dk1775'
-       it_behaves_like "DOR item objects", "inspector general treasury", ['mr633wy5808'], 50, '3026762'
-     end
-
-     context "Department of State" do
-       it_behaves_like "collection has all its items", '4823691', 14
-       it_behaves_like "DOR collection object", '4823691', 'xn240hy3817'
-       it_behaves_like "DOR item objects", "auditing \"Semiannual report to the congress\" \"United States Dept. of State. Office of Inspector General\"", ['cp867xh7666'], 50, '4823691'
-     end
-     
-    end
-    
   end # DOR Digital Collections
   
 end
