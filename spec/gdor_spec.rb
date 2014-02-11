@@ -122,7 +122,7 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'pp060nc9006'
       end
       context "Stanford Research Data" do
-        it_behaves_like "collection has all its items", 'md919gh6774', 6
+        it_behaves_like "collection has all its items", 'md919gh6774', 5
         it_behaves_like "DOR collection object", 'md919gh6774', 'md919gh6774'
         it_behaves_like "hydrus collection object", 'md919gh6774'
         it_behaves_like "DOR item objects", "high angular resolution", ['yx282xq2090'], 3, 'md919gh6774'
@@ -293,6 +293,13 @@ describe "Index Contents" do
 
       
     end # Hydrus collections
+    
+    
+    context "Francis E. Stafford photographs" do
+      it_behaves_like "collection has all its items", '9615156', 5
+      it_behaves_like "DOR collection object", '9615156', 'yg867hg1375'
+      it_behaves_like "DOR item objects", "seventh day adventist church missionaries", ['nz353cp1092'], 10, '9615156'
+    end
     
     
     context "Inspector General Semiannual Reports" do
