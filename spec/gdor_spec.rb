@@ -66,7 +66,7 @@ describe "Index Contents" do
     end
 
     context "Reid Dennis" do
-      it_behaves_like "collection has all its items", '6780453', 47
+      it_behaves_like "collection has all its items", '6780453', 48
       it_behaves_like "DOR collection object", '6780453', 'sg213ph2100'
       it_behaves_like "DOR item objects", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15, '6780453'
     end
