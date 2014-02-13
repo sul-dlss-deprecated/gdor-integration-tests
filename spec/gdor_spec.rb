@@ -166,7 +166,7 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'bg823wn2892'
       end
       context "engineering undergrad theses" do
-        it_behaves_like "collection has all its items", 'jg722zc0626', 28
+        it_behaves_like "collection has all its items", 'jg722zc0626', 30
         it_behaves_like "DOR collection object", 'jg722zc0626', 'jg722zc0626'
         it_behaves_like "hydrus collection object", 'jg722zc0626'
         it_behaves_like "DOR item objects", "uclinux", ['ng517gq2855'], 3, 'jg722zc0626'
