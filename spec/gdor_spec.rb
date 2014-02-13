@@ -207,7 +207,7 @@ describe "Index Contents" do
         it_behaves_like "collection has all its items", 'tm335zd3912', 1
         it_behaves_like "DOR collection object", 'tm335zd3912', 'tm335zd3912'
         it_behaves_like "hydrus collection object", 'tm335zd3912'
-        it_behaves_like "DOR item objects", "Films: 1937-1975", ['zv044zr8616'], 5, 'tm335zd3912'
+        it_behaves_like "DOR item objects", "stanford university film collection films 1937", ['zv044zr8616'], 10, 'tm335zd3912'
         it_behaves_like "hydrus item object", 'zv044zr8616'
       end
       
