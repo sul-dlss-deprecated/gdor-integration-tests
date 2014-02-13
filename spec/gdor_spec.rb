@@ -129,7 +129,7 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'yx282xq2090'
       end
       context "SUL staff publications" do
-        it_behaves_like "collection has all its items", 'hn730ks3626', 2
+        it_behaves_like "collection has all its items", 'hn730ks3626', 4
         it_behaves_like "DOR collection object", 'hn730ks3626', 'hn730ks3626'
         it_behaves_like "hydrus collection object", 'hn730ks3626'
         it_behaves_like "DOR item objects", "academy unbound", ['bd701dh8028'], 3, 'hn730ks3626'
