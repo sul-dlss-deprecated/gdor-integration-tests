@@ -108,7 +108,7 @@ describe "Index Contents" do
       end
 
       context "Folding@home" do
-        it_behaves_like "collection has all its items", 'cj269gn0736', 3
+        it_behaves_like "collection has all its items", 'cj269gn0736', 4
         it_behaves_like "DOR collection object", 'cj269gn0736', 'cj269gn0736'
         it_behaves_like "hydrus collection object", 'cj269gn0736'
         it_behaves_like "DOR item objects", "hp35 trajectory data", ['bd829sf1034'], 3, 'cj269gn0736'
