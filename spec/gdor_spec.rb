@@ -180,7 +180,7 @@ describe "Index Contents" do
         it_behaves_like "hydrus item object", 'jw598xm2819'
       end
       context "Vista Lab" do
-        it_behaves_like "collection has all its items", 'qd500xn1572', 3
+        it_behaves_like "collection has all its items", 'qd500xn1572', 4
         it_behaves_like "DOR collection object", 'qd500xn1572', 'qd500xn1572'
         it_behaves_like "hydrus collection object", 'qd500xn1572'
         it_behaves_like "DOR item objects", "Asynchronous broadband signals", ['hj582pj3902'], 3, 'qd500xn1572'
