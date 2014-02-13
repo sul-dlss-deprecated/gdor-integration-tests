@@ -72,7 +72,7 @@ describe "Index Contents" do
     end
 
     context "Walters Manuscripts" do
-      it_behaves_like "collection has all its items", 'ww121ss5000', 281
+      it_behaves_like "collection has all its items", 'ww121ss5000', 298
       it_behaves_like "DOR collection object", 'ww121ss5000', 'ww121ss5000'
       it_behaves_like "DOR item objects", "walters brasses", ['cn006dx2288'], 3, 'ww121ss5000'
     end
