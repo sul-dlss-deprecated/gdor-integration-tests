@@ -23,6 +23,10 @@ describe "Index Contents" do
       resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "pub_year_tisim:[* TO 499]"], 'rows'=>'0'})
       resp.should_not have_documents
     end
+    it "should have a valid format for each item object" do
+      resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "-format:*"], 'rows'=>'0'})
+      resp.should_not have_documents
+    end
     it "item objects should have gdor fields" do
       exp_ids.each { |druid|
         resp = solr_response({'qt'=>'document', 'id'=>druid, 'fl'=>'id,collection,modsxml,url_fulltext,format,druid', 'facet'=>false})
