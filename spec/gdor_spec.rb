@@ -64,6 +64,12 @@ describe "Index Contents" do
     end
   end
 
+  context "All GDOR content" do
+    it "every non-collection object should have a collection" do
+      resp = solr_resp_doc_ids_only({'fq'=> ["-collection:*", "-display_type:*collection"], 'rows'=>'0'})
+      resp.should_not have_documents
+    end
+  end
 
   context "DOR Digital Collections" do
     
