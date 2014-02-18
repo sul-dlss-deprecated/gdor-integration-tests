@@ -20,7 +20,7 @@ describe "Index Contents" do
     before(:all) do
       @resp = solr_response({'q'=>query_str, 'fl'=>'id,url_fulltext,collection', 'facet'=>false})
     end
-    it "item objects should be discoverable via everything search" do
+    it "should be discoverable via everything search" do
       @resp.should include(exp_ids).in_first(max_res_num)
     end
     it "should have no items with a date of 499 or less" do
@@ -31,7 +31,7 @@ describe "Index Contents" do
       resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "-format:*"], 'rows'=>'0'})
       resp.should_not have_documents
     end
-    it "item objects should have gdor fields" do
+    it "should have gdor fields" do
       exp_ids.each { |druid|
         resp = solr_response({'qt'=>'document', 'id'=>druid, 'fl'=>'id,collection,modsxml,url_fulltext,format,druid', 'facet'=>false})
         resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
@@ -47,19 +47,19 @@ describe "Index Contents" do
     before(:all) do
       @resp = solr_response({'qt'=>'document', 'id'=>solr_doc_id, 'fl'=>'id,url_fulltext,collection_type,modsxml,format,druid', 'facet'=>false})
     end
-    it "collection object should have purl url in url_fulltext" do
+    it "should have purl url in url_fulltext" do
       @resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
     end
-    it "collection object should have collection_type field" do
+    it "should have collection_type field" do
       @resp.should include("collection_type" => 'Digital Collection')
     end
-    it "collection object should have modsxml field if no sirsi record" do
+    it "should have modsxml field if no sirsi record" do
       @resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ ) if solr_doc_id == druid
     end
-    it "collection object should have a format field" do
+    it "should have a format field" do
       @resp.should include("format" => /.+/)
     end
-    it "collection object should have a druid field if no sirsi record" do
+    it "should have a druid field if no sirsi record" do
       @resp.should include("druid" => druid ) if solr_doc_id == druid
     end
   end
@@ -67,6 +67,10 @@ describe "Index Contents" do
   context "All GDOR content" do
     it "every non-collection object should have a collection" do
       resp = solr_resp_doc_ids_only({'fq'=> ["-collection:*", "-display_type:*collection"], 'rows'=>'0'})
+      resp.should_not have_documents
+    end
+    it "should have access_facet = Online for each colleciton object" do
+      resp = solr_resp_doc_ids_only({'fq'=>["display_type:*collection", "-access_facet:Online"], 'rows'=>'0'})
       resp.should_not have_documents
     end
   end
@@ -94,9 +98,9 @@ describe "Index Contents" do
     context "Glen McLaughlin Maps" do
         it_behaves_like "collection has all its items", 'zb871zd0767', 731
         it_behaves_like "DOR collection object", 'zb871zd0767', 'zb871zd0767'
-        it_behaves_like "DOR item objects", "AMERIQUE", ['jk190bb4635'], 114, 'zb871zd0767'
-      
+        it_behaves_like "DOR item objects", "AMERIQUE", ['jk190bb4635'], 114, 'zb871zd0767'   
     end
+    
     context "Classics Papyri" do
       it_behaves_like "collection has all its items", 'jr022nf7673', 44
       it_behaves_like "DOR collection object", 'jr022nf7673', 'jr022nf7673'
@@ -107,6 +111,7 @@ describe "Index Contents" do
       it_behaves_like "DOR collection object", 'yb129fc1507', 'yb129fc1507'
       it_behaves_like "DOR item objects", "melita", ['zz360bw3691'], 10, 'yb129fc1507'
     end
+    
     context "Hydrus collections" do
       shared_examples_for 'hydrus collection object' do | solr_doc_id |
         it "should have display_type of hydrus_collection" do
@@ -304,8 +309,7 @@ describe "Index Contents" do
         it_behaves_like "DOR item objects", "martin luther king at stanford", ['dn923nh8281'], 10, 'yt337pb3236'
         it_behaves_like "hydrus item object", 'dn923nh8281'
       end
-
-      
+   
     end # Hydrus collections
     
     
