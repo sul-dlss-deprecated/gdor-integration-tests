@@ -62,6 +62,12 @@ describe "Index Contents" do
     it "should have a druid field if no sirsi record" do
       @resp.should include("druid" => druid ) if solr_doc_id == druid
     end
+    it "should not have two records (ckey and druid)" do
+      if solr_doc_id != druid     
+        resp = solr_response({'qt'=>'document', 'id'=>druid})
+        resp.should_not include(druid)
+      end
+    end
   end
 
   context "All GDOR content" do
