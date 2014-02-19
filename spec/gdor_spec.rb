@@ -11,6 +11,10 @@ describe "Index Contents" do
       resp = solr_resp_doc_ids_only({'fq'=>["display_type:*collection", "-access_facet:Online"], 'rows'=>'0'})
       resp.should_not have_documents
     end
+    it "should have a display_type" do
+      resp = solr_resp_doc_ids_only({'fq'=> ["-collection:sirsi", "-display_type:*"], 'rows'=>'0'})
+      resp.should_not have_documents
+    end
   end
 
   context "DOR Digital Collections" do
