@@ -3,6 +3,7 @@ require 'rsolr'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec-solr'
+require 'support/shared_examples'
 
 RSpec.configure do |config|
   baseurl = ENV["URL"]
