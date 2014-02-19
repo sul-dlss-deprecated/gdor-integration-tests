@@ -19,6 +19,10 @@ describe "Index Contents" do
       resp = solr_resp_doc_ids_only({'fq'=> ["-collection:sirsi", "-druid:*"], 'rows'=>'0'})
       resp.should_not have_documents
     end
+    it "should have a sortable title" do
+      resp = solr_resp_doc_ids_only({'fq'=> ["-collection:sirsi", "-title_sort:*"], 'rows'=>'0'})
+      resp.should_not have_documents
+    end
   end
 
   context "DOR Digital Collections" do
