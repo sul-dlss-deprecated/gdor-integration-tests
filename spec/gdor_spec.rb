@@ -15,6 +15,10 @@ describe "Index Contents" do
       resp = solr_resp_doc_ids_only({'fq'=> ["-collection:sirsi", "-display_type:*"], 'rows'=>'0'})
       resp.should_not have_documents
     end
+    it "should have a druid" do
+      resp = solr_resp_doc_ids_only({'fq'=> ["-collection:sirsi", "-druid:*"], 'rows'=>'0'})
+      resp.should_not have_documents
+    end
   end
 
   context "DOR Digital Collections" do
