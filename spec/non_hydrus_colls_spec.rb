@@ -23,7 +23,7 @@ describe "DOR Digital Collections" do
   context "Glen McLaughlin Maps" do
       it_behaves_like "all items in collection", 'zb871zd0767', 731
       it_behaves_like "DOR collection object", 'zb871zd0767', 'zb871zd0767'
-      it_behaves_like "DOR item objects", "AMERIQUE", ['jk190bb4635'], 114, 'zb871zd0767'   
+      it_behaves_like "DOR item objects", "AMERIQUE", ['jk190bb4635'], 20, 'zb871zd0767'   
   end
   
   context "Classics Papyri" do
