@@ -82,7 +82,7 @@ end
 # druid = the druid of the collection record
 shared_examples_for 'DOR collection object' do | solr_doc_id, druid |
   before(:all) do
-    @resp = solr_response({'qt'=>'document', 'id'=>solr_doc_id, 'fl'=>'id,url_fulltext,collection_type,modsxml,format,druid', 'facet'=>false})
+    @resp = solr_response({'qt'=>'document', 'id'=>solr_doc_id, 'fl'=>'id,url_fulltext,collection_type,modsxml,format,druid,display_type', 'facet'=>false})
   end
   it "should have purl url in url_fulltext" do
     @resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
@@ -96,10 +96,13 @@ shared_examples_for 'DOR collection object' do | solr_doc_id, druid |
   it "should have a format field" do
     @resp.should include("format" => /.+/)
   end
+  it "should have a collection flavor display_type if no sirsi record" do
+    @resp.should include("display_type" => /.*collection.*/) if solr_doc_id == druid
+  end
   it "should have a druid field if no sirsi record" do
     @resp.should include("druid" => druid ) if solr_doc_id == druid
   end
-  it "should not have two records (ckey and druid)" do
+  it "should not have a separate Solr record for a druid if there is a sirsi record" do
     if solr_doc_id != druid     
       resp = solr_response({'qt'=>'document', 'id'=>druid})
       resp.should_not include(druid)
