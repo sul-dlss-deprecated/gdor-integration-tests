@@ -28,6 +28,14 @@ shared_examples_for 'have required fields:' do | facet_query |
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-title_245_search:*"]})
     resp.should_not have_documents
   end
+  it "sortable pub date" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_date_sort:*"]})
+    resp.should_not have_documents
+  end
+  it "date slider dates" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_year_tisim:*"]})
+    resp.should_not have_documents
+  end
 end
 
 
