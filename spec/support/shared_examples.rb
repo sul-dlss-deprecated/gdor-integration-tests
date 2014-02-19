@@ -1,3 +1,36 @@
+# tests for required fields given a facet query
+shared_examples_for 'have required fields:' do | facet_query |
+  it "druid" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-druid:*"], 'rows'=>'0'})
+    resp.should_not have_documents
+  end
+  it "access_facet = Online" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-access_facet:Online"], 'rows'=>'0'})
+    resp.should_not have_documents
+  end
+  it "format" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-format:*"], 'rows'=>'0'})
+    resp.should_not have_documents
+  end
+  it "display_type" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-display_type:*"], 'rows'=>'0'})
+    resp.should_not have_documents
+  end
+  it "sortable title" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-title_sort:*"], 'rows'=>'0'})
+    resp.should_not have_documents
+  end
+  it "searchabe short title" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-title_245a_search:*"]})
+    resp.should_not have_documents
+  end
+  it "searchable full title" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-title_245_search:*"]})
+    resp.should_not have_documents
+  end
+end
+
+
 # tests for all items in a collection
 # coll_id = collection record id (e.g. a ckey or druid)
 # num_exp = the number of items expected in the collection
@@ -11,17 +44,12 @@ shared_examples_for 'all items in collection' do | coll_id, num_exp |
     resp.should_not have_facet_field('display_type').with_value('collection')
     resp.should_not have_facet_field('display_type').with_value('hydrus_collection')
   end
-  it "should have access_facet = Online" do
-    resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "access_facet:Online"], 'rows'=>'0'})
-    resp.should have_exactly(num_exp).documents
-  end
-  it "should have no items with a date of 499 or less" do
+  it "should not have a date of 499 or less" do
     resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "pub_year_tisim:[* TO 499]"], 'rows'=>'0'})
     resp.should_not have_documents
   end
-  it "should have a valid format for each item object" do
-    resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "-format:*"], 'rows'=>'0'})
-    resp.should_not have_documents
+  context "" do
+    it_behaves_like "have required fields:", "collection:#{coll_id}"
   end
 end
 
