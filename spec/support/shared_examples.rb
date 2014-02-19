@@ -12,8 +12,40 @@ shared_examples_for 'have required fields:' do | facet_query |
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-format:*"], 'rows'=>'0'})
     resp.should_not have_documents
   end
+  it "valid format value" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query,
+      # commented out lines are because gdor has no records in those formats
+                                          '-format:Book',
+                                          '-format:"Computer File"',
+#                                          '-format:"Conference Proceedings"',
+#                                          '-format:Database',
+                                          '-format:Image',
+                                          '-format:"Journal/Periodical"',
+                                          '-format:"Manuscript/Archive"',
+                                          '-format:"Map/Globe"',
+#                                          '-format:Microformat',
+#                                          '-format:"Music - Recording"',
+#                                          '-format:"Music - Score"',
+#                                          '-format:Newspaper',
+                                          '-format:Other',
+#                                          '-format:"Sound Recording"',
+                                          '-format:Thesis',
+                                          '-format:Video'
+                                          ]})
+    resp.should_not have_documents
+  end
   it "display_type" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-display_type:*"], 'rows'=>'0'})
+    resp.should_not have_documents
+  end
+  it "valid display_type value" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query,
+                                          '-display_type:collection',
+                                          '-display_type:hydrus_collection',
+                                          '-display_type:hydrus_object',
+                                          '-display_type:image',
+                                          '-display_type:map'
+                                          ]})
     resp.should_not have_documents
   end
   it "sortable title" do
