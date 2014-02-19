@@ -11,6 +11,11 @@ describe "Index Contents" do
       resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_val}", "access_facet:Online"], 'rows'=>'0'})
       resp.should have_exactly(num_exp).documents
     end
+    it "should not have more than one collection record" do
+      resp = solr_response({'fq'=>"collection:#{coll_val}", 'facet.field' => 'display_type', 'facet'=>true, 'rows'=>'0'})
+      resp.should_not have_facet_field('display_type').with_value('collection')
+      resp.should_not have_facet_field('display_type').with_value('hydrus_collection')
+    end
   end
   
   # exp_ids = expected druids for objects within a collection
