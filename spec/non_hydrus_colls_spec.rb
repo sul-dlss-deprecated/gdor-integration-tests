@@ -5,33 +5,33 @@ describe "DOR Digital Collections" do
   context "merged coll records" do
     # id of collection record is ckey from Sirsi, not druid from DOR
     context "Kolb" do
-      coll_id = '4084372'
-      it_behaves_like "all items in collection", coll_id, 1402
-      it_behaves_like "DOR collection object", coll_id, 'bs646cd8717'
-      it_behaves_like "DOR item objects", "Addison Joseph", ['vb267mw8946'], 10, coll_id
-      facet_query = "collection:#{coll_id}"
+      ckey = '4084372'
+      it_behaves_like "all items in collection", ckey, 1402
+      it_behaves_like "DOR collection object", ckey, 'bs646cd8717'
+      it_behaves_like "DOR item objects", "Addison Joseph", ['vb267mw8946'], 10, ckey
+      facet_query = "collection:#{ckey}"
       # lack of pub dates grandfathered in -- old Image Gallery collection
 #      it_behaves_like "date fields present", facet_query
 #      it_behaves_like "author fields present", facet_query
 #      it_behaves_like "language", facet_query
     end
     context "Reid Dennis" do
-      coll_id = '6780453'
-      it_behaves_like "all items in collection", coll_id, 48
-      it_behaves_like "DOR collection object", coll_id, 'sg213ph2100'
-      it_behaves_like "DOR item objects", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15, coll_id
-      facet_query = "collection:#{coll_id}"
+      ckey = '6780453'
+      it_behaves_like "all items in collection", ckey, 48
+      it_behaves_like "DOR collection object", ckey, 'sg213ph2100'
+      it_behaves_like "DOR item objects", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15, ckey
+      facet_query = "collection:#{ckey}"
       # lack of pub dates grandfathered in -- old Image Gallery collection
 #      it_behaves_like "date fields present", facet_query
 #      it_behaves_like "author fields present", facet_query
 #      it_behaves_like "language", facet_query
     end
     context "Francis E. Stafford photographs" do
-      coll_id = '9615156'
-      it_behaves_like "all items in collection", coll_id, 5
-      it_behaves_like "DOR collection object", coll_id, 'yg867hg1375'
-      it_behaves_like "DOR item objects", "seventh day adventist church missionaries", ['nz353cp1092'], 10, coll_id
-      facet_query = "collection:#{coll_id}"
+      ckey = '9615156'
+      it_behaves_like "all items in collection", ckey, 5
+      it_behaves_like "DOR collection object", ckey, 'yg867hg1375'
+      it_behaves_like "DOR item objects", "seventh day adventist church missionaries", ['nz353cp1092'], 10, ckey
+      facet_query = "collection:#{ckey}"
       it_behaves_like "date fields present", facet_query
 #      it_behaves_like "author fields present", facet_query
 #      it_behaves_like "language", facet_query
