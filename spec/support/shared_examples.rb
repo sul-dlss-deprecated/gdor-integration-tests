@@ -30,8 +30,20 @@ shared_examples_for 'sortable author' do | facet_query |
   end
 end
 
+# tests for searchable date fields given a facet query
+shared_examples_for 'date fields present' do | facet_query |
+  it_behaves_like "sortable pub date", facet_query
+  it_behaves_like "date slider dates", facet_query
+end
+
+# tests for searchable author fields given a facet query
+shared_examples_for 'author fields present' do | facet_query |
+  it_behaves_like "sortable author", facet_query
+  it_behaves_like "searchable author", facet_query
+end
+
 # tests for required fields excepting dates, given a facet query
-shared_examples_for 'core fields:' do | facet_query |
+shared_examples_for 'core fields present' do | facet_query |
   it "druid" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-druid:*"], 'rows'=>'0'})
     resp.should_not have_documents
@@ -93,16 +105,6 @@ shared_examples_for 'core fields:' do | facet_query |
     resp.should_not have_documents
   end
 end
- 
-# tests for required fields given a facet query
-shared_examples_for 'have required fields:' do | facet_query |
-  context "" do
-    it_behaves_like "core fields:", facet_query
-    it_behaves_like "sortable pub date", facet_query
-    it_behaves_like "date slider dates", facet_query
-  end
-end
-
 
 # tests for all items in a collection
 # coll_id = collection record id (e.g. a ckey or druid)
@@ -122,15 +124,17 @@ shared_examples_for 'all items in collection' do | coll_id, num_exp |
     resp.should_not have_documents
   end
   context "" do
+    it_behaves_like "core fields present", "collection:#{coll_id}"
+
+# TODO: remove this -- move tests out to collections?
     # Kolb, Reid Dennis and McLauglin don't have pub date sort or pub date slider
     if (coll_id == 'zb871zd0767' or coll_id == '6780453' or coll_id == '4084372') 
-      it_behaves_like "core fields:", "collection:#{coll_id}"
+      # nothing else
     elsif coll_id == 'jr022nf7673'
       # Classics Papyri have no date slider because it can't do BC dates
-      it_behaves_like "core fields:", "collection:#{coll_id}"
       it_behaves_like "sortable pub date", "collection:#{coll_id}"
     else
-      it_behaves_like "have required fields:", "collection:#{coll_id}"
+      it_behaves_like "date fields present", "collection:#{coll_id}"
     end
   end
 end
