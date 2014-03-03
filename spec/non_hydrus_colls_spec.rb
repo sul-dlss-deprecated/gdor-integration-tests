@@ -2,44 +2,86 @@ require 'spec_helper'
 
 describe "DOR Digital Collections" do
 
-  context "Kolb" do
-    it_behaves_like "all items in collection", '4084372', 1402
-    it_behaves_like "DOR collection object", '4084372', 'bs646cd8717'
-    it_behaves_like "DOR item objects", "Addison Joseph", ['vb267mw8946'], 10, '4084372'
-  end
-
-  context "Reid Dennis" do
-    it_behaves_like "all items in collection", '6780453', 48
-    it_behaves_like "DOR collection object", '6780453', 'sg213ph2100'
-    it_behaves_like "DOR item objects", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15, '6780453'
-  end
-
-  context "Walters Manuscripts" do
-    it_behaves_like "all items in collection", 'ww121ss5000', 298
-    it_behaves_like "DOR collection object", 'ww121ss5000', 'ww121ss5000'
-    it_behaves_like "DOR item objects", "walters brasses", ['cn006dx2288'], 3, 'ww121ss5000'
+  context "merged coll records" do
+    # id of collection record is ckey from Sirsi, not druid from DOR
+    context "Kolb" do
+      coll_id = '4084372'
+      it_behaves_like "all items in collection", coll_id, 1402
+      it_behaves_like "DOR collection object", coll_id, 'bs646cd8717'
+      it_behaves_like "DOR item objects", "Addison Joseph", ['vb267mw8946'], 10, coll_id
+      facet_query = "collection:#{coll_id}"
+      # lack of pub dates grandfathered in -- old Image Gallery collection
+#      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+    context "Reid Dennis" do
+      coll_id = '6780453'
+      it_behaves_like "all items in collection", coll_id, 48
+      it_behaves_like "DOR collection object", coll_id, 'sg213ph2100'
+      it_behaves_like "DOR item objects", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15, coll_id
+      facet_query = "collection:#{coll_id}"
+      # lack of pub dates grandfathered in -- old Image Gallery collection
+#      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+    context "Francis E. Stafford photographs" do
+      coll_id = '9615156'
+      it_behaves_like "all items in collection", coll_id, 5
+      it_behaves_like "DOR collection object", coll_id, 'yg867hg1375'
+      it_behaves_like "DOR item objects", "seventh day adventist church missionaries", ['nz353cp1092'], 10, coll_id
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
   end
   
-  context "Glen McLaughlin Maps" do
-      it_behaves_like "all items in collection", 'zb871zd0767', 731
-      it_behaves_like "DOR collection object", 'zb871zd0767', 'zb871zd0767'
-      it_behaves_like "DOR item objects", "AMERIQUE", ['jk190bb4635'], 20, 'zb871zd0767'   
-  end
-  
-  context "Classics Papyri" do
-    it_behaves_like "all items in collection", 'jr022nf7673', 44
-    it_behaves_like "DOR collection object", 'jr022nf7673', 'jr022nf7673'
-    it_behaves_like "DOR item objects", "fragment documentary text", ['jx555jt0710'], 10, 'jr022nf7673'
-  end
-  context "Glen McLaughlin Maps Collection -- Maps of Malta" do
-    it_behaves_like "all items in collection", 'yb129fc1507', 13
-    it_behaves_like "DOR collection object", 'yb129fc1507', 'yb129fc1507'
-    it_behaves_like "DOR item objects", "melita", ['zz360bw3691'], 10, 'yb129fc1507'
-  end
-  context "Francis E. Stafford photographs" do
-    it_behaves_like "all items in collection", '9615156', 5
-    it_behaves_like "DOR collection object", '9615156', 'yg867hg1375'
-    it_behaves_like "DOR item objects", "seventh day adventist church missionaries", ['nz353cp1092'], 10, '9615156'
-  end
+  context "no marc coll record" do
+    # id of collection record in Solr is druid from DOR
+    context "Walters Manuscripts" do
+      coll_id = 'ww121ss5000'
+      it_behaves_like "all items in collection", coll_id, 298
+      it_behaves_like "DOR collection object", coll_id, coll_id
+      it_behaves_like "DOR item objects", "walters brasses", ['cn006dx2288'], 3, coll_id
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+    context "Classics Papyri" do
+      coll_id = 'jr022nf7673'
+      it_behaves_like "all items in collection", coll_id, 44
+      it_behaves_like "DOR collection object", coll_id, coll_id
+      it_behaves_like "DOR item objects", "fragment documentary text", ['jx555jt0710'], 10, coll_id
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "sortable pub date", facet_query
+      # date slider can't do BC dates
+#      it_behaves_like "date slider dates", facet_query
+#      it_behaves_like "author fields present", facet_query
+      it_behaves_like "language", facet_query
+    end
+    context "Glen McLaughlin Maps" do
+      coll_id = 'zb871zd0767'
+      it_behaves_like "all items in collection", coll_id, 731
+      it_behaves_like "DOR collection object", coll_id, coll_id
+      it_behaves_like "DOR item objects", "AMERIQUE", ['jk190bb4635'], 20, coll_id   
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+    context "Glen McLaughlin Maps Collection -- Maps of Malta" do
+      coll_id = 'yb129fc1507'
+      it_behaves_like "all items in collection", coll_id, 13
+      it_behaves_like "DOR collection object", coll_id, coll_id
+      it_behaves_like "DOR item objects", "melita", ['zz360bw3691'], 10, coll_id
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+  end # no marc coll record
   
 end
