@@ -98,7 +98,7 @@ describe "Hydrus collections" do
   end
   
   context "Stanford University Video Collection" do
-    it_behaves_like 'hydrus coll', 'gn946cw3927', 1, "stanford university video collections videos 1939", 'ts408hz9199', 20
+    it_behaves_like 'hydrus coll', 'gn946cw3927', 1, "stanford university videos 1939", 'ts408hz9199', 20
   end
   
   context "Stanford Student Letters and Memoirs" do
