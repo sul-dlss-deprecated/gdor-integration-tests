@@ -20,7 +20,7 @@ describe "DOR Digital Collections" do
       it_behaves_like "all items in collection", ckey, 48
       it_behaves_like "DOR collection object", ckey, 'sg213ph2100'
       it_behaves_like "DOR item objects", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15, ckey
-      facet_query = "collection:#{ckey}"
+#      facet_query = "collection:#{ckey}"
       # lack of pub dates grandfathered in -- old Image Gallery collection
 #      it_behaves_like "date fields present", facet_query
 #      it_behaves_like "author fields present", facet_query
