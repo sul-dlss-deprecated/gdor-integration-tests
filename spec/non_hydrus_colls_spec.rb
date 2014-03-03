@@ -9,7 +9,7 @@ describe "DOR Digital Collections" do
       it_behaves_like "all items in collection", ckey, 1402
       it_behaves_like "DOR collection object", ckey, 'bs646cd8717'
       it_behaves_like "DOR item objects", "Addison Joseph", ['vb267mw8946'], 10, ckey
-      facet_query = "collection:#{ckey}"
+#      facet_query = "collection:#{ckey}"
       # lack of pub dates grandfathered in -- old Image Gallery collection
 #      it_behaves_like "date fields present", facet_query
 #      it_behaves_like "author fields present", facet_query
