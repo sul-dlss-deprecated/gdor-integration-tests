@@ -13,7 +13,7 @@ describe "All GDOR records" do
   end
   
   context "" do
-    it_behaves_like "have required fields:", "-collection:sirsi"
+    it_behaves_like "core fields:", "-collection:sirsi"
   end
     
 end
