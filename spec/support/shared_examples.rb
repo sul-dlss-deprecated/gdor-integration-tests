@@ -1,5 +1,37 @@
-# tests for required fields given a facet query
-shared_examples_for 'have required fields:' do | facet_query |
+# tests for presence of a field in every record implicated by facet query
+shared_examples_for 'sortable pub date' do | facet_query |
+  it "" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_date_sort:*"]})
+    resp.should_not have_documents
+  end
+end
+shared_examples_for 'date slider dates' do | facet_query |
+  it "" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_year_tisim:*"]})
+    resp.should_not have_documents
+  end
+end
+shared_examples_for 'language' do | facet_query |
+  it "" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-language:*"]})
+    resp.should_not have_documents
+  end
+end
+shared_examples_for 'searchable author' do | facet_query |
+  it "" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-author_1xx_search:*"]})
+    resp.should_not have_documents
+  end
+end
+shared_examples_for 'sortable author' do | facet_query |
+  it "" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-author_sort:*"]})
+    resp.should_not have_documents
+  end
+end
+
+# tests for required fields excepting dates, given a facet query
+shared_examples_for 'core fields:' do | facet_query |
   it "druid" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-druid:*"], 'rows'=>'0'})
     resp.should_not have_documents
@@ -60,13 +92,14 @@ shared_examples_for 'have required fields:' do | facet_query |
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-title_245_search:*"]})
     resp.should_not have_documents
   end
-  it "sortable pub date" do
-    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_date_sort:*"]})
-    resp.should_not have_documents
-  end
-  it "date slider dates" do
-    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_year_tisim:*"]})
-    resp.should_not have_documents
+end
+ 
+# tests for required fields given a facet query
+shared_examples_for 'have required fields:' do | facet_query |
+  context "" do
+    it_behaves_like "core fields:", facet_query
+    it_behaves_like "sortable pub date", facet_query
+    it_behaves_like "date slider dates", facet_query
   end
 end
 
