@@ -125,17 +125,6 @@ shared_examples_for 'all items in collection' do | coll_id, num_exp |
   end
   context "" do
     it_behaves_like "core fields present", "collection:#{coll_id}"
-
-# TODO: remove this -- move tests out to collections?
-    # Kolb, Reid Dennis and McLauglin don't have pub date sort or pub date slider
-    if (coll_id == 'zb871zd0767' or coll_id == '6780453' or coll_id == '4084372') 
-      # nothing else
-    elsif coll_id == 'jr022nf7673'
-      # Classics Papyri have no date slider because it can't do BC dates
-      it_behaves_like "sortable pub date", "collection:#{coll_id}"
-    else
-      it_behaves_like "date fields present", "collection:#{coll_id}"
-    end
   end
 end
 
