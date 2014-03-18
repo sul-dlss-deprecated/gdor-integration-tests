@@ -50,6 +50,23 @@ describe "DOR Digital Collections" do
   context "no marc coll record" do
     # id of collection record in Solr is druid from DOR
   
+    context "Bob Fitch photography archive - Cesar Chavez" do
+      coll_id = 'zp940yp4275'
+      it_behaves_like 'gdor coll', coll_id, coll_id, 90, "dorothy day united farmworkers union", ['bv989yj8759'], 10
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+    context "Bob Fitch photography archive - Martin Luther King" do
+      coll_id = 'zz473kt2569'
+      it_behaves_like 'gdor coll', coll_id, coll_id, 75, "mississippi meredith march", ['cv188wn4659'], 10
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+
     context "Classics Papyri" do
       coll_id = 'jr022nf7673'
       it_behaves_like 'gdor coll', coll_id, coll_id, 44, "fragment documentary text", ['jx555jt0710'], 10
