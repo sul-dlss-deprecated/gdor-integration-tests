@@ -47,6 +47,15 @@ describe "Hydrus collections" do
   context "engineering undergrad theses" do
     it_behaves_like 'hydrus coll', 'jg722zc0626', 30, "uclinux", 'ng517gq2855', 3
   end
+  context "Forum on Future of Scientific Publishing" do
+    it_behaves_like 'hydrus coll', 'ck552zg2217', 14, "open access to manuscripts", 'fx147cs4847', 10
+  end
+  context "Hopkins Marine Station collection" do
+    it_behaves_like 'hydrus coll', 'pn808wc6253', 7, "sea anemone distribution", 'fp045wx3019', 10
+  end
+  context "John A. Blume Earthquake Engineering Center Technical Report Series" do
+    it_behaves_like 'hydrus coll', 'mz198fp9366', 162, "damage diagnosis algorithms", 'wg007jn8560', 5
+  end
   context "ME310 2013" do
     it_behaves_like 'hydrus coll', 'kq629sd5182', 8, "audievolve", 'qt429km6702', 3
   end
@@ -71,7 +80,9 @@ describe "Hydrus collections" do
   context "Vista Lab" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 4, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
-  
+  context "Yotsuba Society Archives - 4Chan Imageboard Files" do
+    it_behaves_like 'hydrus coll', 'rw352rk5082', 1, "4chan archive", 'tf565pz4260', 10
+  end
   
   # University Archives Hydrus Collections
   
@@ -114,6 +125,5 @@ describe "Hydrus collections" do
   context "Rigler-Deutsch Computer Tapes" do
     it_behaves_like 'hydrus coll', 'jd276dz9994', 3, "Rigler & Deutsch Record Index", 'cr661vw3932', 10
   end
-  
   
 end
