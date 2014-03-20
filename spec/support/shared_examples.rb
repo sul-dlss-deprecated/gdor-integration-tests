@@ -61,7 +61,7 @@ shared_examples_for 'core fields present' do | facet_query |
       # commented out lines are because gdor has no records in those formats
                                           '-format:Book',
                                           '-format:"Computer File"',
-#                                          '-format:"Conference Proceedings"',
+                                          '-format:"Conference Proceedings"',
 #                                          '-format:Database',
                                           '-format:Image',
                                           '-format:"Journal/Periodical"',
