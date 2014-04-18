@@ -69,7 +69,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'cm018rf5314', 7, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 5, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 6, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 4, "academy unbound", 'bd701dh8028', 3
