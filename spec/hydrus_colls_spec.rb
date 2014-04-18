@@ -66,7 +66,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, "star raiders", 'pp060nc9006', 3
   end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
-    it_behaves_like 'hydrus coll', 'cm018rf5314', 6, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
+    it_behaves_like 'hydrus coll', 'cm018rf5314', 7, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
   context "Stanford Research Data" do
     it_behaves_like 'hydrus coll', 'md919gh6774', 5, "high angular resolution", 'yx282xq2090', 3
