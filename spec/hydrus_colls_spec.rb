@@ -123,7 +123,7 @@ describe "Hydrus collections" do
   # Archive of Recorded Sound Hydrus Collections
   
   context "Rigler-Deutsch Computer Tapes" do
-    it_behaves_like 'hydrus coll', 'jd276dz9994', 3, "Rigler & Deutsch Record Index", 'cr661vw3932', 10
+    it_behaves_like 'hydrus coll', 'jd276dz9994', 5, "Rigler & Deutsch Record Index", 'cr661vw3932', 10
   end
   
 end
