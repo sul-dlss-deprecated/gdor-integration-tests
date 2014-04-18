@@ -96,7 +96,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'hs468px3695', 3, "death and estate papers", 'fk544dk9538', 10
   end
   context "Leland Stanford Papers" do
-    it_behaves_like 'hydrus coll', 'zx692xz8270', 3, "leland stanford legal papers", 'kh510mt0132', 10
+    it_behaves_like 'hydrus coll', 'zx692xz8270', 4, "leland stanford legal papers", 'kh510mt0132', 10
   end
   context "Martin Luther King at Stanford" do
     it_behaves_like 'hydrus coll', 'yt337pb3236', 3, "martin luther king at stanford", 'dn923nh8281', 10
