@@ -39,7 +39,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, "alix personal", 'mq607rm1165', 3
   end
   context "Folding@home" do
-    it_behaves_like 'hydrus coll', 'cj269gn0736', 4, "hp35 trajectory data", 'bd829sf1034', 3
+    it_behaves_like 'hydrus coll', 'cj269gn0736', 5, "hp35 trajectory data", 'bd829sf1034', 3
   end
   context "engineering physics undergrad theses" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, "deduceit", 'bg823wn2892', 3
