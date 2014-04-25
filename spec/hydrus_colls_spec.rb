@@ -83,6 +83,9 @@ describe "Hydrus collections" do
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 4, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
+  context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
+    it_behaves_like 'hydrus coll', 'jr938vv9537', 4, "gay catholic men", 'by699sk7545', 3
+  end
   context "Vista Lab" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 4, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
