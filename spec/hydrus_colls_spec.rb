@@ -71,6 +71,9 @@ describe "Hydrus collections" do
   context "Serial section electron microscopy data for Nanoscale organization of the MEC-4 DEG/ENaC sensory mechanotransduction channel in Caenorhabditis elegans touch receptor neurons" do
     it_behaves_like 'hydrus coll', 'cv355cw2458', 2, "immuno electron microscopy", 'zb423jg0099', 10
   end
+  context "Serial section electron microscopy data for Posttranslational acetylation of alpha tubulin constrains protofilament number in native microtubules" do
+    it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "touch receptor neurons", 'qg053ym5844', 10
+  end
   context "Stanford Research Data" do
     it_behaves_like 'hydrus coll', 'md919gh6774', 6, "high angular resolution", 'yx282xq2090', 3
   end
