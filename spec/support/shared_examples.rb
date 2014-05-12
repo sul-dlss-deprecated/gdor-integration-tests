@@ -1,4 +1,4 @@
-# tests for presence of a field in every record implicated by facet query
+# tests for presence of searchable field in every record implicated by facet query
 shared_examples_for 'sortable pub date' do | facet_query |
   it "" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_date_sort:*"]})
@@ -42,7 +42,7 @@ shared_examples_for 'author fields present' do | facet_query |
   it_behaves_like "searchable author", facet_query
 end
 
-# tests for required fields excepting dates, given a facet query
+# tests for required searchable fields excepting dates, given a facet query
 shared_examples_for 'core fields present' do | facet_query |
   it "druid" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-druid:*"], 'rows'=>'0'})
