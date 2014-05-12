@@ -224,11 +224,14 @@ end
 
 shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test |
   before(:all) do
-    @resp = solr_resp_doc_ids_only({'fq' => facet_query, 'rows' => num_to_test})
+    @resp = solr_response({'fq'=>facet_query, 'rows'=>num_to_test, 'fl'=>"id,druid,url_fulltext,file_id", 'facet'=>false})
   end
-  it "should not have druids as solr doc ids" do
+  it "non-druid solr doc id and merged fields" do
     @resp['response']['docs'].each { |solr_doc|  
-      solr_doc['id'].should_not =~ /$[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}^/
+      solr_doc['id'].should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
+      solr_doc['druid'].should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
+      solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{solr_doc['druid']}")
+      solr_doc['file_id'].size.should > 0
     }
   end
 end
