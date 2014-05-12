@@ -146,10 +146,9 @@ shared_examples_for 'gdor fields present' do | solr_doc_id, druid |
   it "should have modsxml field if no sirsi record" do
     @resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ ) if !@merged
   end
-  it "should not have a separate Solr record for with id of druid if there is a sirsi record" do
+  it "should not have a separate Solr record for druid if there is a sirsi record" do
     if @merged
-      resp = solr_response({'qt'=>'document', 'id'=>druid})
-      resp.should_not include(druid)
+      solr_resp_single_doc(druid).should_not have_documents
     end
   end
 end
@@ -222,16 +221,24 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
   end
 end
 
-shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test |
+# check every item doc returned to ensure it is merged and has all gdor stored fields
+shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test, coll_id |
   before(:all) do
-    @resp = solr_response({'fq'=>facet_query, 'rows'=>num_to_test, 'fl'=>"id,druid,url_fulltext,file_id", 'facet'=>false})
+    @resp = solr_response({'fq'=>facet_query, 'rows'=>num_to_test, 'fl'=>"id,druid,url_fulltext,file_id,display_type,modsxml", 'facet'=>false})
   end
   it "non-druid solr doc id and merged fields" do
-    @resp['response']['docs'].each { |solr_doc|  
-      solr_doc['id'].should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
-      solr_doc['druid'].should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
-      solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{solr_doc['druid']}")
+    @resp['response']['docs'].each { |solr_doc| 
+      solr_doc_id = solr_doc['id']  # this should be a ckey
+      druid = solr_doc['druid']
+      solr_doc_id.should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
+      druid.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
+      solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{druid}")
       solr_doc['file_id'].size.should > 0
+      solr_doc['display_type'].size.should > 1
+      solr_doc['display_type'].should include('sirsi')
+      solr_doc['display_type'].should be_any {|s| s =~ /file|image/}
+      solr_doc['modsxml'].should be_nil
+      solr_resp_single_doc(druid).should_not have_documents
     }
   end
 end
