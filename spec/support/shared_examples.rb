@@ -204,13 +204,31 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
     @resp.should include(exp_ids).in_first(max_res_num)
   end
   it "should have gdor fields" do
-    exp_ids.each { |druid|
-      resp = solr_resp_single_doc(druid)
-      resp.should include("druid" => druid )
-      resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
-      resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ )
+    exp_ids.each { |solr_doc_id|
+      resp = solr_resp_single_doc(solr_doc_id)
+      druid = resp['response']['docs'][0]['druid']
+      merged = solr_doc_id != druid
+      if merged
+        resp.should include("druid" => druid )
+        resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
+      else
+        resp.should include("druid" => solr_doc_id)
+        resp.should include("url_fulltext" => "http://purl.stanford.edu/#{solr_doc_id}")
+      end
+      resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ ) if !merged
       resp.should include("collection" => coll_id )
       resp.should include("format" => /.+/)
+    }
+  end
+end
+
+shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test |
+  before(:all) do
+    @resp = solr_resp_doc_ids_only({'fq' => facet_query, 'rows' => num_to_test})
+  end
+  it "should not have druids as solr doc ids" do
+    @resp['response']['docs'].each { |solr_doc|  
+      solr_doc['id'].should_not =~ /$[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}^/
     }
   end
 end
