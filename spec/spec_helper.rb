@@ -17,25 +17,32 @@ RSpec.configure do |config|
   puts "Solr URL: #{@@solr.uri}"
 end
 
+# send a GET request to Solr to retrieve a single Solr document
+# @param query [String] the id of the Solr document
+# @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response
+def solr_resp_single_doc(doc_id)
+  solr_response({'qt'=>'document','id'=>doc_id}) 
+end
+
 # send a GET request to the default Solr request handler with the indicated query
 # @param query [String] the value of the 'q' param to be sent to Solr
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response, with no facets, and only the id field for each Solr doc
 def solr_resp_ids_from_query(query)
-  resp = solr_resp_doc_ids_only({'q'=> query})
+  solr_resp_doc_ids_only({'q'=> query})
 end
 
 # send a GET request to the default Solr request handler with the indicated query
 # @param query [String] the value of the 'q' param to be sent to Solr
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response, with no facets, and only the id and title_245a_display field for each Solr doc
 def solr_resp_ids_titles_from_query(query)
-  resp = solr_resp_ids_titles({'q'=> query})
+  solr_resp_ids_titles({'q'=> query})
 end
 
 # send a GET request to the default Solr request handler with the indicated query
 # @param query [String] the value of the 'q' param to be sent to Solr
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response, with no facets, and only the id and title_full_display field for each Solr doc
 def solr_resp_ids_full_titles_from_query(query)
-  resp = solr_resp_ids_full_titles({'q'=> query})
+  solr_resp_ids_full_titles({'q'=> query})
 end
 
 # send a GET request to the default Solr request handler with the indicated Solr parameters
