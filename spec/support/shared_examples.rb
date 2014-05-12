@@ -84,11 +84,8 @@ shared_examples_for 'core fields present' do | facet_query |
   end
   it "valid display_type value" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query,
-                                          '-display_type:collection',
-                                          '-display_type:hydrus_collection',
-                                          '-display_type:hydrus_object',
+                                          '-display_type:file',
                                           '-display_type:image',
-                                          '-display_type:map'
                                           ]})
     resp.should_not have_documents
   end
@@ -115,9 +112,8 @@ shared_examples_for 'all items in collection' do | coll_id, num_exp |
     resp.should have_exactly(num_exp).documents
   end
   it "should not include any additional collection records" do
-    resp = solr_response({'fq'=>"collection:#{coll_id}", 'facet.field' => 'display_type', 'facet'=>true, 'rows'=>'0'})
-    resp.should_not have_facet_field('display_type').with_value('collection')
-    resp.should_not have_facet_field('display_type').with_value('hydrus_collection')
+    resp = solr_response({'fq'=>"collection:#{coll_id}", 'facet.field' => 'collection_type', 'facet'=>true, 'rows'=>'0'})
+    resp.should_not have_facet_field('collection_type').with_value('Digital Collection')
   end
   it "should not have a date of 499 or less" do
     resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "pub_year_tisim:[* TO 499]"], 'rows'=>'0'})
@@ -125,6 +121,73 @@ shared_examples_for 'all items in collection' do | coll_id, num_exp |
   end
   context "" do
     it_behaves_like "core fields present", "collection:#{coll_id}"
+  end
+end
+
+# tests for required stored fields for item and collection records, merged or unmerged
+# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
+# druid - the druid for this item
+shared_examples_for 'gdor fields present' do | solr_doc_id, druid |
+  before(:all) do
+    @resp = solr_resp_single_doc(solr_doc_id)
+    @merged = solr_doc_id != druid
+  end
+  # NOTE: can only check stored Solr fields this way
+  it "druid" do
+    @resp.should include("druid" => druid)
+  end
+  it "url_fulltext" do
+    @resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
+  end
+  it "display_type" do
+    @resp.should include("display_type" => /file|image/) 
+    @resp.should include("display_type" => 'sirsi') if @merged
+  end
+  it "should have modsxml field if no sirsi record" do
+    @resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ ) if !@merged
+  end
+  it "should not have a separate Solr record for with id of druid if there is a sirsi record" do
+    if @merged
+      resp = solr_response({'qt'=>'document', 'id'=>druid})
+      resp.should_not include(druid)
+    end
+  end
+end
+
+# tests for required stored fields for item record, merged or unmerged
+# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
+# druid - the druid for this item
+# coll_solr_doc_id - the id of this item's collection obj Solr doc; could be ckey or druid
+shared_examples_for 'item gdor fields present' do | solr_doc_id, druid, coll_solr_doc_id |
+  before(:all) do
+    @resp = solr_resp_single_doc(solr_doc_id)
+    @merged = solr_doc_id != druid
+  end
+  it_behaves_like 'gdor fields present', solr_doc_id, druid
+  # NOTE: can only check stored Solr fields this way
+  it "file_id" do
+    @resp.should include("file_id")
+  end
+  it "collection" do
+    @resp.should include("collection" => coll_solr_doc_id)
+  end
+  it "collection_with_title" do
+    @resp.should include("collection_with_title" => coll_solr_doc_id)
+  end
+end
+
+# tests for required stored fields for collection record, merged or unmerged
+# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
+# druid - the druid for this item
+shared_examples_for 'collection gdor fields present' do | solr_doc_id, druid |
+  before(:all) do
+    @resp = solr_resp_single_doc(solr_doc_id)
+    @merged = solr_doc_id != druid
+  end
+  # NOTE: can only check stored Solr fields this way
+  it_behaves_like 'gdor fields present', solr_doc_id, druid
+  it "collection_type" do
+    @resp.should include("collection_type" => 'Digital Collection')
   end
 end
 
@@ -142,12 +205,12 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
   end
   it "should have gdor fields" do
     exp_ids.each { |druid|
-      resp = solr_response({'qt'=>'document', 'id'=>druid, 'fl'=>'id,collection,modsxml,url_fulltext,format,druid', 'facet'=>false})
+      resp = solr_resp_single_doc(druid)
+      resp.should include("druid" => druid )
       resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
       resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ )
       resp.should include("collection" => coll_id )
       resp.should include("format" => /.+/)
-      resp.should include("druid" => druid )
     }
   end
 end
@@ -157,30 +220,11 @@ end
 # druid = the druid of the collection record
 shared_examples_for 'DOR collection object' do | solr_doc_id, druid |
   before(:all) do
-    @resp = solr_response({'qt'=>'document', 'id'=>solr_doc_id, 'fl'=>'id,url_fulltext,collection_type,modsxml,format,druid,display_type', 'facet'=>false})
+    @resp = solr_resp_single_doc(solr_doc_id)
+    @merged = solr_doc_id != druid
   end
-  it "should have purl url in url_fulltext" do
-    @resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
-  end
-  it "should have collection_type field" do
-    @resp.should include("collection_type" => 'Digital Collection')
-  end
-  it "should have modsxml field if no sirsi record" do
-    @resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ ) if solr_doc_id == druid
-  end
+  it_behaves_like 'collection gdor fields present', solr_doc_id, druid
   it "should have a format field" do
     @resp.should include("format" => /.+/)
-  end
-  it "should have a collection flavor display_type if no sirsi record" do
-    @resp.should include("display_type" => /.*collection.*/) if solr_doc_id == druid
-  end
-  it "should have a druid field if no sirsi record" do
-    @resp.should include("druid" => druid ) if solr_doc_id == druid
-  end
-  it "should not have a separate Solr record for a druid if there is a sirsi record" do
-    if solr_doc_id != druid     
-      resp = solr_response({'qt'=>'document', 'id'=>druid})
-      resp.should_not include(druid)
-    end
   end
 end
