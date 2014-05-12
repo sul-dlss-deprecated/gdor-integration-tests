@@ -3,15 +3,15 @@ require 'spec_helper'
 describe "Hydrus collections" do
     
   shared_examples_for 'hydrus collection object' do | solr_doc_id |
-    it "should have display_type of hydrus_collection" do
+    it "should have display_type of file" do
       resp = solr_response({'qt'=>'document', 'id'=>solr_doc_id, 'fl'=>'id,display_type', 'facet'=>false})
-      resp.should include('display_type' => 'hydrus_collection')
+      resp.should include('display_type' => 'file')
     end
   end
   shared_examples_for 'hydrus item object' do | solr_doc_id |
-    it "should have display_type of hydrus_object" do
+    it "should have display_type of file" do
       resp = solr_response({'qt'=>'document', 'id'=>solr_doc_id, 'fl'=>'id,display_type', 'facet'=>false})
-      resp.should include('display_type' => 'hydrus_object')
+      resp.should include('display_type' => 'file')
     end
   end
   
