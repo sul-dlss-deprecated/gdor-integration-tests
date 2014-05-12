@@ -8,12 +8,12 @@ describe "All GDOR records" do
   end
 
   it "every non-collection object should have a collection" do
-    resp = solr_resp_doc_ids_only({'fq'=> ["-collection:*", "-display_type:*collection"]})
+    resp = solr_resp_doc_ids_only({'fq'=> ["-collection:*", "-collection_type:\"Digital Collection\""]})
     resp.should_not have_documents
   end
 
   it "should have access_facet = Online for each collection object" do
-    resp = solr_resp_doc_ids_only({'fq'=>["display_type:*collection", "-access_facet:Online"]})
+    resp = solr_resp_doc_ids_only({'fq'=>["collection_type:\"Digital Collection\"", "-access_facet:Online"]})
     resp.should_not have_documents
   end
   
