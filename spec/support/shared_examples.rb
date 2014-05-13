@@ -2,31 +2,31 @@
 shared_examples_for 'sortable pub date' do | facet_query |
   it "" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_date_sort:*"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
 end
 shared_examples_for 'date slider dates' do | facet_query |
   it "" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-pub_year_tisim:*"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
 end
 shared_examples_for 'language' do | facet_query |
   it "" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-language:*"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
 end
 shared_examples_for 'searchable author' do | facet_query |
   it "" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-author_1xx_search:*"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
 end
 shared_examples_for 'sortable author' do | facet_query |
   it "" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-author_sort:*"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
 end
 
@@ -45,16 +45,16 @@ end
 # tests for required searchable fields excepting dates, given a facet query
 shared_examples_for 'core fields present' do | facet_query |
   it "druid" do
-    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-druid:*"], 'rows'=>'0'})
-    resp.should_not have_documents
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-druid:*"]})
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "access_facet = Online" do
-    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-access_facet:Online"], 'rows'=>'0'})
-    resp.should_not have_documents
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-access_facet:Online"]})
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "format" do
-    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-format:*"], 'rows'=>'0'})
-    resp.should_not have_documents
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-format:*"]})
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "valid format value" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query,
@@ -76,30 +76,30 @@ shared_examples_for 'core fields present' do | facet_query |
                                           '-format:Thesis',
                                           '-format:Video'
                                           ]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "display_type" do
-    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-display_type:*"], 'rows'=>'0'})
-    resp.should_not have_documents
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-display_type:*"]})
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "valid display_type value" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query,
                                           '-display_type:file',
                                           '-display_type:image',
                                           ]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "sortable title" do
-    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-title_sort:*"], 'rows'=>'0'})
-    resp.should_not have_documents
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-title_sort:*"]})
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "searchabe short title" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-title_245a_search:*"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   it "searchable full title" do
     resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-title_245_search:*"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
 end
 
@@ -116,8 +116,8 @@ shared_examples_for 'all items in collection' do | coll_id, num_exp |
     resp.should_not have_facet_field('collection_type').with_value('Digital Collection')
   end
   it "should not have a date of 499 or less" do
-    resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "pub_year_tisim:[* TO 499]"], 'rows'=>'0'})
-    resp.should_not have_documents
+    resp = solr_resp_doc_ids_only({'fq'=>["collection:#{coll_id}", "pub_year_tisim:[* TO 499]"]})
+    resp.should_not include("id" => /.+/) # get ids of errant records
   end
   context "" do
     it_behaves_like "core fields present", "collection:#{coll_id}"
@@ -239,13 +239,13 @@ shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test 
       solr_doc['display_type'].should include('sirsi')
       solr_doc['display_type'].should be_any {|s| s =~ /file|image/}
       solr_doc['modsxml'].should be_nil
-      solr_resp_single_doc(druid).should_not have_documents
+      solr_resp_single_doc(druid).should_not include("id" => /.+/) # get ids of errant records
     }
   end
   # a way to get the ckeys of any records updated in Symphony that lost their gdor-ness
   it "should not be missing gdor fields" do
     resp = solr_resp_doc_ids_only('fq'=>[facet_query, "-druid:*"])
-    resp.should_not include("id" => /.+/)
+    resp.should_not include("id" => /.+/)  # get ids of errant records
   end
 end
 
