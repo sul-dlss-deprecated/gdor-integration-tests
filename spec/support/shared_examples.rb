@@ -222,7 +222,8 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
 end
 
 # check every item doc returned to ensure it is merged and has all gdor stored fields
-shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test, coll_id |
+#  facet_query is the facet query for the collection    collection:coll_solr_doc_id
+shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test |
   before(:all) do
     @resp = solr_response({'fq'=>facet_query, 'rows'=>num_to_test, 'fl'=>"id,druid,url_fulltext,file_id,display_type,modsxml", 'facet'=>false})
   end
@@ -241,7 +242,13 @@ shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test,
       solr_resp_single_doc(druid).should_not have_documents
     }
   end
+  # a way to get the ckeys of any records updated in Symphony that lost their gdor-ness
+  it "should not be missing gdor fields" do
+    resp = solr_resp_doc_ids_only('fq'=>[facet_query, "-druid:*"])
+    resp.should_not include("id" => /.+/)
+  end
 end
+
 
 # tests for collection records/objects
 # solr_doc_id = the Solr field id  value for the collection record
