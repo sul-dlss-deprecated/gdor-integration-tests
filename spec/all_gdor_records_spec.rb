@@ -9,12 +9,12 @@ describe "All GDOR records" do
 
   it "every non-collection object should have a collection" do
     resp = solr_resp_doc_ids_only({'fq'=> ["-collection:*", "-collection_type:\"Digital Collection\""]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/)  # get ids of errant records
   end
 
   it "should have access_facet = Online for each collection object" do
     resp = solr_resp_doc_ids_only({'fq'=>["collection_type:\"Digital Collection\"", "-access_facet:Online"]})
-    resp.should_not have_documents
+    resp.should_not include("id" => /.+/)  # get ids of errant records
   end
   
   context "" do
