@@ -57,6 +57,18 @@ describe "DOR Digital Collections" do
 #      it_behaves_like "language", facet_query 
 #      it_behaves_like "author fields present", facet_query
     end
+    context "Glen McLaughlin Maps" do
+      coll_id = 'zb871zd0767'
+      coll_size = 731
+      it_behaves_like 'gdor coll', coll_id, coll_id, coll_size, "AMERIQUE", ['jk190bb4635'], 20
+      facet_query = "collection:#{coll_id}"
+      it_behaves_like "expected merged items", facet_query, 4, coll_size
+      it_behaves_like "date fields present", facet_query
+#      it_behaves_like "author fields present", facet_query
+#      it_behaves_like "language", facet_query
+    end
+    
+    # NOTE:  we will want a way to check for the number of merged records expected in a collection.
   end
   
   context "no marc coll record" do
@@ -89,14 +101,7 @@ describe "DOR Digital Collections" do
 #      it_behaves_like "author fields present", facet_query
       it_behaves_like "language", facet_query
     end
-    context "Glen McLaughlin Maps" do
-      coll_id = 'zb871zd0767'
-      it_behaves_like 'gdor coll', coll_id, coll_id, 731, "AMERIQUE", ['jk190bb4635'], 20
-      facet_query = "collection:#{coll_id}"
-      it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
-    end
+
     context "Glen McLaughlin Maps Collection -- Maps of Malta" do
       coll_id = 'yb129fc1507'
       it_behaves_like 'gdor coll', coll_id, coll_id, 13, "melita", ['zz360bw3691'], 10
