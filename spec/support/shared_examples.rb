@@ -197,7 +197,7 @@ end
 # coll_id = catkey or druid for the collection
 shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, coll_id |
   before(:all) do
-    @resp = solr_response({'q'=>query_str, 'fl'=>'id,url_fulltext,collection', 'facet'=>false})
+    @resp = solr_response({'q'=>query_str, 'fl'=>'id,url_fulltext,file_id,collection,collection_with_title', 'facet'=>false})
   end
   it "should be discoverable via everything search" do
     @resp.should include(exp_ids).in_first(max_res_num)
@@ -216,7 +216,9 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
       end
       resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ ) if !merged
       resp.should include("collection" => coll_id )
+      resp.should include("collection_with_title" => Regexp.new("^#{@coll_id}-|-.*"))
       resp.should include("format" => /.+/)
+      resp.should include("file_id" => /.+/)
     }
   end
 end
