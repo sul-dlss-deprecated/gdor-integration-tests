@@ -47,11 +47,12 @@ describe "DOR Digital Collections" do
   end # merged coll records
   
   context "merged item records" do
-    context "Caroline Batchelor maps collection" do
+    context "Caroline Batchelor maps" do
       ckey = '10357851'
-      it_behaves_like 'gdor coll', ckey, 'ct961sj2730', 184, "new one-sheet map of Africa", ['8924690'], 15
+      coll_size = 184
+      it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, "new one-sheet map of Africa", ['8924690'], 15
       facet_query = "collection:#{ckey}"
-      it_behaves_like "All DOR item objects merged", facet_query, 184
+      it_behaves_like "expected merged items", facet_query, coll_size, coll_size
       it_behaves_like "date fields present", facet_query  # currently ct011mf9794/8836601 is without a date - should be fixed when it merges properly
 #      it_behaves_like "language", facet_query 
 #      it_behaves_like "author fields present", facet_query

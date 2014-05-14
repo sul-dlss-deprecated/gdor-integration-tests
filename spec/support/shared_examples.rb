@@ -221,34 +221,57 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
   end
 end
 
-# check every item doc returned to ensure it is merged and has all gdor stored fields
-#  facet_query is the facet query for the collection    collection:coll_solr_doc_id
-shared_examples_for 'All DOR item objects merged' do | facet_query, num_to_test |
+# check every item doc returned to determine if it has all gdor stored fields and whether it is merged
+#  facet_query = facet query for the collection    collection:coll_solr_doc_id
+#  exp_num_merged = number of items in this collection expected to be merged
+#  coll_size = total size of this collection
+shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, coll_size |
   before(:all) do
-    @resp = solr_response({'fq'=>facet_query, 'rows'=>num_to_test, 'fl'=>"id,druid,url_fulltext,file_id,display_type,modsxml", 'facet'=>false})
+    @resp = solr_response({'fq'=>facet_query, 'rows'=>coll_size, 'fl'=>"id,druid,url_fulltext,file_id,display_type,modsxml,collection,collection_with_title", 'facet'=>false})
+    @coll_solr_doc_id = facet_query.split(':').last
   end
-  it "non-druid solr doc id and merged fields" do
+  
+  it "each item should have exp fields" do
+    num_merged = 0
     @resp['response']['docs'].each { |solr_doc| 
-      solr_doc_id = solr_doc['id']  # this should be a ckey
+      solr_doc_id = solr_doc['id']
       druid = solr_doc['druid']
-      solr_doc_id.should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
       druid.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
-      solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{druid}")
-      solr_doc['file_id'].size.should > 0
-      solr_doc['display_type'].size.should > 1
-      solr_doc['display_type'].should include('sirsi')
-      solr_doc['display_type'].should be_any {|s| s =~ /file|image/}
-      solr_doc['modsxml'].should be_nil
-      solr_resp_single_doc(druid).should_not include("id" => /.+/) # get ids of errant records
-    }
-  end
-  # a way to get the ckeys of any records updated in Symphony that lost their gdor-ness
-  it "should not be missing gdor fields" do
-    resp = solr_resp_doc_ids_only('fq'=>[facet_query, "-druid:*"])
-    resp.should_not include("id" => /.+/)  # get ids of errant records
-  end
-end
+      merged = solr_doc_id != druid
+      num_merged += 1 if merged
 
+      solr_doc['file_id'].size.should > 0
+      solr_doc['collection'].should include(@coll_solr_doc_id)
+      solr_doc['collection_with_title'].should be_any {|s| s =~ Regexp.new("^#{@coll_solr_doc_id}-|-.*")}
+      display_types = solr_doc['display_type']
+      display_types.should be_any {|s| s =~ /file|image/}
+
+      if merged
+        solr_doc_id.should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
+        display_types.should include('sirsi')
+        solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{druid}")
+        solr_doc['modsxml'].should be_nil
+        solr_resp_single_doc(druid).should_not include("id" => /.+/) # get ids of errant records 
+      else
+        solr_doc_id.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
+        solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{solr_doc_id}")
+        solr_doc['modsxml'].should =~ /http:\/\/www\.loc\.gov\/mods\/v3/
+      end
+    }
+    num_merged.should == exp_num_merged
+  end
+  
+  it "merged records should not be missing gdor fields" do
+    resp = solr_resp_doc_ids_only('fq'=>[facet_query, "-druid:*"])
+    if exp_num_merged == coll_size
+      # get ckeys of any records updated in Symphony that lost their gdor-ness (their druid field)
+      resp.should_not include("id" => /.+/)  # get ids of errant records
+    else
+      resp.should have_at_most(coll_size - exp_num_merged).documents
+    end
+  end
+  
+end
 
 # tests for collection records/objects
 # solr_doc_id = the Solr field id  value for the collection record
