@@ -190,20 +190,28 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
     # can't call 'item gdor fields present' from here for each doc due to nested examples
     exp_ids.each { |solr_doc_id|
       resp = solr_resp_single_doc(solr_doc_id)
+
+      resp.should include("collection" => coll_id )
+      resp.should include("collection_with_title" => Regexp.new("^#{coll_id}-\\|-.*"))
+      resp.should include('display_type' => /file|image/)
+      resp.should include("file_id" => /.+/)
+
       druid = resp['response']['docs'][0]['druid']
-      merged = solr_doc_id != druid
-      if merged
+      if solr_doc_id != druid
+        # DOR item is merged with MARC 
+        solr_doc_id.should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
         resp.should include("druid" => druid )
+        resp.should include('display_type' => 'sirsi')
         resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
+        resp.should_not include('modsxml')
+        # there should be no record for the druid and if there is, we want the id
+        solr_resp_single_doc(druid).should_not include("id" => /.+/)
       else
+        solr_doc_id.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
         resp.should include("druid" => solr_doc_id)
         resp.should include("url_fulltext" => "http://purl.stanford.edu/#{solr_doc_id}")
-      end
-      resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ ) if !merged
-      resp.should include("collection" => coll_id )
-      resp.should include("collection_with_title" => Regexp.new("^#{@coll_id}-|-.*"))
-      resp.should include("format" => /.+/)
-      resp.should include("file_id" => /.+/)
+        resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ )
+      end  
     }
   end
 end # DOR item objects
@@ -224,6 +232,7 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
     # also doc is hash, not Rspec::Solr::SolrResponseHash
     num_merged = 0
     @resp['response']['docs'].each { |solr_doc| 
+      # FIXME: it would be awesome if any failures below would indicate the solr doc id of the failed record
       solr_doc_id = solr_doc['id']
       druid = solr_doc['druid']
       druid.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
@@ -231,7 +240,7 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
       num_merged += 1 if merged
 
       solr_doc['collection'].should include(@coll_solr_doc_id)
-      solr_doc['collection_with_title'].should be_any {|s| s =~ Regexp.new("^#{@coll_solr_doc_id}-\\|-.*")}
+      solr_doc['collection_with_title'].should be_any {|s| s =~ Regexp.new("^#{@coll_solr_doc_id}-\\|-.*")}      
       display_types = solr_doc['display_type']
       display_types.should be_any {|s| s =~ /file|image/}
       solr_doc['file_id'].size.should > 0
@@ -241,7 +250,8 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
         display_types.should include('sirsi')
         solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{druid}")
         solr_doc['modsxml'].should be_nil
-        solr_resp_single_doc(druid).should_not include("id" => /.+/) # get ids of errant records 
+        # there should be no record for the druid and if there is, we want the id
+        solr_resp_single_doc(druid).should_not include("id" => /.+/)
       else
         solr_doc_id.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
         solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{solr_doc_id}")
