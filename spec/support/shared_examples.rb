@@ -233,7 +233,7 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
     @coll_solr_doc_id = facet_query.split(':').last
   end
   
-  it "each item should have exp fields" do
+  it "should have exp fields" do
     num_merged = 0
     @resp['response']['docs'].each { |solr_doc| 
       solr_doc_id = solr_doc['id']
