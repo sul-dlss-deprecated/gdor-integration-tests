@@ -5,6 +5,17 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec-solr'
 require 'support/shared_examples'
 
+# Runs a block of code without warnings.
+# e.g. as class vars here are on Object class, we get a lot of
+# "class variable access from toplevel" warnings
+def silence_warnings(&block)
+  warn_level = $VERBOSE
+  $VERBOSE = nil
+  result = block.call
+  $VERBOSE = warn_level
+  result
+end
+
 RSpec.configure do |config|
   baseurl = ENV["URL"]
   if baseurl
@@ -13,15 +24,16 @@ RSpec.configure do |config|
     yml_group = ENV["YML_GROUP"] ||= 'test'
     solr_config = YAML::load_file('config/solr.yml')[yml_group]
   end
-  @@solr = RSolr.connect(solr_config)
+  silence_warnings { @@solr = RSolr.connect(solr_config) }
   puts "Solr URL: #{@@solr.uri}"
 end
+
 
 # send a GET request to Solr to retrieve a single Solr document
 # @param query [String] the id of the Solr document
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response
-def solr_resp_single_doc(doc_id)
-  solr_response({'qt'=>'document','id'=>doc_id}) 
+def solr_resp_single_doc(doc_id, solr_params = {})
+  solr_response(solr_params.merge({'qt'=>'document','id'=>doc_id}))
 end
 
 # send a GET request to the default Solr request handler with the indicated query
@@ -96,34 +108,34 @@ private
 # @param req_handler [String] the pathname of the desired Solr request handler (defaults to 'select') 
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response 
 def solr_response(solr_params, req_handler='select')
-  q_val = solr_params['q']
-  if q_val =~ /\{.*\}(.*)/
-    q_val = $1
-  end
-  RSpecSolr::SolrResponseHash.new(@@solr.send_and_receive(req_handler, {:method => :get, :params => solr_params.merge("testing"=>"sw_index_test")}))
+  silence_warnings { 
+    RSpecSolr::SolrResponseHash.new(@@solr.send_and_receive(req_handler, {:method => :get, :params => solr_params.merge("testing"=>"sw_index_test")}))
+  }
 end
 
 # use these Solr HTTP params to reduce the size of the Solr responses
 # response documents will only have the indicated fields, and there will be no facets in the response
-@@doc_ids_only = {'fl'=>'id', 'facet'=>'false'}
-@@doc_ids_short_titles = {'fl'=>'id,title_245a_display', 'facet'=>'false'}
-@@doc_ids_full_titles = {'fl'=>'id,title_full_display', 'facet'=>'false'}
+silence_warnings { 
+  @@doc_ids_only = {'fl'=>'id', 'facet'=>'false'}
+  @@doc_ids_short_titles = {'fl'=>'id,title_245a_display', 'facet'=>'false'}
+  @@doc_ids_full_titles = {'fl'=>'id,title_full_display', 'facet'=>'false'}
+}
 
 # response documents will only have id fields, and there will be no facets in the response
 # @return [Hash] Solr HTTP params to reduce the size of the Solr responses
 def doc_ids_only
-  @@doc_ids_only
+  silence_warnings { @@doc_ids_only }
 end
 
 # response documents will only have id and title_245a_display fields, and there will be no facets in the response
 # @return [Hash] Solr HTTP params to reduce the size of the Solr responses
 def doc_ids_short_titles
-  @@doc_ids_short_titles
+  silence_warnings { @@doc_ids_short_titles }
 end
 
 # response documents will only have id and title_full_display fields, and there will be no facets in the response
 # @return [Hash] Solr HTTP params to reduce the size of the Solr responses
 def doc_ids_full_titles
-  @@doc_ids_full_titles
+  silence_warnings { @@doc_ids_full_titles }
 end
 
