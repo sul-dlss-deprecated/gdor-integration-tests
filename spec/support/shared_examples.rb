@@ -181,11 +181,9 @@ end
 # max_res_num = items should appear within this number of results
 # coll_id = catkey or druid for the collection
 shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, coll_id |
-  before(:all) do
-    @resp = solr_response({'q'=>query_str, 'fl'=>'id,url_fulltext,file_id,collection,collection_with_title', 'facet'=>false})
-  end
   it "should be discoverable via everything search" do
-    @resp.should include(exp_ids).in_first(max_res_num)
+    resp = solr_response({'q'=>query_str, 'fl'=>'id', 'facet'=>false})
+    resp.should include(exp_ids).in_first(max_res_num)
   end
   it "should have gdor fields" do
     # FIXME:  would like to DRY this up, but 
@@ -232,11 +230,11 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
       merged = solr_doc_id != druid
       num_merged += 1 if merged
 
-      solr_doc['file_id'].size.should > 0
       solr_doc['collection'].should include(@coll_solr_doc_id)
-      solr_doc['collection_with_title'].should be_any {|s| s =~ Regexp.new("^#{@coll_solr_doc_id}-|-.*")}
+      solr_doc['collection_with_title'].should be_any {|s| s =~ Regexp.new("^#{@coll_solr_doc_id}-\\|-.*")}
       display_types = solr_doc['display_type']
       display_types.should be_any {|s| s =~ /file|image/}
+      solr_doc['file_id'].size.should > 0
 
       if merged
         solr_doc_id.should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
