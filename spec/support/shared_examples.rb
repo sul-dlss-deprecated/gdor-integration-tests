@@ -175,21 +175,6 @@ shared_examples_for 'item gdor fields present' do | solr_doc_id, druid, coll_sol
   end
 end
 
-# tests for required stored fields for collection record, merged or unmerged
-# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
-# druid - the druid for this item
-shared_examples_for 'collection gdor fields present' do | solr_doc_id, druid |
-  before(:all) do
-    @resp = solr_resp_single_doc(solr_doc_id)
-    @merged = solr_doc_id != druid
-  end
-  # NOTE: can only check stored Solr fields this way
-  it_behaves_like 'gdor fields present', solr_doc_id, druid
-  it "collection_type" do
-    @resp.should include("collection_type" => 'Digital Collection')
-  end
-end
-
 # tests for a query retrieving specific item ids; we can check stored fields on these items
 # query_str = an 'everything' query that will retrieve the expected item objects
 # exp_ids = expected druids for objects within a collection
@@ -203,6 +188,8 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
     @resp.should include(exp_ids).in_first(max_res_num)
   end
   it "should have gdor fields" do
+    # FIXME:  would like to DRY this up, but 
+    # can't call 'item gdor fields present' from here for each doc due to nested examples
     exp_ids.each { |solr_doc_id|
       resp = solr_resp_single_doc(solr_doc_id)
       druid = resp['response']['docs'][0]['druid']
@@ -221,7 +208,7 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
       resp.should include("file_id" => /.+/)
     }
   end
-end
+end # DOR item objects
 
 # check every item doc returned to determine if it has all gdor stored fields and whether it is merged
 #  facet_query = facet query for the collection    collection:coll_solr_doc_id
@@ -234,6 +221,9 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
   end
   
   it "should have exp fields" do
+    # FIXME:  would like to DRY this up, but 
+    # can't call 'item gdor fields present' from here for each doc id due to nested examples
+    # also doc is hash, not Rspec::Solr::SolrResponseHash
     num_merged = 0
     @resp['response']['docs'].each { |solr_doc| 
       solr_doc_id = solr_doc['id']
@@ -272,7 +262,21 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
       resp.should have_at_most(coll_size - exp_num_merged).documents
     end
   end
-  
+end # expected merged items
+
+# tests for required stored fields for collection record, merged or unmerged
+# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
+# druid - the druid for this item
+shared_examples_for 'collection gdor fields present' do | solr_doc_id, druid |
+  before(:all) do
+    @resp = solr_resp_single_doc(solr_doc_id)
+    @merged = solr_doc_id != druid
+  end
+  # NOTE: can only check stored Solr fields this way
+  it_behaves_like 'gdor fields present', solr_doc_id, druid
+  it "collection_type" do
+    @resp.should include("collection_type" => 'Digital Collection')
+  end
 end
 
 # tests for collection records/objects
