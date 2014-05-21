@@ -68,11 +68,11 @@ shared_examples_for 'core fields present' do | facet_query |
                                           '-format:"Manuscript/Archive"',
                                           '-format:"Map/Globe"',
 #                                          '-format:Microformat',
-#                                          '-format:"Music - Recording"',
-#                                          '-format:"Music - Score"',
+                                          '-format:"Music - Recording"',
+                                          '-format:"Music - Score"',
 #                                          '-format:Newspaper',
                                           '-format:Other',
-#                                          '-format:"Sound Recording"',
+                                          '-format:"Sound Recording"',
                                           '-format:Thesis',
                                           '-format:Video'
                                           ]})
