@@ -89,9 +89,13 @@ end
 shared_examples_for "expected facet values" do | facet_query, field, values |
   it "" do
     fq_arr = [facet_query]
-    values.each { |val|  
-      fq_arr << "-#{field}:#{val}"
-    }
+    if values.kind_of? String
+      fq_arr << "-#{field}:#{values}"
+    elsif values.kind_of? Array
+      values.each { |val|  
+        fq_arr << "-#{field}:#{val}"
+      }
+    end
     resp = solr_resp_doc_ids_only({'fq'=> fq_arr})
     resp.should_not include("id" => /.+/) # get ids of errant records
   end
