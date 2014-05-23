@@ -42,6 +42,71 @@ shared_examples_for 'author fields present' do | facet_query |
   it_behaves_like "searchable author", facet_query
 end
 
+# tests for presence of searchable field in every record implicated by facet query, EXCEPT for the ids indicated
+# field = the SW Solr field name
+# facet_query = the argument for fq for a group of records (e.g. "collection:666")
+# exp_ids = ids that are the exception - we do NOT expect these docs to have this field.  Either a string "666" or an Array ["111", "222", "333"]
+shared_examples_for 'SW field present except' do | field, facet_query, exp_ids |
+  it "" do
+    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-#{field}:*"]})
+    regex = ""
+    if exp_ids.kind_of? String
+      regex = exp_ids
+    elsif exp_ids.kind_of? Array
+      exp_ids.each { |id| 
+        if regex.size == 0
+          regex << id
+        else
+          regex << "|#{id}"
+        end 
+      }
+    end
+    if regex.empty?
+      regex = ".+"
+    else
+      regex = "^((?!(#{regex})).)*$"
+    end
+    resp.should_not include("id" => Regexp.new(regex))
+    resp.should include(exp_ids)
+    resp.should have_at_most(exp_ids.size).documents
+  end
+end
+
+# tests for presence of searchable field in every record implicated by facet query, EXCEPT for the ids indicated
+shared_examples_for 'author fields present except' do | facet_query, ids|
+  it_behaves_like "SW field present except", 'author_1xx_search', facet_query, ids
+  it_behaves_like "SW field present except", 'author_sort', facet_query, ids
+end
+shared_examples_for 'date fields present except' do | facet_query, ids|
+  it_behaves_like "SW field present except", 'pub_date_sort', facet_query, ids
+  it_behaves_like "SW field present except", 'pub_year_tisim', facet_query, ids
+end
+shared_examples_for 'language field present except' do | facet_query, ids|
+  it_behaves_like 'SW field present except', 'language', facet_query, ids
+end
+
+# tests for no records with a different facet value than what is specified
+shared_examples_for "expected facet values" do | facet_query, field, values |
+  it "" do
+    fq_arr = [facet_query]
+    values.each { |val|  
+      fq_arr << "-#{field}:#{val}"
+    }
+    resp = solr_resp_doc_ids_only({'fq'=> fq_arr})
+    resp.should_not include("id" => /.+/) # get ids of errant records
+  end
+end
+
+# tests for no records with a different format value than what is specified
+shared_examples_for "expected format values" do | facet_query, values |
+  it_behaves_like "expected facet values", facet_query, "format", values  
+end
+# tests for no records with a different display_type value than what is specified
+shared_examples_for "expected display_type values" do | facet_query, values |
+  it_behaves_like "expected facet values", facet_query, "display_type", values  
+end
+
+
 # tests for required searchable fields excepting dates, given a facet query
 shared_examples_for 'core fields present' do | facet_query |
   it "druid" do
