@@ -22,9 +22,14 @@ describe "DOR Digital Collections" do
       ckey = '9615156'
       it_behaves_like 'gdor coll', ckey, 'yg867hg1375', 5, "seventh day adventist church missionaries", ['nz353cp1092'], 10
       facet_query = "collection:#{ckey}"
+      it_behaves_like 'expected format values', facet_query, ['Image']
+      it_behaves_like 'expected display_type values', facet_query, ['image']
       it_behaves_like "date fields present", facet_query
+      # DATA FIXME:  these 5 records have author_sort but not author_1xx_search ???
+      # DATA FIXME:  the same 5 records missing author_sort and language???
 #      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      it_behaves_like 'author fields present except', facet_query, ["nz353cp1092", "jf275fd6276", "ww689vs6534", "th998nk0722", "tc552kq0798"]
+      it_behaves_like 'language field present except', facet_query, ['nz353cp1092', 'jf275fd6276', 'ww689vs6534', 'th998nk0722', 'tc552kq0798']
     end
     context "Kolb" do
       ckey = '4084372'
