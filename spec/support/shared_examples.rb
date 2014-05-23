@@ -90,10 +90,10 @@ shared_examples_for "expected facet values" do | facet_query, field, values |
   it "" do
     fq_arr = [facet_query]
     if values.kind_of? String
-      fq_arr << "-#{field}:#{values}"
+      fq_arr << "-#{field}:\"#{values}\""
     elsif values.kind_of? Array
       values.each { |val|  
-        fq_arr << "-#{field}:#{val}"
+        fq_arr << "-#{field}:\"#{val}\""
       }
     end
     resp = solr_resp_doc_ids_only({'fq'=> fq_arr})
@@ -217,7 +217,7 @@ shared_examples_for 'gdor fields present' do | solr_doc_id, druid |
   end
   it "should not have a separate Solr record for druid if there is a sirsi record" do
     if @merged
-      solr_resp_single_doc(druid).should_not have_documents
+      solr_resp_single_doc(druid).should_not include("id" => /.+/) # get ids of errant records
     end
   end
 end
