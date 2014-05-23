@@ -68,18 +68,16 @@ describe "DOR Digital Collections" do
 #      it_behaves_like "language", facet_query
     end
 
-    context "no marc coll record" do
-      context "Memorial Library of Music" do
-        coll_id = 'ft241sj7871'
-        coll_size = 15
-        it_behaves_like 'gdor coll', coll_id, coll_id, coll_size, "comus masque", ['3901792'], 10
-        facet_query = "collection:#{coll_id}"
-        it_behaves_like "expected merged items", facet_query, coll_size, coll_size
-        it_behaves_like "date fields present", facet_query
-        it_behaves_like "language", facet_query 
-        it_behaves_like "author fields present", facet_query
-      end
-    end # no marc coll record
+    context "Memorial Library of Music" do
+      ckey = '9645653'
+      coll_size = 15
+      it_behaves_like 'gdor coll', ckey, 'ft241sj7871', coll_size, "comus masque", ['3901792'], 10
+      facet_query = "collection:#{ckey}"
+      it_behaves_like "expected merged items", facet_query, coll_size, coll_size
+      it_behaves_like "date fields present", facet_query
+      it_behaves_like "language", facet_query 
+      it_behaves_like "author fields present", facet_query
+    end
   end # merged items
   
   context "no marc coll record" do
