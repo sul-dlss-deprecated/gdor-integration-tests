@@ -29,7 +29,7 @@ describe "Hydrus collections" do
     it_behaves_like "hydrus item object", item_druid
     facet_query = "collection:#{coll_druid}"
     it_behaves_like "date fields present", facet_query
-#    it_behaves_like "author fields present", facet_query
+#    it_behaves_like "author field present", facet_query
     # as of 2014-03, there is no way to input language into Hydrus metadata, 
     # so language can't be required until that is fixed.
 #    it_behaves_like "language", facet_query
@@ -37,24 +37,60 @@ describe "Hydrus collections" do
 
   context "Big Ideas" do
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, "alix personal", 'mq607rm1165', 3
-  end
-  context "Folding@home" do
-    it_behaves_like 'hydrus coll', 'cj269gn0736', 5, "hp35 trajectory data", 'bd829sf1034', 3
+    facet_query = "collection:xf112dv1419"
+    it_behaves_like 'expected display_type values', facet_query, 'file'
+    # DATA FIXME:  is format 'Other' okay?
+    it_behaves_like 'expected format values', facet_query, 'Other'
+    it_behaves_like "author field present", facet_query
+    #it_behaves_like "language", facet_query  # all recs missing language as of 2014-05-23
   end
   context "engineering physics undergrad theses" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, "deduceit", 'bg823wn2892', 3
+    facet_query = "collection:xv924ks7647"
+    it_behaves_like 'expected display_type values', facet_query, 'file'
+    it_behaves_like 'expected format values', facet_query, 'Thesis'
+    it_behaves_like "author field present", facet_query
+    #it_behaves_like "language", facet_query # all recs missing language as of 2014-05-23
   end
   context "engineering undergrad theses" do
     it_behaves_like 'hydrus coll', 'jg722zc0626', 30, "uclinux", 'ng517gq2855', 3
+    facet_query = "collection:jg722zc0626"
+    it_behaves_like 'expected display_type values', facet_query, 'file'
+    it_behaves_like 'expected format values', facet_query, 'Thesis'
+    it_behaves_like "author field present", facet_query
+    #it_behaves_like "language", facet_query # all recs missing language as of 2014-05-23
+  end
+  context "Folding@home" do
+    it_behaves_like 'hydrus coll', 'cj269gn0736', 5, "hp35 trajectory data", 'bd829sf1034', 3
+    facet_query = "collection:cj269gn0736"
+    it_behaves_like 'expected display_type values', facet_query, 'file'
+    it_behaves_like 'expected format values', facet_query, 'Computer File'
+    it_behaves_like "author field present", facet_query
+    #it_behaves_like "language", facet_query # all recs missing language as of 2014-05-23
   end
   context "Forum on Future of Scientific Publishing" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, "open access to manuscripts", 'fx147cs4847', 10
+    facet_query = "collection:ck552zg2217"
+    it_behaves_like 'expected display_type values', facet_query, 'file'
+    it_behaves_like 'expected format values', facet_query, 'Conference Proceedings'
+    it_behaves_like "author field present", facet_query
+    #it_behaves_like "language", facet_query # all recs missing language as of 2014-05-23
   end
   context "Hopkins Marine Station collection" do
     it_behaves_like 'hydrus coll', 'pn808wc6253', 7, "sea anemone distribution", 'fp045wx3019', 10
+    facet_query = "collection:pn808wc6253"
+    it_behaves_like 'expected display_type values', facet_query, 'file'
+    it_behaves_like 'expected format values', facet_query, 'Computer File'
+    it_behaves_like "author field present except", facet_query, ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531"]
+    it_behaves_like "language", facet_query
   end
   context "John A. Blume Earthquake Engineering Center Technical Report Series" do
     it_behaves_like 'hydrus coll', 'mz198fp9366', 162, "damage diagnosis algorithms", 'wg007jn8560', 5
+    facet_query = "collection:mz198fp9366"
+    it_behaves_like 'expected display_type values', facet_query, 'file'
+    it_behaves_like 'expected format values', facet_query, 'Book'
+    it_behaves_like "author field present except", facet_query, ["dv756jr9637", "nh929nm1593"]
+    #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
   context "ME310 2013" do
     it_behaves_like 'hydrus coll', 'kq629sd5182', 8, "audievolve", 'qt429km6702', 3

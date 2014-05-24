@@ -21,7 +21,7 @@ describe "All GDOR records" do
     facet_query = "-collection:sirsi"
     it_behaves_like "core fields present", facet_query
 #    it_behaves_like "date fields present", facet_query
-#    it_behaves_like "author fields present", facet_query
+#    it_behaves_like "author fieldspresent", facet_query
 #    it_behaves_like "language", facet_query
   end
     
