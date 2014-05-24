@@ -23,12 +23,7 @@ shared_examples_for 'searchable author' do | facet_query |
     resp.should_not include("id" => /.+/) # get ids of errant records
   end
 end
-shared_examples_for 'sortable author' do | facet_query |
-  it "" do
-    resp = solr_resp_doc_ids_only({'fq'=> [facet_query, "-author_sort:*"]})
-    resp.should_not include("id" => /.+/) # get ids of errant records
-  end
-end
+# NOTE:  author_sort is always populated b/c it is main author + sorting title
 
 # tests for searchable date fields given a facet query
 shared_examples_for 'date fields present' do | facet_query |
@@ -37,8 +32,7 @@ shared_examples_for 'date fields present' do | facet_query |
 end
 
 # tests for searchable author fields given a facet query
-shared_examples_for 'author fields present' do | facet_query |
-  it_behaves_like "sortable author", facet_query
+shared_examples_for 'author field present' do | facet_query |
   it_behaves_like "searchable author", facet_query
 end
 
@@ -73,9 +67,8 @@ shared_examples_for 'SW field present except' do | field, facet_query, exp_ids |
 end
 
 # tests for presence of searchable field in every record implicated by facet query, EXCEPT for the ids indicated
-shared_examples_for 'author fields present except' do | facet_query, ids|
+shared_examples_for 'author field present except' do | facet_query, ids|
   it_behaves_like "SW field present except", 'author_1xx_search', facet_query, ids
-  it_behaves_like "SW field present except", 'author_sort', facet_query, ids
 end
 shared_examples_for 'date fields present except' do | facet_query, ids|
   it_behaves_like "SW field present except", 'pub_date_sort', facet_query, ids
