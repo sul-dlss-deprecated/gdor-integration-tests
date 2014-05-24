@@ -22,55 +22,83 @@ describe "DOR Digital Collections" do
       ckey = '9615156'
       it_behaves_like 'gdor coll', ckey, 'yg867hg1375', 5, "seventh day adventist church missionaries", ['nz353cp1092'], 10
       facet_query = "collection:#{ckey}"
-      it_behaves_like 'expected format values', facet_query, ['Image']
-      it_behaves_like 'expected display_type values', facet_query, ['image']
+      it_behaves_like 'expected format values', facet_query, 'Image'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       it_behaves_like "date fields present", facet_query
-      # DATA FIXME:  these 5 records have author_sort but not author_1xx_search ???
-      # DATA FIXME:  the same 5 records missing author_sort and language???
-#      it_behaves_like "author fields present", facet_query
-      it_behaves_like 'author fields present except', facet_query, ["nz353cp1092", "jf275fd6276", "ww689vs6534", "th998nk0722", "tc552kq0798"]
+      # DATA FIXME:  the same 5 records missing searchable author and language???
+      it_behaves_like 'author field present except', facet_query, ["nz353cp1092", "jf275fd6276", "ww689vs6534", "th998nk0722", "tc552kq0798"]
       it_behaves_like 'language field present except', facet_query, ['nz353cp1092', 'jf275fd6276', 'ww689vs6534', 'th998nk0722', 'tc552kq0798']
     end
     context "Kolb" do
       ckey = '4084372'
       it_behaves_like 'gdor coll', ckey, 'bs646cd8717', 1402, "Addison Joseph", ['vb267mw8946'], 10
-#      facet_query = "collection:#{ckey}"
+      facet_query = "collection:#{ckey}"
+      it_behaves_like 'expected format values', facet_query, 'Image'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       # lack of pub dates grandfathered in -- old Image Gallery collection
-#      it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      #  as of 2014-05-23, none of the records have any of these fields
+      #it_behaves_like "date fields present", facet_query
+      #it_behaves_like "author field present", facet_query
+      #it_behaves_like "language", facet_query
     end
     context "Reid Dennis" do
       ckey = '6780453'
       it_behaves_like 'gdor coll', ckey, 'sg213ph2100', 48, "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15
-#      facet_query = "collection:#{ckey}"
+      facet_query = "collection:#{ckey}"
+      it_behaves_like 'expected format values', facet_query, 'Image'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       # lack of pub dates grandfathered in -- old Image Gallery collection
-#      it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      it_behaves_like "date fields present except", facet_query, ["bt970vy9251", "kg568mq8595", "qw685fw6269", "xn563rv5499", "bf098tm0241"]
+      #it_behaves_like "author field present except", facet_query  # 21 records missing author as of 2014-05-23
+      #it_behaves_like "language field present except", facet_query # all records missing language as of 2014-05-23
     end
   end # merged coll records
   
   context "merged item records" do
     context "Caroline Batchelor maps" do
       ckey = '10357851'
-      coll_size = 184 # 187 DOR objects, but 184 Solr docs -- some go to same ckey
+      coll_size = 181 # 187 DOR objects, but 181 Solr docs -- 12 DOR objects go to 6 ckeys?
       it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, "new one-sheet map of Africa", ['8924690'], 15
       facet_query = "collection:#{ckey}"
       it_behaves_like "expected merged items", facet_query, coll_size, coll_size
-      it_behaves_like "date fields present", facet_query  # currently ct011mf9794/8836601 is without a date - should be fixed when it merges properly
-#      it_behaves_like "language", facet_query 
-#      it_behaves_like "author fields present", facet_query
+      it_behaves_like 'expected format values', facet_query, 'Map/Globe'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
+      # 8836601 has 17uu which gives sortable date, but nothing for date slider
+      it_behaves_like "sortable pub date", facet_query
+      it_behaves_like "SW field present except", 'pub_year_tisim', facet_query, '8836601'
+      it_behaves_like "language field present except", facet_query, 
+        ["8832188",
+         "8837479",
+         "8837481",
+         "8837485",
+         "8837494",
+         "8881594",
+         "8884264",
+         "8924678",
+         "8924695",
+         "8925401",
+         "8935525",
+         "8940656",
+         "8940672",
+         "9052083",
+         "9067460",
+         "9081170",
+         "9082129",
+         "9082623",
+         "9082975"]
+      #it_behaves_like "author field present except", facet_query # 69 recs missing author as of 2014-05-23
     end
     context "Glen McLaughlin Maps" do
       coll_id = 'zb871zd0767'
-      coll_size = 731
+      coll_size = 733
       it_behaves_like 'gdor coll', coll_id, coll_id, coll_size, "AMERIQUE", ['jk190bb4635'], 20
       facet_query = "collection:#{coll_id}"
       it_behaves_like "expected merged items", facet_query, 5, coll_size
+      it_behaves_like 'expected format values', facet_query, 'Map/Globe'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      #it_behaves_like "author field present", facet_query # 544 recs missing author as of 2014-05-23
+      #it_behaves_like "language", facet_query # 581 recs missing language as of 2014-05-23
     end
 
     context "Memorial Library of Music" do
@@ -79,9 +107,11 @@ describe "DOR Digital Collections" do
       it_behaves_like 'gdor coll', ckey, 'ft241sj7871', coll_size, "comus masque", ['3901792'], 10
       facet_query = "collection:#{ckey}"
       it_behaves_like "expected merged items", facet_query, coll_size, coll_size
-      it_behaves_like "date fields present", facet_query
+      it_behaves_like 'expected format values', facet_query, ['Music - Score', 'Manuscript/Archive']
+      it_behaves_like 'expected display_type values', facet_query, 'image'
+      it_behaves_like "date fields present except", facet_query, '9686884'
       it_behaves_like "language", facet_query 
-      it_behaves_like "author fields present", facet_query
+      it_behaves_like "author field present except", facet_query, ["3320159", "3901701"]
     end
   end # merged items
   
@@ -92,27 +122,33 @@ describe "DOR Digital Collections" do
       coll_id = 'zp940yp4275'
       it_behaves_like 'gdor coll', coll_id, coll_id, 90, "dorothy day united farmworkers union", ['bv989yj8759'], 10
       facet_query = "collection:#{coll_id}"
+      it_behaves_like 'expected format values', facet_query, 'Image'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      # it_behaves_like "author field present", facet_query # 90 recs missing author as of 2014-05-23
+      # it_behaves_like "language", facet_query # 90 recs missing language as of 2014-05-23
     end
     context "Bob Fitch photography archive - Martin Luther King" do
       coll_id = 'zz473kt2569'
       it_behaves_like 'gdor coll', coll_id, coll_id, 75, "mississippi meredith march", ['cv188wn4659'], 10
       facet_query = "collection:#{coll_id}"
+      it_behaves_like 'expected format values', facet_query, 'Image'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      #it_behaves_like "author field present", facet_query # 75 recs missing author as of 2014-05-23
+      #it_behaves_like "language", facet_query # 75 recs missing language as of 2014-05-23
     end
 
     context "Classics Papyri" do
       coll_id = 'jr022nf7673'
       it_behaves_like 'gdor coll', coll_id, coll_id, 44, "fragment documentary text", ['jx555jt0710'], 10
       facet_query = "collection:#{coll_id}"
+      it_behaves_like 'expected format values', facet_query, 'Manuscript/Archive'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       it_behaves_like "sortable pub date", facet_query
       # date slider can't do BC dates
-#      it_behaves_like "date slider dates", facet_query
-#      it_behaves_like "author fields present", facet_query
+      #it_behaves_like "date slider dates", facet_query # 44 recs missing pub_year_tisim as of 2014-05-23
+      #it_behaves_like "author field present", facet_query # 44 recs missing author as of 2014-05-23
       it_behaves_like "language", facet_query
     end
 
@@ -120,17 +156,22 @@ describe "DOR Digital Collections" do
       coll_id = 'yb129fc1507'
       it_behaves_like 'gdor coll', coll_id, coll_id, 13, "melita", ['zz360bw3691'], 10
       facet_query = "collection:#{coll_id}"
+      it_behaves_like 'expected format values', facet_query, 'Map/Globe'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      #it_behaves_like "author field present", facet_query # 13 recs missing author as of 2014-05-23
+      #it_behaves_like "language", facet_query # 13 recs missing language as of 2014-05-23
     end
+    
     context "Walters Manuscripts" do
       coll_id = 'ww121ss5000'
       it_behaves_like 'gdor coll', coll_id, coll_id, 298, "walters brasses", ['cn006dx2288'], 3
       facet_query = "collection:#{coll_id}"
+      it_behaves_like 'expected format values', facet_query, 'Manuscript/Archive'
+      it_behaves_like 'expected display_type values', facet_query, 'image'
       it_behaves_like "date fields present", facet_query
-#      it_behaves_like "author fields present", facet_query
-#      it_behaves_like "language", facet_query
+      #it_behaves_like "author field present", facet_query # 298 recs missing author as of 2014-05-23
+      #it_behaves_like "language field present except", facet_query # 24 recs missing language as of 2014-05-23
     end
   end # no marc coll record
   
