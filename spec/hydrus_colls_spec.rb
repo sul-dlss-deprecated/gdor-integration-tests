@@ -52,7 +52,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', "Thesis", nil, "deduceit", 'bg823wn2892', 3
   end
   context "engineering undergrad theses" do
-    it_behaves_like 'hydrus coll', 'jg722zc0626', 32, 'file', 'Thesis', nil, "uclinux", 'ng517gq2855', 3
+    it_behaves_like 'hydrus coll', 'jg722zc0626', 35, 'file', 'Thesis', nil, "uclinux", 'ng517gq2855', 3
   end
   context "Folding@home" do
     it_behaves_like 'hydrus coll', 'cj269gn0736', 5, 'file', "Computer File", nil, "hp35 trajectory data", 'bd829sf1034', 3
