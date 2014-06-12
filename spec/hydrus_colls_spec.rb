@@ -95,7 +95,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 4, 'file', "Journal/Periodical", nil, "academy unbound", 'bd701dh8028', 3
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
-    it_behaves_like 'hydrus coll', 'qs035dj7859', 4, "file", "Thesis", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
+    it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Thesis", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
   context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
     it_behaves_like 'hydrus coll', 'jr938vv9537', 4, "file", "Thesis", nil, "gay catholic men", 'by699sk7545', 3
