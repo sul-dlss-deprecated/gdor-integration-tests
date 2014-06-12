@@ -74,7 +74,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'kq629sd5182', 8, 'file', "Other", nil, "audievolve", 'qt429km6702', 3
   end
   context "Physics Undergrad Theses" do
-    it_behaves_like 'hydrus coll', 'ds247vz0452', 17, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
+    it_behaves_like 'hydrus coll', 'ds247vz0452', 18, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3
