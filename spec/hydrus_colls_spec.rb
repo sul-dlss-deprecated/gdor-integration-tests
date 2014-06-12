@@ -89,7 +89,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Computer File", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 6, 'file', "Computer File", nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 7, 'file', "Computer File", nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 4, 'file', "Journal/Periodical", nil, "academy unbound", 'bd701dh8028', 3
