@@ -242,8 +242,9 @@ end
 # query_str = an 'everything' query that will retrieve the expected item objects
 # exp_ids = expected druids for objects within a collection
 # max_res_num = items should appear within this number of results
-# coll_id = catkey or druid for the collection
-shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, coll_id |
+# coll_id = Solr id (catkey or druid) for the collection
+# dark_object_ids = Array of Solr ids for objects that won't have file_id
+shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, coll_id, dark_object_ids |
   it "should be discoverable via everything search" do
     resp = solr_response({'q'=>query_str, 'fl'=>'id', 'facet'=>false})
     resp.should include(exp_ids).in_first(max_res_num)
@@ -257,7 +258,7 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
       resp.should include("collection" => coll_id )
       resp.should include("collection_with_title" => Regexp.new("^#{coll_id}-\\|-.*"))
       resp.should include('display_type' => /file|image/)
-      resp.should include("file_id" => /.+/)
+      resp.should include("file_id" => /.+/) unless dark_object_ids && dark_object_ids.include?(solr_doc_id)
 
       druid = resp['response']['docs'][0]['druid']
       if solr_doc_id != druid

@@ -24,11 +24,12 @@ describe "Hydrus collections" do
   # item_query_str:  the query string to retrieve items from this collection in a SW 'everything' search
   # item_druid:  the druid of an item expected to be retrieved with the query
   # num_results:  the item druid will be found within the first (n) of the search results
-  shared_examples_for 'hydrus coll' do | coll_druid, num_items, display_types, formats, author_missing_ids, item_query_str, item_druid, num_results |
+  # dark_object_ids = Array of Solr ids for objects that won't have file_id
+  shared_examples_for 'hydrus coll' do | coll_druid, num_items, display_types, formats, author_missing_ids, item_query_str, item_druid, num_results, dark_object_ids |
     it_behaves_like "all items in collection", coll_druid, num_items
     it_behaves_like "DOR collection object", coll_druid, coll_druid
     it_behaves_like "hydrus collection object", coll_druid
-    it_behaves_like "DOR item objects", item_query_str, [item_druid], num_results, coll_druid
+    it_behaves_like "DOR item objects", item_query_str, [item_druid], num_results, coll_druid, dark_object_ids
     it_behaves_like "hydrus item object", item_druid
     facet_query = "collection:#{coll_druid}"
     it_behaves_like 'expected display_type values', facet_query, display_types
@@ -77,7 +78,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 18, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
   context "Preserving Virtual Worlds" do
-    it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3
+    it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
   end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
     it_behaves_like 'hydrus coll', 'cm018rf5314', 8, 'file', "Computer File", nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
