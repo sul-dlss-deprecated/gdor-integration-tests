@@ -54,7 +54,7 @@ describe "DOR Digital Collections" do
   end # merged coll records
   
   context "merged item records" do
-    context "Caroline Batchelor maps" do
+    context "Caroline Batchelor maps", :wip => true do
       ckey = '10357851'
       coll_size = 181 # 187 DOR objects, but 181 Solr docs -- 12 DOR objects go to 6 ckeys?
       it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, 'image', "Map/Globe", "new one-sheet map of Africa", ['8924690'], 15
@@ -85,6 +85,7 @@ describe "DOR Digital Collections" do
          "9082975"]
       #it_behaves_like "author field present except", facet_query # 69 recs missing author as of 2014-05-23
     end
+
     context "Glen McLaughlin Maps" do
       coll_id = 'zb871zd0767'
       coll_size = 733
@@ -96,7 +97,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "language", facet_query # 581 recs missing language as of 2014-05-23
     end
 
-    context "Memorial Library of Music" do
+    context "Memorial Library of Music", :wip => true do
       ckey = '9645653'
       coll_size = 15
       it_behaves_like 'gdor coll', ckey, 'ft241sj7871', coll_size, 'image', ['Music - Score', 'Manuscript/Archive'], "comus masque", ['3901792'], 10
