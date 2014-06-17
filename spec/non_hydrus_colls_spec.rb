@@ -42,6 +42,14 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query
       #it_behaves_like "language", facet_query
     end
+    context "Oscar I. Norwich collection", :wip => true do
+      ckey = '4719997'
+      it_behaves_like 'gdor coll', ckey, 'qb438pg7646', 312, 'book', "Book", "the kingedome of congo", ['bc269qj9892'], 10
+      facet_query = "collection:#{ckey}"
+      it_behaves_like "date fields present", facet_query
+      #it_behaves_like "author field present", facet_query # all records missing author as of 2014-06-16
+      #it_behaves_like "language", facet_query # all records missing language as o 2014-06-16
+    end
     context "Reid Dennis" do
       ckey = '6780453'
       it_behaves_like 'gdor coll', ckey, 'sg213ph2100', 48, 'image', "Image", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15
