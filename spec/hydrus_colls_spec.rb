@@ -70,8 +70,8 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'mz198fp9366', 162, 'file', "Book", ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
-  context "Lobell Laboratory" :wip => true do
-    it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", "maize yield increase in the US midwest", 'tp790js7917', 5
+  context "Lobell Laboratory", :wip => true do
+    it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
