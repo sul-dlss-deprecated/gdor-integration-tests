@@ -59,6 +59,14 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present except", facet_query  # 21 records missing author as of 2014-05-23
       #it_behaves_like "language field present except", facet_query # all records missing language as of 2014-05-23
     end
+    context "Richard Maxfield", :wip => true do
+      ckey = '8833854'
+      it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Manuscript/Archive", "dromenom", ['jn060mx0288'], 15
+      facet_query = "collection:#{ckey}"
+      #it_behaves_like "date fields present except", facet_query, ["bt970vy9251", "kg568mq8595", "qw685fw6269", "xn563rv5499", "bf098tm0241"]
+      #it_behaves_like "author field present", facet_query
+      #it_behaves_like "language field present", facet_query
+    end
   end # merged coll records
   
   context "merged item records" do
