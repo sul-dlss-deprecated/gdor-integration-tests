@@ -73,7 +73,7 @@ describe "DOR Digital Collections" do
       it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music - Recording", "dromenom", ['jn060mx0288'], 15
       facet_query = "collection:#{ckey}"
       #it_behaves_like "date fields present except", facet_query #dates included in titles; not separated out into dates
-      it_behaves_like "author field present", facet_query
+      #it_behaves_like "author field present", facet_query #maxfield is a contributor, shows up in author facet and in author search; this test checks 1xx search only, which Maxfield does not fall under
       #it_behaves_like "language field present", facet_query #lanugages not present
     end
   end # merged coll records
