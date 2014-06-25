@@ -133,6 +133,9 @@ describe "Hydrus collections" do
   context "Leland Stanford Papers" do
     it_behaves_like 'hydrus coll', 'zx692xz8270', 4, "file", "Manuscript/Archive", nil, "leland stanford legal papers", 'kh510mt0132', 10
   end
+  context "Martin Hellman", :wip => true do
+    it_behaves_like 'hydrus coll', 'rr229tn9249', 5, 'file', "Manuscript/Archive", nil, "cryptography history", 'wg115cn5068', 10
+  end
   context "Martin Luther King at Stanford" do
     it_behaves_like 'hydrus coll', 'yt337pb3236', 3, "file", ["Image", "Video"], "dn923nh8281",  "martin luther king at stanford", 'dn923nh8281', 10
   end
