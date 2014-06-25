@@ -62,7 +62,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Conference Proceedings', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
   context "GSE Open Archive", :wip => true do
-    it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', "Manuscript/Archive", nil, "acculturative stress and coping", 'yg867nn1610', 5
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Journal/Periodical", "Conference Proceedings", "Book"], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "Hopkins Marine Station collection" do
     it_behaves_like 'hydrus coll', 'pn808wc6253', 7, 'file', "Computer File", ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
@@ -83,8 +83,8 @@ describe "Hydrus collections" do
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 18, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
-  context "Donald Pippin", :wip => true do
-    it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Manuscript/Archive", nil, "no love allowed", 'bw510pk6500', 3
+  context "Donald Pippin" do
+    it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']

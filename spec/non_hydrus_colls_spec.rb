@@ -50,6 +50,15 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query # all records missing author as of 2014-06-16
       #it_behaves_like "language", facet_query # all records missing language as o 2014-06-16
     end
+    context "Project South" do
+      ckey = '4085340'
+      it_behaves_like 'gdor coll', ckey, 'vm093fg5170', 231, 'media', "Sound Recording", "CORE student summer volunteer", ['bj513bp5134'], 10
+      facet_query = "collection:#{ckey}"
+      #it_behaves_like "date fields present", facet_query
+      #it_behaves_like "author field present", #corporate authors are present, but not personal name authors
+      it_behaves_like "language", facet_query 
+      #regarding format facet - many of the objects being delivered are transcripts (and not the related sound recordings) e.g. cx374hh1624 - but all items are typed as sound recordings until hybrid objects are supported per Hannah June 2014
+    end
     context "Reid Dennis" do
       ckey = '6780453'
       it_behaves_like 'gdor coll', ckey, 'sg213ph2100', 48, 'image', "Image", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15
@@ -59,13 +68,13 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present except", facet_query  # 21 records missing author as of 2014-05-23
       #it_behaves_like "language field present except", facet_query # all records missing language as of 2014-05-23
     end
-    context "Richard Maxfield", :wip => true do
+    context "Richard Maxfield" do
       ckey = '8833854'
-      it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Manuscript/Archive", "dromenom", ['jn060mx0288'], 15
+      it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music - Recording", "dromenom", ['jn060mx0288'], 15
       facet_query = "collection:#{ckey}"
-      #it_behaves_like "date fields present except", facet_query, ["bt970vy9251", "kg568mq8595", "qw685fw6269", "xn563rv5499", "bf098tm0241"]
-      #it_behaves_like "author field present", facet_query
-      #it_behaves_like "language field present", facet_query
+      #it_behaves_like "date fields present except", facet_query #dates included in titles; not separated out into dates
+      it_behaves_like "author field present", facet_query
+      #it_behaves_like "language field present", facet_query #lanugages not present
     end
   end # merged coll records
   
@@ -113,14 +122,14 @@ describe "DOR Digital Collections" do
       #it_behaves_like "language", facet_query # 581 recs missing language as of 2014-05-23
     end
 
-    context "Memorial Library of Music", :wip => true do
+    context "Memorial Library of Music" do
       ckey = '9645653'
       coll_size = 15
       it_behaves_like 'gdor coll', ckey, 'ft241sj7871', coll_size, 'image', ['Music - Score', 'Manuscript/Archive'], "comus masque", ['3901792'], 10
       facet_query = "collection:#{ckey}"
       it_behaves_like "expected merged items", facet_query, coll_size, coll_size
       it_behaves_like "date fields present except", facet_query, '9686884'
-      it_behaves_like "language", facet_query 
+      it_behaves_like "language field present except", facet_query, '10499743'
       it_behaves_like "author field present except", facet_query, ["3320159", "3901701"]
     end
   end # merged items
