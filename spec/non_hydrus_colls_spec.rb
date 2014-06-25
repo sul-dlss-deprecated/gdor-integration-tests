@@ -50,7 +50,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query # all records missing author as of 2014-06-16
       #it_behaves_like "language", facet_query # all records missing language as o 2014-06-16
     end
-    context "Project South" do
+    context "Project South", :wip => true do
       ckey = '4085340'
       it_behaves_like 'gdor coll', ckey, 'vm093fg5170', 231, 'media', "Sound Recording", "CORE student summer volunteer", ['bj513bp5134'], 10
       facet_query = "collection:#{ckey}"
