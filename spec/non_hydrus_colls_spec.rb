@@ -68,7 +68,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present except", facet_query  # 21 records missing author as of 2014-05-23
       #it_behaves_like "language field present except", facet_query # all records missing language as of 2014-05-23
     end
-    context "Richard Maxfield" do
+    context "Richard Maxfield", :wip => true do
       ckey = '8833854'
       it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music - Recording", "dromenom", ['jn060mx0288'], 15
       facet_query = "collection:#{ckey}"
@@ -122,7 +122,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "language", facet_query # 581 recs missing language as of 2014-05-23
     end
 
-    context "Memorial Library of Music" do
+    context "Memorial Library of Music", :wip => true do
       ckey = '9645653'
       coll_size = 15
       it_behaves_like 'gdor coll', ckey, 'ft241sj7871', coll_size, 'image', ['Music - Score', 'Manuscript/Archive'], "comus masque", ['3901792'], 10

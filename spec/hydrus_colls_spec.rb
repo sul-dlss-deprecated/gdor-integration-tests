@@ -83,7 +83,7 @@ describe "Hydrus collections" do
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 18, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
-  context "Donald Pippin" do
+  context "Donald Pippin", :wip => true do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
   context "Preserving Virtual Worlds" do
