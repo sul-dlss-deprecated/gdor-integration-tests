@@ -136,6 +136,9 @@ describe "Hydrus collections" do
   context "Martin Luther King at Stanford" do
     it_behaves_like 'hydrus coll', 'yt337pb3236', 3, "file", ["Image", "Video"], "dn923nh8281",  "martin luther king at stanford", 'dn923nh8281', 10
   end
+  context "Paul R. Ehrlich papers", :wip => true do
+    it_behaves_like 'hydrus coll', 'ft617pg1817', 2, 'file', ["Video", "Sound Recording"], nil, "Additional Material (Accession 2005-170)", 'zp321tx2887', 10
+  end
   context "Stanford Artificial Intelligence Laboratory Records" do
     it_behaves_like 'hydrus coll', 'jb056mm1304', 3, "file", ["Image", "Manuscript/Archive"], ["pb496bf3201", "hb976hq8639", "qz957bs6680"],  "35th reunion 2009", 'pb496bf3201', 5
   end
