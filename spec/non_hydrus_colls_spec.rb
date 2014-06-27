@@ -42,7 +42,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query
       #it_behaves_like "language", facet_query
     end
-    context "Oscar I. Norwich collection", :wip => true do
+    context "Oscar I. Norwich collection" do
       ckey = '4719997'
       it_behaves_like 'gdor coll', ckey, 'qb438pg7646', 312, 'book', "Book", "the kingedome of congo", ['bc269qj9892'], 10
       facet_query = "collection:#{ckey}"
@@ -50,7 +50,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query # all records missing author as of 2014-06-16
       #it_behaves_like "language", facet_query # all records missing language as o 2014-06-16
     end
-    context "Project South", :wip => true do
+    context "Project South" do
       ckey = '4085340'
       it_behaves_like 'gdor coll', ckey, 'vm093fg5170', 231, 'media', "Sound Recording", "CORE student summer volunteer", ['bj513bp5134'], 10
       facet_query = "collection:#{ckey}"
@@ -68,7 +68,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present except", facet_query  # 21 records missing author as of 2014-05-23
       #it_behaves_like "language field present except", facet_query # all records missing language as of 2014-05-23
     end
-    context "Richard Maxfield", :wip => true do
+    context "Richard Maxfield" do
       ckey = '8833854'
       it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music - Recording", "dromenom", ['jn060mx0288'], 15
       facet_query = "collection:#{ckey}"
@@ -79,7 +79,7 @@ describe "DOR Digital Collections" do
   end # merged coll records
   
   context "merged item records" do
-    context "Caroline Batchelor maps", :wip => true do
+    context "Caroline Batchelor maps" do
       ckey = '10357851'
       coll_size = 181 # 187 DOR objects, but 181 Solr docs -- 12 DOR objects go to 6 ckeys?
       it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, 'image', "Map/Globe", "new one-sheet map of Africa", ['8924690'], 15

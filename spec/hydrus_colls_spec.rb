@@ -61,7 +61,7 @@ describe "Hydrus collections" do
   context "Forum on Future of Scientific Publishing" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Conference Proceedings', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
-  context "GSE Open Archive", :wip => true do
+  context "GSE Open Archive" do
     it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Journal/Periodical", "Conference Proceedings", "Book"], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "Hopkins Marine Station collection" do
@@ -73,7 +73,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'mz198fp9366', 162, 'file', "Book", ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
-  context "Lobell Laboratory", :wip => true do
+  context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
   context "ME310 2013" do
@@ -133,13 +133,13 @@ describe "Hydrus collections" do
   context "Leland Stanford Papers" do
     it_behaves_like 'hydrus coll', 'zx692xz8270', 4, "file", "Manuscript/Archive", nil, "leland stanford legal papers", 'kh510mt0132', 10
   end
-  context "Martin Hellman", :wip => true do
+  context "Martin Hellman" do
     it_behaves_like 'hydrus coll', 'rr229tn9249', 5, 'file', "Manuscript/Archive", nil, "cryptography history", 'wg115cn5068', 10
   end
   context "Martin Luther King at Stanford" do
     it_behaves_like 'hydrus coll', 'yt337pb3236', 3, "file", ["Image", "Video"], "dn923nh8281",  "martin luther king at stanford", 'dn923nh8281', 10
   end
-  context "Paul R. Ehrlich papers", :wip => true do
+  context "Paul R. Ehrlich papers" do
     it_behaves_like 'hydrus coll', 'ft617pg1817', 2, 'file', ["Video", "Sound Recording"], nil, "Additional Material (Accession 2005-170)", 'zp321tx2887', 10
   end
   context "Stanford Artificial Intelligence Laboratory Records" do
