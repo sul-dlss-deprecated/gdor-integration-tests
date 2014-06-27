@@ -88,26 +88,7 @@ describe "DOR Digital Collections" do
       # 8836601 has 17uu which gives sortable date, but nothing for date slider
       it_behaves_like "sortable pub date", facet_query
       it_behaves_like "SW field present except", 'pub_year_tisim', facet_query, '8836601'
-      it_behaves_like "language field present except", facet_query, 
-        ["8832188",
-         "8837479",
-         "8837481",
-         "8837485",
-         "8837494",
-         "8881594",
-         "8884264",
-         "8924678",
-         "8924695",
-         "8925401",
-         "8935525",
-         "8940656",
-         "8940672",
-         "9052083",
-         "9067460",
-         "9081170",
-         "9082129",
-         "9082623",
-         "9082975"]
+      # it_behaves_like "language field present except", facet_query, #21 records w/ language missing as 6.27.14
       #it_behaves_like "author field present except", facet_query # 69 recs missing author as of 2014-05-23
     end
 
