@@ -81,7 +81,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'kq629sd5182', 8, 'file', "Other", nil, "audievolve", 'qt429km6702', 3
   end
   context "Physics Undergrad Theses" do
-    it_behaves_like 'hydrus coll', 'ds247vz0452', 18, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
+    it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
   context "Donald Pippin", :wip => true do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
