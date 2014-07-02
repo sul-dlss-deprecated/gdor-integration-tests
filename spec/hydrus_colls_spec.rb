@@ -102,7 +102,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'md919gh6774', 7, 'file', "Computer File", nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
-    it_behaves_like 'hydrus coll', 'hn730ks3626', 4, 'file', "Journal/Periodical", nil, "academy unbound", 'bd701dh8028', 3
+    it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Journal/Periodical', 'Conference Proceedings'], nil, "academy unbound", 'bd701dh8028', 3
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Thesis", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
