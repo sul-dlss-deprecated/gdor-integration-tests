@@ -86,6 +86,9 @@ describe "Hydrus collections" do
   context "Donald Pippin", :wip => true do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
+  context "Pleistocene Lake Surprise", :wip => true do
+    it_behaves_like 'hydrus coll', 'wm362dj5692', 6, 'file', ['Thesis', 'Conference Proceedings', 'Computer File'], nil, "Pleistocene to middle Holocene", 'cb924rw5595', 10
+  end
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
   end
