@@ -49,6 +49,9 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Other', nil, "alix personal", 'mq607rm1165', 3
   end
+  context "Digital Humanities" do
+    it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
+  end
   context "engineering physics undergrad theses" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', "Thesis", nil, "deduceit", 'bg823wn2892', 3
   end
@@ -75,6 +78,9 @@ describe "Hydrus collections" do
   end
   context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
+  end
+  context "John McCarthy papers", :wip => true do
+    it_behaves_like 'hydrus coll', 'kd453rz2514', 14, ["file", "media"], ["Sound Recording", "Manuscript/Archive"], nil, "KQED 88.5FM", 'cf648tc5724', 20
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
