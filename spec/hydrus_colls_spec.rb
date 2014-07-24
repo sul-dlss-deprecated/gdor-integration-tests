@@ -49,7 +49,7 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Other', nil, "alix personal", 'mq607rm1165', 3
   end
-  context "Digital Humanities" do
+  context "Digital Humanities", :wip => true do
     it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
   end
   context "engineering physics undergrad theses" do
