@@ -10,9 +10,14 @@ end
 
 require 'rspec/core/rake_task'
 
-desc "run specs expected to pass" 
+desc "run specs expected to pass; use ROPTS=\"-l 15\" for line 15" 
 RSpec::Core::RakeTask.new(:passing) do |spec|
   spec.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb", "-t ~wip", "#{ENV['ROPTS']}"]
+end
+
+desc "run all wip specs; use ROPTS=\"-l 15\" for line 15" 
+RSpec::Core::RakeTask.new(:wip) do |spec|
+  spec.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb", "-t wip", "#{ENV['ROPTS']}"]
 end
 
 task :spec => :passing
