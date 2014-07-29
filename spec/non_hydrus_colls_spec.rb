@@ -42,7 +42,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query
       #it_behaves_like "language", facet_query
     end
-    context "John McCarthy papers", :wip => true do
+    context "John McCarthy papers" do
       ckey = '4086014'
       it_behaves_like 'gdor coll', ckey, 'kd453rz2514', 14, ["file", "media"], ["Sound Recording", "Manuscript/Archive"], "KQED 88.5FM", ['cf648tc5724'], 20
     end

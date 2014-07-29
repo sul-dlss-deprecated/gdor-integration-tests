@@ -49,7 +49,7 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Other', nil, "alix personal", 'mq607rm1165', 3
   end
-  context "Digital Humanities", :wip => true do
+  context "Digital Humanities" do
     it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
   end
   context "engineering physics undergrad theses" do
@@ -79,9 +79,6 @@ describe "Hydrus collections" do
   context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
-  context "John McCarthy papers", :wip => true do
-    it_behaves_like 'hydrus coll', 'kd453rz2514', 14, ["file", "media"], ["Sound Recording", "Manuscript/Archive"], nil, "KQED 88.5FM", 'cf648tc5724', 20
-  end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'kq629sd5182', 18, 'file', ['Journal/Periodical', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
@@ -89,7 +86,7 @@ describe "Hydrus collections" do
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
-  context "Donald Pippin", :wip => true do
+  context "Donald Pippin" do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
   context "Pleistocene Lake Surprise" do
@@ -107,10 +104,10 @@ describe "Hydrus collections" do
   context "Serial section electron microscopy data for Posttranslational acetylation of alpha tubulin constrains protofilament number in native microtubules" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Computer File", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
-  context "Stanford Athletics Interviews", :wip => true do
+  context "Stanford Athletics Interviews" do
     it_behaves_like 'hydrus coll', 'zk807sw9336', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], ['gz839jz3577', 'pd175rf4256'], "transcripts interviews bob murphy", 'pd175rf4256', 20
   end
-  context "Stanford LGBT Alumni Oral History Interviews", :wip => true do
+  context "Stanford LGBT Alumni Oral History Interviews" do
     it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], nil, "transcripts LGBT alumni oral history", 'gk352dr4264', 20
   end
   context "Stanford Research Data" do
