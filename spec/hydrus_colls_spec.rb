@@ -68,7 +68,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Journal/Periodical", "Conference Proceedings", "Book"], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "Hopkins Marine Station collection" do
-    it_behaves_like 'hydrus coll', 'pn808wc6253', 7, 'file', "Computer File", ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
+    it_behaves_like 'hydrus coll', 'pn808wc6253', 8, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
     facet_query = "collection:pn808wc6253"
     it_behaves_like "language", facet_query
   end
