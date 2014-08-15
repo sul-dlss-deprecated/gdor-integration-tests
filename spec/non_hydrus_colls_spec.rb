@@ -7,17 +7,17 @@ describe "DOR Digital Collections" do
   # coll_druid: the druid of the collection object (may be the same as the coll_id)
   # num_items: the number of items in this collection
   # display_types:  the expected value(s) of SW display_type field.  Can be String or Array of Strings
-  # formats:  the expected value(s) of SW format field.  Can be String or Array of Strings
+  # format_main_ssim:  the expected value(s) of SW format_main_ssim field.  Can be String or Array of Strings
   # item_query_str:  the query string to retrieve items from this collection in a SW 'everything' search
   # item_druids:  an array of the druid(s) of item(s) expected to be retrieved with the query
   # num_results:  the item druid will be found within the first (n) of the search results
-  shared_examples_for 'gdor coll' do | coll_id, coll_druid, num_items, display_types, formats, item_query_str, item_druids, num_results |
+  shared_examples_for 'gdor coll' do | coll_id, coll_druid, num_items, display_types, format_main_ssim, item_query_str, item_druids, num_results |
     it_behaves_like "all items in collection", coll_id, num_items
     it_behaves_like "DOR collection object", coll_id, coll_druid
     it_behaves_like "DOR item objects", item_query_str, item_druids, num_results, coll_id
     facet_query = "collection:#{coll_druid}"
     it_behaves_like 'expected display_type values', facet_query, display_types
-    it_behaves_like 'expected format values', facet_query, formats
+    it_behaves_like 'expected format_main_ssim values', facet_query, format_main_ssim
   end
 
   context "merged coll records" do
