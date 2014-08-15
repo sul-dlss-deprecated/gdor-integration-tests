@@ -87,7 +87,7 @@ describe "Hydrus collections" do
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
-    it_behaves_like 'hydrus coll', 'kq629sd5182', 18, 'file', ['Article', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
+    it_behaves_like 'hydrus coll', 'kq629sd5182', 19, 'file', ['Article', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Book", nil, "scanning squid", 'gh325bb5942', 3
