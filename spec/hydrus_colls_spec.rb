@@ -102,7 +102,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
   end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
-    it_behaves_like 'hydrus coll', 'cm018rf5314', 8, 'file', "Computer File", nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
+    it_behaves_like 'hydrus coll', 'cm018rf5314', 9, 'file', "Computer File", nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
   context "Serial section electron microscopy data for Nanoscale organization of the MEC-4 DEG/ENaC sensory mechanotransduction channel in Caenorhabditis elegans touch receptor neurons" do
     it_behaves_like 'hydrus coll', 'cv355cw2458', 2, 'file', "Computer File", nil, "immuno electron microscopy", 'zb423jg0099', 10
