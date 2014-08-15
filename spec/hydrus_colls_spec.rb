@@ -55,6 +55,9 @@ describe "Hydrus collections" do
   context "Digital Humanities" do
     it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
   end
+  context "Digital Humanities" do
+    it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
+  end
   context "engineering physics undergrad theses" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', 'Book', nil, "deduceit", 'bg823wn2892', 3
   end
@@ -89,7 +92,7 @@ describe "Hydrus collections" do
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Book", nil, "scanning squid", 'gh325bb5942', 3
   end
-  context "Donald Pippin", :wip => true do
+  context "Donald Pippin" do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
   context "Pleistocene Lake Surprise" do
@@ -118,7 +121,7 @@ describe "Hydrus collections" do
   end
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Article', 'Book'], nil, "academy unbound", 'bd701dh8028', 3
-  end
+ end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
