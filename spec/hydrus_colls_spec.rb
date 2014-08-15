@@ -126,7 +126,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
   context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
-    it_behaves_like 'hydrus coll', 'jr938vv9537', 4, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
+    it_behaves_like 'hydrus coll', 'jr938vv9537', 6, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
   end
   context "Vista Lab" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 4, "file", "Computer File", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
