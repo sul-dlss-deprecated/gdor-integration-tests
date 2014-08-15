@@ -79,7 +79,7 @@ describe "Hydrus collections" do
     # it_behaves_like "language", facet_query
   end
   context "John A. Blume Earthquake Engineering Center Technical Report Series" do
-    it_behaves_like 'hydrus coll', 'mz198fp9366', 162, 'file', "Book", ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
+    it_behaves_like 'hydrus coll', 'mz198fp9366', 164, 'file', "Book", ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
   context "Lobell Laboratory" do
