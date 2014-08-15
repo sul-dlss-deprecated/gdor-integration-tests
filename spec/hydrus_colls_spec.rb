@@ -111,7 +111,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], nil, "transcripts LGBT alumni oral history", 'gk352dr4264', 20
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 8, 'file', ['Computer File', 'Book'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 10, 'file', ['Computer File', 'Book'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Journal/Periodical', 'Conference Proceedings'], nil, "academy unbound", 'bd701dh8028', 3
