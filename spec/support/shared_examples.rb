@@ -96,9 +96,11 @@ shared_examples_for "expected facet values" do | facet_query, field, values |
 end
 
 # tests for no records with a different format value than what is specified
-shared_examples_for "expected format values" do | facet_query, values |
-  it_behaves_like "expected facet values", facet_query, "format", values  
+# with 2014 sw ui redesign work, "format" has been replaced by "format_main_ssim" per INDEX-145
+shared_examples_for "expected format_main_ssim values" do | facet_query, values |
+  it_behaves_like "expected facet values", facet_query, "format_main_ssim", values  
 end
+
 # tests for no records with a different display_type value than what is specified
 shared_examples_for "expected display_type values" do | facet_query, values |
   it_behaves_like "expected facet values", facet_query, "display_type", values  

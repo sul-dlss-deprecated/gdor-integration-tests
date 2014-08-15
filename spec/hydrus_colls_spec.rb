@@ -25,7 +25,7 @@ describe "Hydrus collections" do
   # item_druid:  the druid of an item expected to be retrieved with the query
   # num_results:  the item druid will be found within the first (n) of the search results
   # dark_object_ids = Array of Solr ids for objects that won't have file_id
-  shared_examples_for 'hydrus coll' do | coll_druid, num_items, display_types, formats, author_missing_ids, item_query_str, item_druid, num_results, dark_object_ids |
+  shared_examples_for 'hydrus coll' do | coll_druid, num_items, display_types, format_main_ssim, author_missing_ids, item_query_str, item_druid, num_results, dark_object_ids |
     it_behaves_like "all items in collection", coll_druid, num_items
     it_behaves_like "DOR collection object", coll_druid, coll_druid
     it_behaves_like "hydrus collection object", coll_druid
@@ -33,7 +33,7 @@ describe "Hydrus collections" do
     it_behaves_like "hydrus item object", item_druid
     facet_query = "collection:#{coll_druid}"
     it_behaves_like 'expected display_type values', facet_query, display_types
-    it_behaves_like 'expected format values', facet_query, formats
+    it_behaves_like 'expected format_main_ssim values', facet_query, format_main_ssim
     it_behaves_like "date fields present", facet_query
     if author_missing_ids && author_missing_ids.size > 0
       it_behaves_like "author field present except", facet_query, author_missing_ids
@@ -47,28 +47,28 @@ describe "Hydrus collections" do
 
   context "Big Ideas" do
     # DATA FIXME:  is format 'Other' still best fit?
-    it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Other', nil, "alix personal", 'mq607rm1165', 3
+    it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Article', nil, "alix personal", 'mq607rm1165', 3
   end
   context "Digital Humanities" do
-    it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
+    it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Dataset', nil, "network edge and node tables", 'mn425tz9757', 10
   end
   context "engineering physics undergrad theses" do
-    it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', "Thesis", nil, "deduceit", 'bg823wn2892', 3
+    it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', 'Book', nil, "deduceit", 'bg823wn2892', 3
   end
   context "engineering undergrad theses" do
-    it_behaves_like 'hydrus coll', 'jg722zc0626', 35, 'file', 'Thesis', nil, "uclinux", 'ng517gq2855', 3
+    it_behaves_like 'hydrus coll', 'jg722zc0626', 35, 'file', 'Book', nil, "uclinux", 'ng517gq2855', 3
   end
   context "Folding@home" do
-    it_behaves_like 'hydrus coll', 'cj269gn0736', 6, 'file', "Computer File", nil, "hp35 trajectory data", 'bd829sf1034', 3
+    it_behaves_like 'hydrus coll', 'cj269gn0736', 6, 'file', ['Dataset','Software/Multimedia'], nil, "hp35 trajectory data", 'bd829sf1034', 3
   end
   context "Forum on Future of Scientific Publishing" do
-    it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Conference Proceedings', nil, "open access to manuscripts", 'fx147cs4847', 10
+    it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
   context "GSE Open Archive" do
-    it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Journal/Periodical", "Conference Proceedings", "Book"], nil, "acculturative stress and coping", 'yg867nn1610', 5
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Article", "Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "Hopkins Marine Station collection" do
-    it_behaves_like 'hydrus coll', 'pn808wc6253', 7, 'file', "Computer File", ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
+    it_behaves_like 'hydrus coll', 'pn808wc6253', 7, 'file', "Dataset", ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
     facet_query = "collection:pn808wc6253"
     it_behaves_like "language", facet_query
   end
@@ -81,16 +81,16 @@ describe "Hydrus collections" do
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
-    it_behaves_like 'hydrus coll', 'kq629sd5182', 18, 'file', ['Journal/Periodical', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
+    it_behaves_like 'hydrus coll', 'kq629sd5182', 18, 'file', ['Article', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
   context "Physics Undergrad Theses" do
-    it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
+    it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Book", nil, "scanning squid", 'gh325bb5942', 3
   end
   context "Donald Pippin" do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
   context "Pleistocene Lake Surprise" do
-    it_behaves_like 'hydrus coll', 'wm362dj5692', 6, 'file', ['Thesis', 'Conference Proceedings', 'Computer File'], nil, "Pleistocene to middle Holocene", 'cb924rw5595', 10
+    it_behaves_like 'hydrus coll', 'wm362dj5692', 6, 'file', ['Book', 'Computer File'], nil, "Pleistocene to middle Holocene", 'cb924rw5595', 10
   end
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
@@ -114,13 +114,13 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'md919gh6774', 8, 'file', ['Computer File', 'Book'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
-    it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Journal/Periodical', 'Conference Proceedings'], nil, "academy unbound", 'bd701dh8028', 3
+    it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Article', 'Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
-    it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Thesis", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
+    it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
   context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
-    it_behaves_like 'hydrus coll', 'jr938vv9537', 4, "file", "Thesis", nil, "gay catholic men", 'by699sk7545', 3
+    it_behaves_like 'hydrus coll', 'jr938vv9537', 4, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
   end
   context "Vista Lab" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 4, "file", "Computer File", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
@@ -176,7 +176,7 @@ describe "Hydrus collections" do
   # Archive of Recorded Sound Hydrus Collections
   
   context "Rigler-Deutsch Computer Tapes" do
-    it_behaves_like 'hydrus coll', 'jd276dz9994', 5, "file", ["Book", "Computer File", "Manuscript/Archive"], nil, "Rigler Deutsch Record Index", 'cr661vw3932', 10
+    it_behaves_like 'hydrus coll', 'jd276dz9994', 5, "file", ["Article", "Dataset","Archive/Manuscript"], nil, "Rigler Deutsch Record Index", 'cr661vw3932', 10
   end
   
 end
