@@ -76,7 +76,7 @@ describe "Hydrus collections" do
   context "Hopkins Marine Station collection" do
     it_behaves_like 'hydrus coll', 'pn808wc6253', 8, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
     facet_query = "collection:pn808wc6253"
-    it_behaves_like "language", facet_query
+    # it_behaves_like "language", facet_query
   end
   context "John A. Blume Earthquake Engineering Center Technical Report Series" do
     it_behaves_like 'hydrus coll', 'mz198fp9366', 162, 'file', "Book", ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
