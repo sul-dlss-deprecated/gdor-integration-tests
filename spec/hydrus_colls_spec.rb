@@ -49,6 +49,9 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Other', nil, "alix personal", 'mq607rm1165', 3
   end
+  context "Digital Humanities" do
+    it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
+  end
   context "engineering physics undergrad theses" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', "Thesis", nil, "deduceit", 'bg823wn2892', 3
   end
@@ -61,7 +64,7 @@ describe "Hydrus collections" do
   context "Forum on Future of Scientific Publishing" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Conference Proceedings', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
-  context "GSE Open Archive", :wip => true do
+  context "GSE Open Archive" do
     it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Journal/Periodical", "Conference Proceedings", "Book"], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "Hopkins Marine Station collection" do
@@ -73,18 +76,21 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'mz198fp9366', 162, 'file', "Book", ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
-  context "Lobell Laboratory", :wip => true do
+  context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
-    it_behaves_like 'hydrus coll', 'kq629sd5182', 8, 'file', "Other", nil, "audievolve", 'qt429km6702', 3
+    it_behaves_like 'hydrus coll', 'kq629sd5182', 18, 'file', ['Journal/Periodical', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
   context "Physics Undergrad Theses" do
-    it_behaves_like 'hydrus coll', 'ds247vz0452', 18, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
+    it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
-  context "Donald Pippin", :wip => true do
+  context "Donald Pippin" do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
+  end
+  context "Pleistocene Lake Surprise" do
+    it_behaves_like 'hydrus coll', 'wm362dj5692', 6, 'file', ['Thesis', 'Conference Proceedings', 'Computer File'], nil, "Pleistocene to middle Holocene", 'cb924rw5595', 10
   end
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
@@ -98,11 +104,17 @@ describe "Hydrus collections" do
   context "Serial section electron microscopy data for Posttranslational acetylation of alpha tubulin constrains protofilament number in native microtubules" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Computer File", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
+  context "Stanford Athletics Interviews" do
+    it_behaves_like 'hydrus coll', 'zk807sw9336', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], ['gz839jz3577', 'pd175rf4256'], "transcripts interviews bob murphy", 'pd175rf4256', 20
+  end
+  context "Stanford LGBT Alumni Oral History Interviews" do
+    it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], nil, "transcripts LGBT alumni oral history", 'gk352dr4264', 20
+  end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 7, 'file', "Computer File", nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 8, 'file', ['Computer File', 'Book'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
-    it_behaves_like 'hydrus coll', 'hn730ks3626', 4, 'file', "Journal/Periodical", nil, "academy unbound", 'bd701dh8028', 3
+    it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Journal/Periodical', 'Conference Proceedings'], nil, "academy unbound", 'bd701dh8028', 3
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Thesis", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
@@ -133,11 +145,14 @@ describe "Hydrus collections" do
   context "Leland Stanford Papers" do
     it_behaves_like 'hydrus coll', 'zx692xz8270', 4, "file", "Manuscript/Archive", nil, "leland stanford legal papers", 'kh510mt0132', 10
   end
-  context "Martin Hellman", :wip => true do
+  context "Martin Hellman" do
     it_behaves_like 'hydrus coll', 'rr229tn9249', 5, 'file', "Manuscript/Archive", nil, "cryptography history", 'wg115cn5068', 10
   end
   context "Martin Luther King at Stanford" do
     it_behaves_like 'hydrus coll', 'yt337pb3236', 3, "file", ["Image", "Video"], "dn923nh8281",  "martin luther king at stanford", 'dn923nh8281', 10
+  end
+  context "Paul R. Ehrlich papers" do
+    it_behaves_like 'hydrus coll', 'ft617pg1817', 2, 'file', ["Video", "Sound Recording"], nil, "Additional Material (Accession 2005-170)", 'zp321tx2887', 10
   end
   context "Stanford Artificial Intelligence Laboratory Records" do
     it_behaves_like 'hydrus coll', 'jb056mm1304', 3, "file", ["Image", "Manuscript/Archive"], ["pb496bf3201", "hb976hq8639", "qz957bs6680"],  "35th reunion 2009", 'pb496bf3201', 5
