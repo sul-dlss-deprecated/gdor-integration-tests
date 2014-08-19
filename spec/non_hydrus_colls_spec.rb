@@ -85,7 +85,7 @@ describe "DOR Digital Collections" do
   context "merged item records" do
     context "Caroline Batchelor maps" do
       ckey = '10357851'
-      coll_size = 183 # 187 DOR objects, but 181 Solr docs -- 12 DOR objects go to 6 ckeys?
+      coll_size = 184 # 187 DOR objects, but 181 Solr docs -- 12 DOR objects go to 6 ckeys?
       it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, 'image', "Map/Globe", "new one-sheet map of Africa", ['8924690'], 15
       facet_query = "collection:#{ckey}"
       it_behaves_like "expected merged items", facet_query, coll_size, coll_size
