@@ -19,13 +19,13 @@ describe "Hydrus collections" do
   # coll_druid: the druid of the collection object
   # num_items: the number of items in this collection
   # display_types:  the expected value(s) of SW display_type field.  Can be String or Array of Strings
-  # formats:  the expected value(s) of SW format field.  Can be String or Array of Strings
+  # resource_types:  the expected value(s) of SW format_main_ssim field.  Can be String or Array of Strings
   # author_missing_ids: the ids of records missing searchable author.  nil, String, or Array of Strings
   # item_query_str:  the query string to retrieve items from this collection in a SW 'everything' search
   # item_druid:  the druid of an item expected to be retrieved with the query
   # num_results:  the item druid will be found within the first (n) of the search results
   # dark_object_ids = Array of Solr ids for objects that won't have file_id
-  shared_examples_for 'hydrus coll' do | coll_druid, num_items, display_types, format_main_ssim, author_missing_ids, item_query_str, item_druid, num_results, dark_object_ids |
+  shared_examples_for 'hydrus coll' do | coll_druid, num_items, display_types, resource_types, author_missing_ids, item_query_str, item_druid, num_results, dark_object_ids |
     it_behaves_like "all items in collection", coll_druid, num_items
     it_behaves_like "DOR collection object", coll_druid, coll_druid
     it_behaves_like "hydrus collection object", coll_druid
@@ -33,7 +33,7 @@ describe "Hydrus collections" do
     it_behaves_like "hydrus item object", item_druid
     facet_query = "collection:#{coll_druid}"
     it_behaves_like 'expected display_type values', facet_query, display_types
-    it_behaves_like 'expected format_main_ssim values', facet_query, format_main_ssim
+    it_behaves_like 'expected format_main_ssim values', facet_query, resource_types
     it_behaves_like "date fields present", facet_query
     if author_missing_ids && author_missing_ids.size > 0
       it_behaves_like "author field present except", facet_query, author_missing_ids
