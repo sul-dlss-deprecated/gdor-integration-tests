@@ -362,7 +362,7 @@ shared_examples_for 'DOR collection object' do | solr_doc_id, druid |
     @merged = solr_doc_id != druid
   end
   it_behaves_like 'collection gdor fields present', solr_doc_id, druid
-  it "should have a format field" do
-    @resp.should include("format" => /.+/)
+  it "should have a resource type (format_main_ssim) field" do
+    @resp.should include("format_main_ssim" => /.+/)
   end
 end
