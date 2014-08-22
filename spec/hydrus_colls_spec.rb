@@ -73,11 +73,11 @@ describe "Hydrus collections" do
     # it_behaves_like "language", facet_query
   end
   context "John A. Blume Earthquake Engineering Center Technical Report Series" do
-    it_behaves_like 'hydrus coll', 'mz198fp9366', 164, 'file', "Book", ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
+    it_behaves_like 'hydrus coll', 'mz198fp9366', 164, 'file', ["Book", "Article"], ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
   context "Lobell Laboratory" do
-    it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
+    it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Software/Multimedia", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
@@ -90,28 +90,28 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
   context "Pleistocene Lake Surprise" do
-    it_behaves_like 'hydrus coll', 'wm362dj5692', 6, 'file', ['Book', 'Computer File'], nil, "Pleistocene to middle Holocene", 'cb924rw5595', 10
+    it_behaves_like 'hydrus coll', 'wm362dj5692', 6, 'file', ['Book', 'Dataset'], nil, "Pleistocene to middle Holocene", 'cb924rw5595', 10
   end
   context "Preserving Virtual Worlds" do
-    it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
+    it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Software/Multimedia", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
   end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
-    it_behaves_like 'hydrus coll', 'cm018rf5314', 9, 'file', "Computer File", nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
+    it_behaves_like 'hydrus coll', 'cm018rf5314', 9, 'file', ["Dataset", "Software/Multimedia"], nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
   context "Serial section electron microscopy data for Nanoscale organization of the MEC-4 DEG/ENaC sensory mechanotransduction channel in Caenorhabditis elegans touch receptor neurons" do
-    it_behaves_like 'hydrus coll', 'cv355cw2458', 2, 'file', "Computer File", nil, "immuno electron microscopy", 'zb423jg0099', 10
+    it_behaves_like 'hydrus coll', 'cv355cw2458', 2, 'file', "Dataset", nil, "immuno electron microscopy", 'zb423jg0099', 10
   end
   context "Serial section electron microscopy data for Posttranslational acetylation of alpha tubulin constrains protofilament number in native microtubules" do
-    it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Computer File", nil, "touch receptor neurons", 'qg053ym5844', 10
+    it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Dataset", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
   context "Stanford Athletics Interviews" do
-    it_behaves_like 'hydrus coll', 'zk807sw9336', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], ['gz839jz3577', 'pd175rf4256'], "transcripts interviews bob murphy", 'pd175rf4256', 20
+    it_behaves_like 'hydrus coll', 'zk807sw9336', 2, 'file', ['Sound recording', 'Archive/Manuscript'], ['gz839jz3577', 'pd175rf4256'], "transcripts interviews bob murphy", 'pd175rf4256', 20
   end
   context "Stanford LGBT Alumni Oral History Interviews" do
-    it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], nil, "transcripts LGBT alumni oral history", 'gk352dr4264', 20
+    it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound recording', 'Archive/Manuscript'], nil, "transcripts LGBT alumni oral history", 'gk352dr4264', 20
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 10, 'file', ['Computer File', 'Book'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 10, 'file', ['Dataset', 'Article', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Article', 'Book'], nil, "academy unbound", 'bd701dh8028', 3
@@ -123,10 +123,10 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'jr938vv9537', 6, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
   end
   context "Vista Lab" do
-    it_behaves_like 'hydrus coll', 'qd500xn1572', 5, "file", "Computer File", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
+    it_behaves_like 'hydrus coll', 'qd500xn1572', 5, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
   context "Yotsuba Society Archives - 4Chan Imageboard Files" do
-    it_behaves_like 'hydrus coll', 'rw352rk5082', 1, "file", "Manuscript/Archive", 'tf565pz4260', "4chan archive", 'tf565pz4260', 10
+    it_behaves_like 'hydrus coll', 'rw352rk5082', 1, "file", "Archive/Manuscript", 'tf565pz4260', "4chan archive", 'tf565pz4260', 10
     facet_query = "collection:rw352rk5082"
     it_behaves_like "language", facet_query
   end
@@ -134,37 +134,37 @@ describe "Hydrus collections" do
   # University Archives Hydrus Collections
   
   context "David Starr Jordan Papers" do
-    it_behaves_like 'hydrus coll', 'jy460rb9016', 2, "file", "Manuscript/Archive", nil, "david starr jordan business correspondence", 'sw878zc4588', 10
+    it_behaves_like 'hydrus coll', 'jy460rb9016', 2, "file", "Archive/Manuscript", nil, "david starr jordan business correspondence", 'sw878zc4588', 10
   end
   context "H. Bruce Franklin Collection" do
-    it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Manuscript/Archive", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
+    it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
   end
   context "Jane Lathrop Stanford Papers" do
-    it_behaves_like 'hydrus coll', 'hs468px3695', 3, "file", "Manuscript/Archive", nil, "death and estate papers", 'fk544dk9538', 10
+    it_behaves_like 'hydrus coll', 'hs468px3695', 3, "file", "Archive/Manuscript", nil, "death and estate papers", 'fk544dk9538', 10
   end
   context "Leland Stanford Papers" do
-    it_behaves_like 'hydrus coll', 'zx692xz8270', 4, "file", "Manuscript/Archive", nil, "leland stanford legal papers", 'kh510mt0132', 10
+    it_behaves_like 'hydrus coll', 'zx692xz8270', 4, "file", "Archive/Manuscript", nil, "leland stanford legal papers", 'kh510mt0132', 10
   end
   context "Martin Hellman" do
-    it_behaves_like 'hydrus coll', 'rr229tn9249', 5, 'file', "Manuscript/Archive", nil, "cryptography history", 'wg115cn5068', 10
+    it_behaves_like 'hydrus coll', 'rr229tn9249', 5, 'file', "Archive/Manuscript", nil, "cryptography history", 'wg115cn5068', 10
   end
   context "Martin Luther King at Stanford" do
     it_behaves_like 'hydrus coll', 'yt337pb3236', 3, "file", ["Image", "Video"], "dn923nh8281",  "martin luther king at stanford", 'dn923nh8281', 10
   end
   context "Paul R. Ehrlich papers" do
-    it_behaves_like 'hydrus coll', 'ft617pg1817', 2, 'file', ["Video", "Sound Recording"], nil, "Additional Material (Accession 2005-170)", 'zp321tx2887', 10
+    it_behaves_like 'hydrus coll', 'ft617pg1817', 2, 'file', ["Video", "Sound recording"], nil, "Additional Material (Accession 2005-170)", 'zp321tx2887', 10
   end
   context "Stanford Artificial Intelligence Laboratory Records" do
-    it_behaves_like 'hydrus coll', 'jb056mm1304', 3, "file", ["Image", "Manuscript/Archive"], ["pb496bf3201", "hb976hq8639", "qz957bs6680"],  "35th reunion 2009", 'pb496bf3201', 5
+    it_behaves_like 'hydrus coll', 'jb056mm1304', 3, "file", ["Image", "Archive/Manuscript"], ["pb496bf3201", "hb976hq8639", "qz957bs6680"],  "35th reunion 2009", 'pb496bf3201', 5
   end
   context "The Stanford Flipside" do
-    it_behaves_like 'hydrus coll', 'dq441rn2614', 3, "file", "Manuscript/Archive", nil, "stanford flipside 2008", 'bv723rv4628', 10
+    it_behaves_like 'hydrus coll', 'dq441rn2614', 3, "file", "Archive/Manuscript", nil, "stanford flipside 2008", 'bv723rv4628', 10
   end
   context "Stanford Student Letters and Memoirs" do
-    it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Manuscript/Archive", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10
+    it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Archive/Manuscript", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10
   end
   context "Stanford University Commencement Collection" do
-    it_behaves_like 'hydrus coll', 'nz928tt4938', 3, "file", ["Manuscript/Archive", "Video"], ["xq460yy5434", "sv489yy6266", "mp840zw9344"],  "commencement addresses", 'mp840zw9344', 10
+    it_behaves_like 'hydrus coll', 'nz928tt4938', 3, "file", ["Archive/Manuscript", "Video"], ["xq460yy5434", "sv489yy6266", "mp840zw9344"],  "commencement addresses", 'mp840zw9344', 10
   end
   context "Stanford University Film Collection" do
     it_behaves_like 'hydrus coll', 'tm335zd3912', 1, "file", "Video", 'zv044zr8616', "stanford university film collection films 1937", 'zv044zr8616', 10
@@ -176,7 +176,7 @@ describe "Hydrus collections" do
   # Archive of Recorded Sound Hydrus Collections
   
   context "Rigler-Deutsch Computer Tapes" do
-    it_behaves_like 'hydrus coll', 'jd276dz9994', 5, "file", ["Article", "Dataset","Archive/Manuscript"], nil, "Rigler Deutsch Record Index", 'cr661vw3932', 10
+    it_behaves_like 'hydrus coll', 'jd276dz9994', 5, "file", ["Article", "Dataset", "Archive/Manuscript"], nil, "Rigler Deutsch Record Index", 'cr661vw3932', 10
   end
   
 end
