@@ -56,7 +56,7 @@ describe "DOR Digital Collections" do
     end
     context "Project South" do
       ckey = '4085340'
-      it_behaves_like 'gdor coll', ckey, 'vm093fg5170', 231, 'media', "Sound Recording", "CORE student summer volunteer", ['bj513bp5134'], 10
+      it_behaves_like 'gdor coll', ckey, 'vm093fg5170', 231, 'media', "Sound recording", "CORE student summer volunteer", ['bj513bp5134'], 10
       facet_query = "collection:#{ckey}"
       #it_behaves_like "date fields present", facet_query
       #it_behaves_like "author field present", #corporate authors are present, but not personal name authors
@@ -74,7 +74,7 @@ describe "DOR Digital Collections" do
     end
     context "Richard Maxfield", :wip => true do
       ckey = '8833854'
-      it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music - Recording", "dromenom", ['jn060mx0288'], 15
+      it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music recording", "dromenom", ['jn060mx0288'], 15
       facet_query = "collection:#{ckey}"
       #it_behaves_like "date fields present except", facet_query #dates included in titles; not separated out into dates
       #it_behaves_like "author field present", facet_query #maxfield is a contributor, shows up in author facet and in author search; this test checks 1xx search only, which Maxfield does not fall under
@@ -86,7 +86,7 @@ describe "DOR Digital Collections" do
     context "Caroline Batchelor maps" do
       ckey = '10357851'
       coll_size = 181 # 187 DOR objects, but 181 Solr docs -- 12 DOR objects go to 6 ckeys?
-      it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, 'image', "Map/Globe", "new one-sheet map of Africa", ['8924690'], 15
+      it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, 'image', "Map", "new one-sheet map of Africa", ['8924690'], 15
       facet_query = "collection:#{ckey}"
       it_behaves_like "expected merged items", facet_query, coll_size, coll_size
       # 8836601 has 17uu which gives sortable date, but nothing for date slider
@@ -99,7 +99,7 @@ describe "DOR Digital Collections" do
     context "Glen McLaughlin Maps" do
       coll_id = 'zb871zd0767'
       coll_size = 733
-      it_behaves_like 'gdor coll', coll_id, coll_id, coll_size, 'image', "Map/Globe", "AMERIQUE", ['jk190bb4635'], 20
+      it_behaves_like 'gdor coll', coll_id, coll_id, coll_size, 'image', "Map", "AMERIQUE", ['jk190bb4635'], 20
       facet_query = "collection:#{coll_id}"
       it_behaves_like "expected merged items", facet_query, 5, coll_size
       it_behaves_like "date fields present", facet_query
@@ -110,7 +110,7 @@ describe "DOR Digital Collections" do
     context "Memorial Library of Music", :wip => true do
       ckey = '9645653'
       coll_size = 15
-      it_behaves_like 'gdor coll', ckey, 'ft241sj7871', coll_size, 'image', ['Music - Score', 'Manuscript/Archive'], "comus masque", ['3901792'], 10
+      it_behaves_like 'gdor coll', ckey, 'ft241sj7871', coll_size, 'image', ['Music - Score', 'Archive/Manuscript'], "comus masque", ['3901792'], 10
       facet_query = "collection:#{ckey}"
       it_behaves_like "expected merged items", facet_query, coll_size, coll_size
       it_behaves_like "date fields present except", facet_query, '9686884'
@@ -141,7 +141,7 @@ describe "DOR Digital Collections" do
 
     context "Classics Papyri" do
       coll_id = 'jr022nf7673'
-      it_behaves_like 'gdor coll', coll_id, coll_id, 44, "image", "Manuscript/Archive", "fragment documentary text", ['jx555jt0710'], 10
+      it_behaves_like 'gdor coll', coll_id, coll_id, 44, "image", "Archive/Manuscript", "fragment documentary text", ['jx555jt0710'], 10
       facet_query = "collection:#{coll_id}"
       it_behaves_like "sortable pub date", facet_query
       # date slider can't do BC dates
@@ -152,7 +152,7 @@ describe "DOR Digital Collections" do
 
     context "Glen McLaughlin Maps Collection -- Maps of Malta" do
       coll_id = 'yb129fc1507'
-      it_behaves_like 'gdor coll', coll_id, coll_id, 13, "image", "Map/Globe", "melita", ['zz360bw3691'], 10
+      it_behaves_like 'gdor coll', coll_id, coll_id, 13, "image", "Map", "melita", ['zz360bw3691'], 10
       facet_query = "collection:#{coll_id}"
       it_behaves_like "date fields present", facet_query
       #it_behaves_like "author field present", facet_query # 13 recs missing author as of 2014-05-23
@@ -161,7 +161,7 @@ describe "DOR Digital Collections" do
     
     context "Walters Manuscripts" do
       coll_id = 'ww121ss5000'
-      it_behaves_like 'gdor coll', coll_id, coll_id, 298, 'image', "Manuscript/Archive", "walters brasses", ['cn006dx2288'], 3
+      it_behaves_like 'gdor coll', coll_id, coll_id, 298, 'image', "Archive/Manuscript", "walters brasses", ['cn006dx2288'], 3
       facet_query = "collection:#{coll_id}"
       it_behaves_like "date fields present", facet_query
       #it_behaves_like "author field present", facet_query # 298 recs missing author as of 2014-05-23
