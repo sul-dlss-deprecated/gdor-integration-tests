@@ -1,8 +1,8 @@
 test:
-  :url: http://sw-solr-g:8983/solr/resource
+  :url: http://your_solr_baseurl
       
 dev:
-  :url: http://sw-solr-g:8983/solr/resource
+  :url: http://your_solr_baseurl
   
 ci:
   :url: http://your_solr_baseurl
