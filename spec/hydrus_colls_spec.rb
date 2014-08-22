@@ -52,12 +52,6 @@ describe "Hydrus collections" do
   context "Digital Humanities" do
     it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Dataset', nil, "network edge and node tables", 'mn425tz9757', 10
   end
-  context "Digital Humanities" do
-    it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
-  end
-  context "Digital Humanities" do
-    it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Computer File', nil, "network edge and node tables", 'mn425tz9757', 10
-  end
   context "engineering physics undergrad theses" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', 'Book', nil, "deduceit", 'bg823wn2892', 3
   end
