@@ -96,9 +96,11 @@ shared_examples_for "expected facet values" do | facet_query, field, values |
 end
 
 # tests for no records with a different format value than what is specified
-shared_examples_for "expected format values" do | facet_query, values |
-  it_behaves_like "expected facet values", facet_query, "format", values  
+# with 2014 sw ui redesign work, "format" has been replaced by "format_main_ssim" per INDEX-145
+shared_examples_for "expected format_main_ssim values" do | facet_query, values |
+  it_behaves_like "expected facet values", facet_query, "format_main_ssim", values  
 end
+
 # tests for no records with a different display_type value than what is specified
 shared_examples_for "expected display_type values" do | facet_query, values |
   it_behaves_like "expected facet values", facet_query, "display_type", values  
@@ -115,29 +117,29 @@ shared_examples_for 'core fields present' do | facet_query |
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-access_facet:Online"]})
     resp.should_not include("id" => /.+/) # get ids of errant records
   end
-  it "format" do
-    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-format:*"]})
+  it "resource type (format_main_ssim)" do
+    resp = solr_resp_doc_ids_only({'fq'=>[facet_query, "-format_main_ssim:*"]})
     resp.should_not include("id" => /.+/) # get ids of errant records
   end
-  it "valid format value" do
+  it "valid resource type (format_main_ssim) value" do
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query,
       # commented out lines are because gdor has no records in those formats
-                                          '-format:Book',
-                                          '-format:"Computer File"',
-                                          '-format:"Conference Proceedings"',
-#                                          '-format:Database',
-                                          '-format:Image',
-                                          '-format:"Journal/Periodical"',
-                                          '-format:"Manuscript/Archive"',
-                                          '-format:"Map/Globe"',
-#                                          '-format:Microformat',
-                                          '-format:"Music - Recording"',
-                                          '-format:"Music - Score"',
-#                                          '-format:Newspaper',
-                                          '-format:Other',
-                                          '-format:"Sound Recording"',
-                                          '-format:Thesis',
-                                          '-format:Video'
+                                          '-format_main_ssim:"Archive/Manuscript"',
+                                          '-format_main_ssim:Article',
+                                          '-format_main_ssim:Book',
+#                                          '-format_main_ssim:Database',
+                                          '-format_main_ssim:"Dataset"',
+#                                          '-format_main_ssim:"Equipment"',
+                                          '-format_main_ssim:Image',
+                                          '-format_main_ssim:"Journal/Periodical"',
+                                          '-format_main_ssim:"Map"',
+                                          '-format_main_ssim:"Music recording"',
+                                          '-format_main_ssim:"Music - Score"',
+#                                          '-format_main_ssim:Newspaper',
+#                                          '-format_main_ssim:Object',
+                                          '-format_main_ssim:"Software/Multimedia"',
+                                          '-format_main_ssim:"Sound recording"',
+                                          '-format_main_ssim:Video'
                                           ]})
     resp.should_not include("id" => /.+/) # get ids of errant records
   end
@@ -360,7 +362,7 @@ shared_examples_for 'DOR collection object' do | solr_doc_id, druid |
     @merged = solr_doc_id != druid
   end
   it_behaves_like 'collection gdor fields present', solr_doc_id, druid
-  it "should have a format field" do
-    @resp.should include("format" => /.+/)
+  it "should have a resource type (format_main_ssim) field" do
+    @resp.should include("format_main_ssim" => /.+/)
   end
 end
