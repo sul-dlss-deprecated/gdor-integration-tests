@@ -79,6 +79,9 @@ describe "Hydrus collections" do
   context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Computer File", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
+  context "Marine Biogeochemistry Data", :wip => true do
+    it_behaves_like 'hydrus coll', 'wg919by6182', 1, 'file', "Computer File", nil, "isotopic data from Peru", 'kw310md6771', 5
+  end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'kq629sd5182', 18, 'file', ['Journal/Periodical', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
