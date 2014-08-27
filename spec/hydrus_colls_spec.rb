@@ -95,6 +95,9 @@ describe "Hydrus collections" do
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
   end
+  context "ReNUWIt Data Collection", :wip => true do
+    it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Journal/Periodical", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
+  end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
     it_behaves_like 'hydrus coll', 'cm018rf5314', 8, 'file', "Computer File", nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
