@@ -83,6 +83,9 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'kq629sd5182', 18, 'file', ['Journal/Periodical', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
+  context "Payne Paleobiology Lab Data Files", :wip => true do
+    it_behaves_like 'hydrus coll', 'ns899tx9783', 1, 'file', "Computer File", nil, "Metabolic dominance of bivalves", 'hs422jm3330', 5
+  end
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Thesis", nil, "scanning squid", 'gh325bb5942', 3
   end
