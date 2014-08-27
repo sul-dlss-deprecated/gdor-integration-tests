@@ -104,6 +104,9 @@ describe "Hydrus collections" do
   context "Serial section electron microscopy data for Posttranslational acetylation of alpha tubulin constrains protofilament number in native microtubules" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Computer File", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
+  context "Software and data produced by Baker Research Group", :wip => true do
+    it_behaves_like 'hydrus coll', 'qy070zf4368', 2, 'file', "Computer File", nil, "dynamic structural analysis", 'sw589ts9300', 10
+  end
   context "Stanford Athletics Interviews" do
     it_behaves_like 'hydrus coll', 'zk807sw9336', 2, 'file', ['Sound Recording', 'Manuscript/Archive'], ['gz839jz3577', 'pd175rf4256'], "transcripts interviews bob murphy", 'pd175rf4256', 20
   end
