@@ -98,6 +98,9 @@ describe "Hydrus collections" do
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
     it_behaves_like 'hydrus coll', 'cm018rf5314', 8, 'file', "Computer File", nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
+  context "Research Datasets for MPEG", :wip => true do
+    it_behaves_like 'hydrus coll', 'dy168sr2794', 2, 'file', "Computer File", "qy869qz5226", "Visual Search (CDVS) Benchmark", 'qy869qz5226', 5
+  end
   context "Serial section electron microscopy data for Nanoscale organization of the MEC-4 DEG/ENaC sensory mechanotransduction channel in Caenorhabditis elegans touch receptor neurons" do
     it_behaves_like 'hydrus coll', 'cv355cw2458', 2, 'file', "Computer File", nil, "immuno electron microscopy", 'zb423jg0099', 10
   end
