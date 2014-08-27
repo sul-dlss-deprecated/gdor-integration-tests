@@ -79,9 +79,15 @@ describe "Hydrus collections" do
   context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Software/Multimedia", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
+  context "Marine Biogeochemistry Data" do
+    it_behaves_like 'hydrus coll', 'wg919by6182', 1, 'file', "Dataset", nil, "isotopic data from Peru", 'kw310md6771', 5
+  end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'kq629sd5182', 19, 'file', ['Article', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
+  end
+  context "Payne Paleobiology Lab Data Files" do
+    it_behaves_like 'hydrus coll', 'ns899tx9783', 1, 'file', "Dataset", nil, "Metabolic dominance of bivalves", 'hs422jm3330', 5
   end
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Book", nil, "scanning squid", 'gh325bb5942', 3
@@ -95,14 +101,26 @@ describe "Hydrus collections" do
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Software/Multimedia", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
   end
+  context "Project MKULTRA collection" do
+    it_behaves_like 'hydrus coll', 'fp666pd4654', 1, 'file', "Archive/Manuscript", nil, "Project MKULTRA collection", 'xf259xw8228', 5
+  end
+  context "ReNUWIt Data Collection" do
+    it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Article", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
+  end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
     it_behaves_like 'hydrus coll', 'cm018rf5314', 9, 'file', ["Dataset", "Software/Multimedia"], nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
+  end
+  context "Research Datasets for MPEG" do
+    it_behaves_like 'hydrus coll', 'dy168sr2794', 2, 'file', "Dataset", "qy869qz5226", "Visual Search (CDVS) Benchmark", 'qy869qz5226', 5
   end
   context "Serial section electron microscopy data for Nanoscale organization of the MEC-4 DEG/ENaC sensory mechanotransduction channel in Caenorhabditis elegans touch receptor neurons" do
     it_behaves_like 'hydrus coll', 'cv355cw2458', 2, 'file', "Dataset", nil, "immuno electron microscopy", 'zb423jg0099', 10
   end
   context "Serial section electron microscopy data for Posttranslational acetylation of alpha tubulin constrains protofilament number in native microtubules" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Dataset", nil, "touch receptor neurons", 'qg053ym5844', 10
+  end
+  context "Software and data produced by Baker Research Group" do
+    it_behaves_like 'hydrus coll', 'qy070zf4368', 2, 'file', ["Dataset", "Software/Multimedia"], nil, "dynamic structural analysis", 'sw589ts9300', 10
   end
   context "Stanford Athletics Interviews" do
     it_behaves_like 'hydrus coll', 'zk807sw9336', 2, 'file', ['Sound recording', 'Archive/Manuscript'], ['gz839jz3577', 'pd175rf4256'], "transcripts interviews bob murphy", 'pd175rf4256', 20
@@ -115,9 +133,12 @@ describe "Hydrus collections" do
   end
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Article', 'Book'], nil, "academy unbound", 'bd701dh8028', 3
- end
+  end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
+  end
+  context "Undergraduate Theses, Department of Biology, 2013-2014" do
+    it_behaves_like 'hydrus coll', 'fr625dm6043', 49, "file", "Book", nil, "Ablation of Quiescent Neural Stem Cells", 'dz807gb9398', 5
   end
   context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
     it_behaves_like 'hydrus coll', 'jr938vv9537', 6, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
