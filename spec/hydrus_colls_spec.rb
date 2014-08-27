@@ -95,6 +95,9 @@ describe "Hydrus collections" do
   context "Preserving Virtual Worlds" do
     it_behaves_like 'hydrus coll', 'sn446tz2204', 8, 'file', "Computer File", ['xy157wz5444', 'rd383mp8260'], "star raiders", 'pp060nc9006', 3, ['pp060nc9006']
   end
+  context "Project MKULTRA collection", :wip => true do
+    it_behaves_like 'hydrus coll', 'fp666pd4654', 1, 'file', "Manuscript/Archive", nil, "Project MKULTRA collection", 'xf259xw8228', 5
+  end
   context "ReNUWIt Data Collection", :wip => true do
     it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Journal/Periodical", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
   end
