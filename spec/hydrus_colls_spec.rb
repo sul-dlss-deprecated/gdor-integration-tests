@@ -134,6 +134,9 @@ describe "Hydrus collections" do
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Thesis", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
+  context "Undergraduate Theses, Department of Biology, 2013-2014", :wip => true do
+    it_behaves_like 'hydrus coll', 'fr625dm6043', 49, "file", "Thesis", nil, "Ablation of Quiescent Neural Stem Cells", 'dz807gb9398', 5
+  end
   context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
     it_behaves_like 'hydrus coll', 'jr938vv9537', 4, "file", "Thesis", nil, "gay catholic men", 'by699sk7545', 3
   end
