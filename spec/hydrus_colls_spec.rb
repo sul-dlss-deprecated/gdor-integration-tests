@@ -144,7 +144,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'jr938vv9537', 6, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
   end
   context "Vista Lab" do
-    it_behaves_like 'hydrus coll', 'qd500xn1572', 5, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
+    it_behaves_like 'hydrus coll', 'qd500xn1572', 6, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
   context "Yotsuba Society Archives - 4Chan Imageboard Files" do
     it_behaves_like 'hydrus coll', 'rw352rk5082', 1, "file", "Archive/Manuscript", 'tf565pz4260', "4chan archive", 'tf565pz4260', 10
