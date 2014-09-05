@@ -108,7 +108,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Book", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
   end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
-    it_behaves_like 'hydrus coll', 'cm018rf5314', 9, 'file', ["Dataset", "Software/Multimedia"], nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
+    it_behaves_like 'hydrus coll', 'cm018rf5314', 10, 'file', ["Dataset", "Software/Multimedia"], nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
   context "Research Datasets for MPEG" do
     it_behaves_like 'hydrus coll', 'dy168sr2794', 2, 'file', "Dataset", "qy869qz5226", "Visual Search (CDVS) Benchmark", 'qy869qz5226', 5
