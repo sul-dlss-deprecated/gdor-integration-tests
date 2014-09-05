@@ -126,7 +126,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'zk807sw9336', 2, 'file', ['Sound recording', 'Archive/Manuscript'], ['gz839jz3577', 'pd175rf4256'], "transcripts interviews bob murphy", 'pd175rf4256', 20
   end
   context "Stanford LGBT Alumni Oral History Interviews" do
-    it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound recording', 'Archive/Manuscript'], nil, "transcripts LGBT alumni oral history", 'gk352dr4264', 20
+    it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound recording', 'Archive/Manuscript'], "gk352dr4264", "transcripts LGBT alumni oral history", 'gk352dr4264', 20
   end
   context "Stanford Research Data" do
     it_behaves_like 'hydrus coll', 'md919gh6774', 11, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
