@@ -47,7 +47,7 @@ describe "Hydrus collections" do
 
   context "Big Ideas" do
     # DATA FIXME:  is format 'Other' still best fit?
-    it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Article', nil, "alix personal", 'mq607rm1165', 3
+    it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Book', nil, "alix personal", 'mq607rm1165', 3
   end
   context "Digital Humanities" do
     it_behaves_like 'hydrus coll', 'np305zs0638', 2, 'file', 'Dataset', nil, "network edge and node tables", 'mn425tz9757', 10
@@ -65,7 +65,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
   context "GSE Open Archive" do
-    it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Article", "Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "Hopkins Marine Station collection" do
     it_behaves_like 'hydrus coll', 'pn808wc6253', 8, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531", "xp974kw7556"], "sea anemone distribution", 'fp045wx3019', 10
@@ -73,7 +73,7 @@ describe "Hydrus collections" do
     # it_behaves_like "language", facet_query
   end
   context "John A. Blume Earthquake Engineering Center Technical Report Series" do
-    it_behaves_like 'hydrus coll', 'mz198fp9366', 164, 'file', ["Book", "Article"], ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
+    it_behaves_like 'hydrus coll', 'mz198fp9366', 164, 'file', ["Book"], ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
   context "Lobell Laboratory" do
@@ -84,7 +84,7 @@ describe "Hydrus collections" do
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
-    it_behaves_like 'hydrus coll', 'kq629sd5182', 19, 'file', ['Article', 'Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
+    it_behaves_like 'hydrus coll', 'kq629sd5182', 19, 'file', ['Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
   context "Payne Paleobiology Lab Data Files" do
     it_behaves_like 'hydrus coll', 'ns899tx9783', 1, 'file', "Dataset", nil, "Metabolic dominance of bivalves", 'hs422jm3330', 5
@@ -105,7 +105,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'fp666pd4654', 1, 'file', "Archive/Manuscript", nil, "Project MKULTRA collection", 'xf259xw8228', 5
   end
   context "ReNUWIt Data Collection" do
-    it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Article", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
+    it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Book", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
   end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
     it_behaves_like 'hydrus coll', 'cm018rf5314', 9, 'file', ["Dataset", "Software/Multimedia"], nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
@@ -129,10 +129,10 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound recording', 'Archive/Manuscript'], nil, "transcripts LGBT alumni oral history", 'gk352dr4264', 20
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 10, 'file', ['Dataset', 'Article', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 10, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "SUL staff publications" do
-    it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Article', 'Book'], nil, "academy unbound", 'bd701dh8028', 3
+    it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
@@ -197,7 +197,7 @@ describe "Hydrus collections" do
   # Archive of Recorded Sound Hydrus Collections
   
   context "Rigler-Deutsch Computer Tapes" do
-    it_behaves_like 'hydrus coll', 'jd276dz9994', 5, "file", ["Article", "Dataset", "Archive/Manuscript"], nil, "Rigler Deutsch Record Index", 'cr661vw3932', 10
+    it_behaves_like 'hydrus coll', 'jd276dz9994', 5, "file", ["Book", "Dataset", "Archive/Manuscript"], nil, "Rigler Deutsch Record Index", 'cr661vw3932', 10
   end
   
 end

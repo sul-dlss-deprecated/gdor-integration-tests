@@ -125,7 +125,7 @@ shared_examples_for 'core fields present' do | facet_query |
     resp = solr_resp_doc_ids_only({'fq'=>[facet_query,
       # commented out lines are because gdor has no records in those formats
                                           '-format_main_ssim:"Archive/Manuscript"',
-                                          '-format_main_ssim:Article',
+#                                          '-format_main_ssim:Article',
                                           '-format_main_ssim:Book',
 #                                          '-format_main_ssim:Database',
                                           '-format_main_ssim:"Dataset"',
