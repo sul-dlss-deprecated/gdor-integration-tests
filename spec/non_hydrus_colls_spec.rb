@@ -89,9 +89,7 @@ describe "DOR Digital Collections" do
       it_behaves_like 'gdor coll', ckey, 'ct961sj2730', coll_size, 'image', "Map", "birds eye view of the soudan", ['8836595'], 15
       facet_query = "collection:#{ckey}"
       it_behaves_like "expected merged items", facet_query, coll_size, coll_size
-      # 8836601 has 17uu which gives sortable date, but nothing for date slider
-      it_behaves_like "sortable pub date", facet_query
-      it_behaves_like "SW field present except", 'pub_year_tisim', facet_query, '8836601'
+      it_behaves_like "date fields present", facet_query
       # it_behaves_like "language field present except", facet_query, #21 records w/ language missing as 6.27.14
       #it_behaves_like "author field present except", facet_query # 69 recs missing author as of 2014-05-23
     end
