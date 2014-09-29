@@ -59,7 +59,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'jg722zc0626', 35, 'file', 'Book', nil, "uclinux", 'ng517gq2855', 3
   end
   context "Folding@home" do
-    it_behaves_like 'hydrus coll', 'cj269gn0736', 8, 'file', ['Dataset','Software/Multimedia'], nil, "hp35 trajectory data", 'bd829sf1034', 3
+    it_behaves_like 'hydrus coll', 'cj269gn0736', 8, 'file', 'Dataset', nil, "hp35 trajectory data", 'bd829sf1034', 3
   end
   context "Forum on Future of Scientific Publishing" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
