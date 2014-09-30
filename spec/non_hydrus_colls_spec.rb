@@ -80,6 +80,11 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query #maxfield is a contributor, shows up in author facet and in author search; this test checks 1xx search only, which Maxfield does not fall under
       #it_behaves_like "language field present", facet_query #lanugages not present
     end
+    context "Women's International League for Peace and Freedom (WILPF)", :wip => true do
+      ckey = '6757885'
+      it_behaves_like 'gdor coll', ckey, 'dn166mg9206', 258, 'media', "Sound recording", "Eldora Spiegelberg", ['hn225qp6902'], 15
+      facet_query = "collection:#{ckey}"
+    end
   end # merged coll records
   
   context "merged item records" do
