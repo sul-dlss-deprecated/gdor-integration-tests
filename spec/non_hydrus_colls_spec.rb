@@ -32,6 +32,10 @@ describe "DOR Digital Collections" do
       it_behaves_like 'author field present except', facet_query, ["nz353cp1092", "jf275fd6276", "ww689vs6534", "th998nk0722", "tc552kq0798"]
       it_behaves_like 'language field present except', facet_query, ['nz353cp1092', 'jf275fd6276', 'ww689vs6534', 'th998nk0722', 'tc552kq0798']
     end
+    context "Immanuel Kant lectures", :wip => true do
+      ckey = '9153925'
+      it_behaves_like 'gdor coll', ckey, 'zf690qk3036', 4, "media", ["Sound Recording", "Video"], "analysis of the aesthetic judgement", ['ys174nw6600'], 15
+    end
     context "Kolb" do
       ckey = '4084372'
       it_behaves_like 'gdor coll', ckey, 'bs646cd8717', 1402, 'image', "Image", "Addison Joseph", ['vb267mw8946'], 10
