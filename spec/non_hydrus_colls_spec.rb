@@ -46,6 +46,11 @@ describe "DOR Digital Collections" do
       ckey = '4086014'
       it_behaves_like 'gdor coll', ckey, 'kd453rz2514', 14, ["file", "media"], ["Sound Recording", "Manuscript/Archive"], "KQED 88.5FM", ['cf648tc5724'], 20
     end
+    context "Marge Frantz lectures on McCarthyism, 2003", :wip => true do
+      ckey = '10157407'
+      it_behaves_like 'gdor coll', ckey, 'yk804rq1656', 4, 'media', "Video", "marge frantz lecture 1", ['tn629pk3948'], 15
+      facet_query = "collection:#{ckey}"
+    end
     context "Oscar I. Norwich collection" do
       ckey = '4719997'
       it_behaves_like 'gdor coll', ckey, 'qb438pg7646', 312, 'book', "Book", "the kingedome of congo", ['bc269qj9892'], 10
