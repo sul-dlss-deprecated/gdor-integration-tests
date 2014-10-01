@@ -72,6 +72,10 @@ describe "DOR Digital Collections" do
       it_behaves_like "language", facet_query 
       #regarding format facet - many of the objects being delivered are transcripts (and not the related sound recordings) e.g. cx374hh1624 - but all items are typed as sound recordings until hybrid objects are supported per Hannah June 2014
     end
+    context "Programs in Human Biology, Lectures", :wip => true do
+      ckey = '6000889'
+      it_behaves_like 'gdor coll', ckey, 'rk187hn0556', 7, "media", "Video", "inequalities in interaction", ['bd786fy6312'], 10
+    end
     context "Reid Dennis" do
       ckey = '6780453'
       it_behaves_like 'gdor coll', ckey, 'sg213ph2100', 48, 'image', "Image", "bird's eye view san francisco", ['pz572zt9333', 'nz525ps5073', 'bw260mc4853', 'mz639xs9677'], 15
