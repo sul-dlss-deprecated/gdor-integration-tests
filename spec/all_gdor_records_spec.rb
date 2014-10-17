@@ -4,7 +4,7 @@ describe "All GDOR records" do
 
   it "should have the correct number of digital collections" do
     resp = solr_resp_doc_ids_only({'fq'=> "collection_type:\"Digital Collection\""})
-    resp.should have_exactly(61).documents
+    resp.should have_exactly(66).documents
   end
 
   it "every non-collection object should have a collection" do
