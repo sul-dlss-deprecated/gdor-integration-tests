@@ -32,7 +32,7 @@ describe "DOR Digital Collections" do
       it_behaves_like 'author field present except', facet_query, ["nz353cp1092", "jf275fd6276", "ww689vs6534", "th998nk0722", "tc552kq0798"]
       it_behaves_like 'language field present except', facet_query, ['nz353cp1092', 'jf275fd6276', 'ww689vs6534', 'th998nk0722', 'tc552kq0798']
     end
-    context "Immanuel Kant lectures", :wip => true do
+    context "Immanuel Kant lectures" do
       ckey = '9153925'
       it_behaves_like 'gdor coll', ckey, 'zf690qk3036', 4, "media", ["Sound Recording", "Video"], "analysis of the aesthetic judgement", ['ys174nw6600'], 15
     end
@@ -50,7 +50,7 @@ describe "DOR Digital Collections" do
       ckey = '4086014'
       it_behaves_like 'gdor coll', ckey, 'kd453rz2514', 14, ["file", "media"], ["Sound Recording", "Manuscript/Archive"], "KQED 88.5FM", ['cf648tc5724'], 20
     end
-    context "Marge Frantz lectures on McCarthyism, 2003", :wip => true do
+    context "Marge Frantz lectures on McCarthyism, 2003" do
       ckey = '10157407'
       it_behaves_like 'gdor coll', ckey, 'yk804rq1656', 4, 'media', "Video", "marge frantz lecture 1", ['tn629pk3948'], 15
       facet_query = "collection:#{ckey}"
@@ -72,7 +72,7 @@ describe "DOR Digital Collections" do
       it_behaves_like "language", facet_query 
       #regarding format facet - many of the objects being delivered are transcripts (and not the related sound recordings) e.g. cx374hh1624 - but all items are typed as sound recordings until hybrid objects are supported per Hannah June 2014
     end
-    context "Programs in Human Biology, Lectures", :wip => true do
+    context "Programs in Human Biology, Lectures" do
       ckey = '6000889'
       it_behaves_like 'gdor coll', ckey, 'rk187hn0556', 7, "media", "Video", "inequalities in interaction", ['bd786fy6312'], 10
     end
@@ -85,7 +85,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present except", facet_query  # 21 records missing author as of 2014-05-23
       #it_behaves_like "language field present except", facet_query # all records missing language as of 2014-05-23
     end
-    context "Richard Maxfield", :wip => true do
+    context "Richard Maxfield" do
       ckey = '8833854'
       it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music recording", "dromenom", ['jn060mx0288'], 15
       facet_query = "collection:#{ckey}"
@@ -93,7 +93,7 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query #maxfield is a contributor, shows up in author facet and in author search; this test checks 1xx search only, which Maxfield does not fall under
       #it_behaves_like "language field present", facet_query #lanugages not present
     end
-    context "Women's International League for Peace and Freedom (WILPF)", :wip => true do
+    context "Women's International League for Peace and Freedom (WILPF)" do
       ckey = '6757885'
       it_behaves_like 'gdor coll', ckey, 'dn166mg9206', 258, 'media', "Sound recording", "Eldora Spiegelberg", ['hn225qp6902'], 15
       facet_query = "collection:#{ckey}"
