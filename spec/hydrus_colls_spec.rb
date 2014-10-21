@@ -147,7 +147,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Dataset", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
   context "Software and data produced by Baker Research Group" do
-    it_behaves_like 'hydrus coll', 'qy070zf4368', 2, 'file', ["Dataset", "Software/Multimedia"], nil, "dynamic structural analysis", 'sw589ts9300', 10
+    it_behaves_like 'hydrus coll', 'qy070zf4368', 3, 'file', ["Dataset", "Software/Multimedia"], nil, "dynamic structural analysis", 'sw589ts9300', 10
   end
   context "Stanford Artificial Intelligence Laboratory Records" do
     it_behaves_like 'hydrus coll', 'jb056mm1304', 3, "file", ["Image", "Archive/Manuscript"], ["pb496bf3201", "hb976hq8639", "qz957bs6680"],  "35th reunion 2009", 'pb496bf3201', 5
