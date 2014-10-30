@@ -161,6 +161,9 @@ describe "Hydrus collections" do
   context "Stanford LGBT Alumni Oral History Interviews" do
     it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound recording', 'Archive/Manuscript'], "gk352dr4264", "transcripts LGBT alumni oral history", 'gk352dr4264', 20
   end
+  context "Stanford Master's Theses", :wip => true do
+    it_behaves_like 'hydrus coll', 'xx313vx3974', 3, 'file', 'Book', nil, "conservative christian homeschooling", 'tw648nr5460', 10
+  end
   context "Stanford Research Data" do
     it_behaves_like 'hydrus coll', 'md919gh6774', 12, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
