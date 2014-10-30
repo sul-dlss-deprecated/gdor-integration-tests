@@ -179,6 +179,9 @@ describe "Hydrus collections" do
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
+  context "Undergraduate Honors Theses, Department of English", :wip => true do
+    it_behaves_like 'hydrus coll', 'sn758bh0099', 4, "file", "Book", nil, "dialectical critique of transgression", 'tp540zr1609', 10
+  end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
