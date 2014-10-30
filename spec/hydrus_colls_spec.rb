@@ -191,6 +191,9 @@ describe "Hydrus collections" do
   context "Vista Lab" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 6, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
+  context "Water in the West", :wip => true do
+    it_behaves_like 'hydrus coll', 'bq187rh3787', 11, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
+  end
   context "Yotsuba Society Archives - 4Chan Imageboard Files" do
     it_behaves_like 'hydrus coll', 'rw352rk5082', 1, "file", "Archive/Manuscript", 'tf565pz4260', "4chan archive", 'tf565pz4260', 10
     facet_query = "collection:rw352rk5082"
