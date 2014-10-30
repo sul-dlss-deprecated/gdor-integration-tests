@@ -100,6 +100,9 @@ describe "Hydrus collections" do
   context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Software/Multimedia", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
+  context "Luo Lab Dorsal Raphe Tracing Images", :wip => true do
+    it_behaves_like 'hydrus coll', 'hq143gy3770', 1, 'file', "Dataset", nil, "rabies tracing brains", 'zs331dk1033', 5
+  end
   context "Marine Biogeochemistry Data" do
     it_behaves_like 'hydrus coll', 'wg919by6182', 1, 'file', "Dataset", nil, "isotopic data from Peru", 'kw310md6771', 5
   end
@@ -182,6 +185,9 @@ describe "Hydrus collections" do
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
+  context "Undergraduate Honors Theses, Department of English", :wip => true do
+    it_behaves_like 'hydrus coll', 'sn758bh0099', 4, "file", "Book", nil, "dialectical critique of transgression", 'tp540zr1609', 10
+  end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
@@ -193,6 +199,9 @@ describe "Hydrus collections" do
   end
   context "Vista Lab" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 6, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
+  end
+  context "Water in the West", :wip => true do
+    it_behaves_like 'hydrus coll', 'bq187rh3787', 11, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
   end
   context "Yotsuba Society Archives - 4Chan Imageboard Files" do
     it_behaves_like 'hydrus coll', 'rw352rk5082', 1, "file", "Archive/Manuscript", 'tf565pz4260', "4chan archive", 'tf565pz4260', 10
