@@ -49,13 +49,13 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Book', nil, "alix personal", 'mq607rm1165', 3
   end
-  context "Center for Computer Research in Music and Acoustics", :wip => true do
+  context "Center for Computer Research in Music and Acoustics" do
     it_behaves_like 'hydrus coll', 'hn807kb3349', 2, 'file', ["Book", "Archive/Manuscript"], nil, "chuck audio programming", 'jv545yc8727', 10
   end
   context "CISAC honors theses" do
     it_behaves_like 'hydrus coll', 'md903dt5665', 13, 'file', 'Book', nil, "anarchy or regulation", 'zs241cm7504', 10
   end
-  context "City Nature", :wip => true do
+  context "City Nature" do
     it_behaves_like 'hydrus coll', 'zh869cy6686', 3, 'file', ['Book', 'Dataset'], nil, "naturehoods describing urban nature", 'yj038bt1548', 10
   end
   context "David Starr Jordan Papers" do
@@ -103,7 +103,7 @@ describe "Hydrus collections" do
   context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Software/Multimedia", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
-  context "Luo Lab Dorsal Raphe Tracing Images", :wip => true do
+  context "Luo Lab Dorsal Raphe Tracing Images" do
     it_behaves_like 'hydrus coll', 'hq143gy3770', 1, 'file', "Dataset", nil, "rabies tracing brains", 'zs331dk1033', 5
   end
   context "Marine Biogeochemistry Data" do
@@ -170,7 +170,7 @@ describe "Hydrus collections" do
   context "Stanford LGBT Alumni Oral History Interviews" do
     it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound recording', 'Archive/Manuscript'], "gk352dr4264", "transcripts LGBT alumni oral history", 'gk352dr4264', 20
   end
-  context "Stanford Master's Theses", :wip => true do
+  context "Stanford Master's Theses" do
     it_behaves_like 'hydrus coll', 'xx313vx3974', 3, 'file', 'Book', nil, "conservative christian homeschooling", 'tw648nr5460', 10
   end
   context "Stanford Research Data" do
@@ -191,7 +191,7 @@ describe "Hydrus collections" do
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
-  context "Undergraduate Honors Theses, Department of English", :wip => true do
+  context "Undergraduate Honors Theses, Department of English" do
     it_behaves_like 'hydrus coll', 'sn758bh0099', 4, "file", "Book", nil, "dialectical critique of transgression", 'tp540zr1609', 10
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
@@ -206,7 +206,7 @@ describe "Hydrus collections" do
   context "Vista Lab" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 6, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
-  context "Water in the West", :wip => true do
+  context "Water in the West" do
     it_behaves_like 'hydrus coll', 'bq187rh3787', 11, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
   end
   context "Yotsuba Society Archives - 4Chan Imageboard Files" do
