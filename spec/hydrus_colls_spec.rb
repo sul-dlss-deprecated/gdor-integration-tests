@@ -49,6 +49,9 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Book', nil, "alix personal", 'mq607rm1165', 3
   end
+  context "Center for Computer Research in Music and Acoustics", :wip => true do
+    it_behaves_like 'hydrus coll', 'hn807kb3349', 2, 'file', ["Book", "Archive/Manuscript"], nil, "chuck audio programming", 'jv545yc8727', 10
+  end
   context "CISAC honors theses" do
     it_behaves_like 'hydrus coll', 'md903dt5665', 13, 'file', 'Book', nil, "anarchy or regulation", 'zs241cm7504', 10
   end
