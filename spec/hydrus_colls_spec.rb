@@ -55,6 +55,9 @@ describe "Hydrus collections" do
   context "CISAC honors theses" do
     it_behaves_like 'hydrus coll', 'md903dt5665', 13, 'file', 'Book', nil, "anarchy or regulation", 'zs241cm7504', 10
   end
+  context "City Nature", :wip => true do
+    it_behaves_like 'hydrus coll', 'zh869cy6686', 3, 'file', ['Book', 'Dataset'], nil, "naturehoods describing urban nature", 'yj038bt1548', 10
+  end
   context "David Starr Jordan Papers" do
     it_behaves_like 'hydrus coll', 'jy460rb9016', 2, "file", "Archive/Manuscript", nil, "david starr jordan business correspondence", 'sw878zc4588', 10
   end
