@@ -97,6 +97,9 @@ describe "Hydrus collections" do
   context "Lobell Laboratory" do
     it_behaves_like 'hydrus coll', 'rz423vt0583', 1, 'file', "Software/Multimedia", nil, "maize yield increase in the US midwest", 'tp790js7917', 5
   end
+  context "Luo Lab Dorsal Raphe Tracing Images", :wip => true do
+    it_behaves_like 'hydrus coll', 'hq143gy3770', 1, 'file', "Dataset", nil, "rabies tracing brains", 'zs331dk1033', 5
+  end
   context "Marine Biogeochemistry Data" do
     it_behaves_like 'hydrus coll', 'wg919by6182', 1, 'file', "Dataset", nil, "isotopic data from Peru", 'kw310md6771', 5
   end
