@@ -71,7 +71,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', 'Book', nil, "deduceit", 'bg823wn2892', 3
   end
   context "Engineering undergrad theses" do
-    it_behaves_like 'hydrus coll', 'jg722zc0626', 35, 'file', 'Book', nil, "uclinux", 'ng517gq2855', 3
+    it_behaves_like 'hydrus coll', 'jg722zc0626', 36, 'file', 'Book', nil, "uclinux", 'ng517gq2855', 3
   end
   context "Folding@home" do
     it_behaves_like 'hydrus coll', 'cj269gn0736', 8, 'file', 'Dataset', nil, "hp35 trajectory data", 'bd829sf1034', 3
@@ -80,7 +80,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
   context "GSE Open Archive" do
-    it_behaves_like 'hydrus coll', 'tz959sb6952', 101, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 105, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "H. Bruce Franklin Collection" do
     it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
