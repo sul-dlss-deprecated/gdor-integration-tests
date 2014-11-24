@@ -177,7 +177,7 @@ describe "DOR Digital Collections" do
     
     context "Walters Manuscripts" do
       coll_id = 'ww121ss5000'
-      it_behaves_like 'gdor coll', coll_id, coll_id, 298, 'image', "Archive/Manuscript", "walters brasses", ['cn006dx2288'], 3
+      it_behaves_like 'gdor coll', coll_id, coll_id, 294, 'image', "Archive/Manuscript", "walters brasses", ['cn006dx2288'], 3
       facet_query = "collection:#{coll_id}"
       it_behaves_like "date fields present", facet_query
       #it_behaves_like "author field present", facet_query # 298 recs missing author as of 2014-05-23
