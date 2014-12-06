@@ -50,7 +50,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'xf112dv1419', 74, 'file', 'Book', nil, "alix personal", 'mq607rm1165', 3
   end
   context "Center for Computer Research in Music and Acoustics" do
-    it_behaves_like 'hydrus coll', 'hn807kb3349', 2, 'file', ["Book", "Archive/Manuscript"], nil, "chuck audio programming", 'jv545yc8727', 10
+    it_behaves_like 'hydrus coll', 'hn807kb3349', 3, 'file', ["Book", "Archive/Manuscript"], nil, "chuck audio programming", 'jv545yc8727', 10
   end
   context "CISAC honors theses" do
     it_behaves_like 'hydrus coll', 'md903dt5665', 13, 'file', 'Book', nil, "anarchy or regulation", 'zs241cm7504', 10
@@ -86,7 +86,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
   end
   context "Hopkins Marine Station collection" do
-    it_behaves_like 'hydrus coll', 'pn808wc6253', 8, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531", "xp974kw7556"], "sea anemone distribution", 'fp045wx3019', 10
+    it_behaves_like 'hydrus coll', 'pn808wc6253', 9, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531", "xp974kw7556"], "sea anemone distribution", 'fp045wx3019', 10
     facet_query = "collection:pn808wc6253"
     # it_behaves_like "language", facet_query
   end
@@ -201,10 +201,10 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'fr625dm6043', 49, "file", "Book", nil, "Ablation of Quiescent Neural Stem Cells", 'dz807gb9398', 5
   end
   context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
-    it_behaves_like 'hydrus coll', 'jr938vv9537', 6, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
+    it_behaves_like 'hydrus coll', 'jr938vv9537', 7, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
   end
   context "Vista Lab" do
-    it_behaves_like 'hydrus coll', 'qd500xn1572', 6, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
+    it_behaves_like 'hydrus coll', 'qd500xn1572', 7, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
   context "Water in the West" do
     it_behaves_like 'hydrus coll', 'bq187rh3787', 16, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
