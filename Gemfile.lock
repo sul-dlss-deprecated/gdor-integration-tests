@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     RedCloth (4.2.9)
+    RedCloth (4.2.9-java)
     RedCloth (4.2.9-x86-mingw32)
     builder (3.2.2)
     diff-lcs (1.2.5)
@@ -20,6 +21,7 @@ GEM
       rspec
 
 PLATFORMS
+  java
   ruby
   x86-mingw32
 

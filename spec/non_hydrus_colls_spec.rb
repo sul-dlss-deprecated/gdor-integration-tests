@@ -140,7 +140,7 @@ describe "DOR Digital Collections" do
   
     context "Bob Fitch photography archive - Cesar Chavez" do
       coll_id = 'zp940yp4275'
-      it_behaves_like 'gdor coll', coll_id, coll_id, 90, 'image', "Image", "dorothy day united farmworkers union", ['bv989yj8759'], 10
+      it_behaves_like 'gdor coll', coll_id, coll_id, 90, 'image', "Image", "dorothy day united farm workers union", ['bv989yj8759'], 10
       facet_query = "collection:#{coll_id}"
       it_behaves_like "date fields present", facet_query
       # it_behaves_like "author field present", facet_query # 90 recs missing author as of 2014-05-23
