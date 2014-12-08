@@ -86,9 +86,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
   end
   context "Hopkins Marine Station collection" do
-    it_behaves_like 'hydrus coll', 'pn808wc6253', 9, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "tt999fm2734", "gk364tm7562", "yb742ts0531", "xp974kw7556", "bf786cg9031"], "sea anemone distribution", 'fp045wx3019', 10
-    facet_query = "collection:pn808wc6253"
-    # it_behaves_like "language", facet_query
+    it_behaves_like 'hydrus coll', 'pn808wc6253', 9, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "gk364tm7562", "gr102xg7009", "tt999fm2734", "xp974kw7556", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
   end
   context "Jane Lathrop Stanford Papers" do
     it_behaves_like 'hydrus coll', 'hs468px3695', 3, "file", "Archive/Manuscript", nil, "death and estate papers", 'fk544dk9538', 10
