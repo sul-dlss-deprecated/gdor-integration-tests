@@ -194,6 +194,9 @@ describe "Hydrus collections" do
   end
   context "Visitations" do
     it_behaves_like 'hydrus coll', 'nc548gj3912', 3, 'file', ['Archive/Manuscript'], nil, "theotokia", 'km857qm6697', 5
+  end  
+  context "Undergraduate and Graduate Theses, Department of Anthropology" do
+    it_behaves_like 'hydrus coll', 'rj822rp7129', 2, "file", "Book", nil, "Destabilizing the Photograph", 'gv923cc5855', 10
   end
   context "Undergraduate Honors Theses, Department of English" do
     it_behaves_like 'hydrus coll', 'sn758bh0099', 4, "file", "Book", nil, "dialectical critique of transgression", 'tp540zr1609', 10
