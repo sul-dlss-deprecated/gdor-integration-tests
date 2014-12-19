@@ -23,6 +23,10 @@ describe "DOR Digital Collections" do
   context "merged coll records" do
     # id of collection record is ckey from Sirsi, not druid from DOR
     
+    context "Conversations on Life and Work of an Enigmatic Genius" do
+      ckey = '9948063'
+      it_behaves_like 'gdor coll', ckey, 'rk213cd8889', 10, "media", ["Video"], "Interview with Shoji Sadao", ['ps279dw9755'], 15
+    end
     context "Francis E. Stafford photographs" do
       ckey = '9615156'
       it_behaves_like 'gdor coll', ckey, 'yg867hg1375', 5, 'image', "Image", "seventh day adventist church missionaries", ['nz353cp1092'], 10
