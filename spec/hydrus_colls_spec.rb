@@ -117,6 +117,9 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'kq629sd5182', 19, 'file', ['Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
+  context "Papers from the Gimon Conference on French Political Economy, April 2004" do
+    it_behaves_like 'hydrus coll', 'nj859zd5622', 15, 'file', 'Book', nil, "the age of the code noir", 'py996pf3963', 10
+  end
   context "Paul R. Ehrlich papers" do
     it_behaves_like 'hydrus coll', 'ft617pg1817', 2, 'file', ["Video", "Sound recording"], nil, "Additional Material (Accession 2005-170)", 'zp321tx2887', 10
   end
