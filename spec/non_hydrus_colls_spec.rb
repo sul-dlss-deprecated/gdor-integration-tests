@@ -118,7 +118,7 @@ describe "DOR Digital Collections" do
 
     context "Glen McLaughlin Maps" do
       coll_id = 'zb871zd0767'
-      coll_size = 734
+      coll_size = 737
       it_behaves_like 'gdor coll', coll_id, coll_id, coll_size, 'image', "Map", "AMERIQUE", ['jk190bb4635'], 20
       facet_query = "collection:#{coll_id}"
       it_behaves_like "expected merged items", facet_query, 5, coll_size
