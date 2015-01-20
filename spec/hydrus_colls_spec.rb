@@ -67,6 +67,9 @@ describe "Hydrus collections" do
   context "Donald Pippin" do
     it_behaves_like 'hydrus coll', 'xg598bt7576', 73, 'file', "Book", nil, "no love allowed", 'bw510pk6500', 3
   end
+  context "Drosophila Antennal Lobe Synapses" do
+    it_behaves_like 'hydrus coll', 'wn197rj7271', 7, 'file', "Dataset", nil, "raw images of DA1", 'yq356jk9768', 10
+  end
   context "Engineering physics undergrad theses" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', 'Book', nil, "deduceit", 'bg823wn2892', 3
   end
