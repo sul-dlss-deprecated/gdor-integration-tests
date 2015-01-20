@@ -192,6 +192,10 @@ describe "Hydrus collections" do
   context "SUL staff publications" do
     it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
+  context "Temperature variation effects on intertidal communities collection
+" do
+    it_behaves_like 'hydrus coll', 'wj675xq3748', 1, 'file', ['Dataset'], nil, "growth rates of intertidal consumers", 'mz343tz6255', 5
+  end
   context "Visitations" do
     it_behaves_like 'hydrus coll', 'nc548gj3912', 3, 'file', ['Archive/Manuscript'], nil, "theotokia", 'km857qm6697', 5
   end  
