@@ -174,6 +174,9 @@ describe "Hydrus collections" do
   context "Stanford Master's Theses" do
     it_behaves_like 'hydrus coll', 'xx313vx3974', 3, 'file', 'Book', nil, "conservative christian homeschooling", 'tw648nr5460', 10
   end
+  context "Stanford Project for Open Knowledge in Epidemiology (SPOKE) collection" do
+    it_behaves_like 'hydrus coll', 'dm482qr7820', 1, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
+  end
   context "Stanford Research Data" do
     it_behaves_like 'hydrus coll', 'md919gh6774', 14, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
@@ -195,6 +198,9 @@ describe "Hydrus collections" do
   context "Towards in vivo estimation of reaction kinetics using high-throughput metabolomics data: a maximum likelihood approach" do
     it_behaves_like 'hydrus coll', 'ns069zc4473', 1, 'file', ['Software/Multimedia'], nil, "MATLAB scripts", 'bg158sn4020', 5
   end 
+  context "Temperature variation effects on intertidal communities collection" do
+    it_behaves_like 'hydrus coll', 'wj675xq3748', 1, 'file', ['Dataset'], nil, "growth rates of intertidal consumers", 'mz343tz6255', 5
+  end
   context "Visitations" do
     it_behaves_like 'hydrus coll', 'nc548gj3912', 3, 'file', ['Archive/Manuscript'], nil, "theotokia", 'km857qm6697', 5
   end  
