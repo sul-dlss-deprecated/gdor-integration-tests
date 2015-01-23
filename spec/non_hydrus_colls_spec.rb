@@ -89,6 +89,11 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present except", facet_query  # 21 records missing author as of 2014-05-23
       #it_behaves_like "language field present except", facet_query # all records missing language as of 2014-05-23
     end
+    context "Richard Hess Mullin-Palmer Tape Restoration Project Collection" do
+      ckey = '6745997'
+      it_behaves_like 'gdor coll', ckey, 'vg037xw7470', 94, 'media', 'Sound recording', "pavek museum", ['pv466bp0114'], 15
+      facet_query = "collection:#{ckey}"
+    end
     context "Richard Maxfield" do
       ckey = '8833854'
       it_behaves_like 'gdor coll', ckey, 'yz499rr9528', 10, 'media', "Music recording", "dromenom", ['jn060mx0288'], 15
