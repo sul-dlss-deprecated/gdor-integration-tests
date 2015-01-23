@@ -36,6 +36,10 @@ describe "DOR Digital Collections" do
       it_behaves_like 'author field present except', facet_query, ["nz353cp1092", "jf275fd6276", "ww689vs6534", "th998nk0722", "tc552kq0798"]
       it_behaves_like 'language field present except', facet_query, ['nz353cp1092', 'jf275fd6276', 'ww689vs6534', 'th998nk0722', 'tc552kq0798']
     end
+    context "Herbert Matter papers" do
+      ckey = '5628594'
+      it_behaves_like 'gdor coll', ckey, 'pj169kw1971', 293, "image", "Image", "east indian dancer", ['gc063jf6555'], 15
+    end
     context "Immanuel Kant lectures" do
       ckey = '9153925'
       it_behaves_like 'gdor coll', ckey, 'zf690qk3036', 4, "media", ["Sound Recording", "Video"], "analysis of the aesthetic judgement", ['ys174nw6600'], 15
@@ -63,6 +67,10 @@ describe "DOR Digital Collections" do
       ckey = '4083219'
       it_behaves_like 'gdor coll', ckey, 'bd001pp3337', 129, 'image', "Image", "Stanford University Libraries, M0299. Box 3, folder 1, item 075", ['gk430kv2099'], 15
       facet_query = "collection:#{ckey}"
+    end
+    context "Nowinski Bay Area Video Arcades photographs" do
+      ckey = '9685083'
+      it_behaves_like 'gdor coll', ckey, 'sk882gx0113', 21, 'image', "Image", "atari competition", ['qp706kh6085'], 15
     end
     context "Oscar I. Norwich collection" do
       ckey = '4719997'
