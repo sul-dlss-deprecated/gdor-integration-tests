@@ -59,6 +59,11 @@ describe "DOR Digital Collections" do
       it_behaves_like 'gdor coll', ckey, 'yk804rq1656', 4, 'media', "Video", "marge frantz lecture 1", ['tn629pk3948'], 15
       facet_query = "collection:#{ckey}"
     end
+    context "Medieval fragments study collection, 11th-16th cent. (M0299)" do
+      ckey = '4083219'
+      it_behaves_like 'gdor coll', ckey, 'bd001pp3337', 129, 'image', "Image", "Stanford University Libraries, M0299. Box 3, folder 1, item 075", ['gk430kv2099'], 15
+      facet_query = "collection:#{ckey}"
+    end
     context "Oscar I. Norwich collection" do
       ckey = '4719997'
       it_behaves_like 'gdor coll', ckey, 'qb438pg7646', 312, 'book', "Book", "the kingedome of congo", ['bc269qj9892'], 10
