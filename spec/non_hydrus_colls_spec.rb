@@ -36,6 +36,10 @@ describe "DOR Digital Collections" do
       it_behaves_like 'author field present except', facet_query, ["nz353cp1092", "jf275fd6276", "ww689vs6534", "th998nk0722", "tc552kq0798"]
       it_behaves_like 'language field present except', facet_query, ['nz353cp1092', 'jf275fd6276', 'ww689vs6534', 'th998nk0722', 'tc552kq0798']
     end
+    context "Herbert Matter photograph collection" do
+      ckey = '5628594'
+      it_behaves_like 'gdor coll', ckey, 'pj169kw1971', 291, "image", "Image", "east indian dancer", ['gc063jf6555'], 15
+    end
     context "Immanuel Kant lectures" do
       ckey = '9153925'
       it_behaves_like 'gdor coll', ckey, 'zf690qk3036', 4, "media", ["Sound Recording", "Video"], "analysis of the aesthetic judgement", ['ys174nw6600'], 15
