@@ -160,7 +160,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Dataset", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
   context "Software and data produced by Baker Research Group" do
-    it_behaves_like 'hydrus coll', 'qy070zf4368', 4, 'file', ["Dataset", "Software/Multimedia"], nil, "dynamic structural analysis", 'sw589ts9300', 10
+    it_behaves_like 'hydrus coll', 'qy070zf4368', 5, 'file', ["Dataset", "Software/Multimedia"], nil, "dynamic structural analysis", 'sw589ts9300', 10
   end
   context "Stanford Artificial Intelligence Laboratory Records" do
     it_behaves_like 'hydrus coll', 'jb056mm1304', 3, "file", ["Image", "Archive/Manuscript"], ["pb496bf3201", "hb976hq8639", "qz957bs6680"],  "35th reunion 2009", 'pb496bf3201', 5
@@ -181,7 +181,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'dm482qr7820', 1, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 14, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 17, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "Stanford Student Letters and Memoirs" do
     it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Archive/Manuscript", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10

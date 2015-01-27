@@ -38,7 +38,7 @@ describe "DOR Digital Collections" do
     end
     context "Herbert Matter papers" do
       ckey = '5628594'
-      it_behaves_like 'gdor coll', ckey, 'pj169kw1971', 293, "image", "Image", "east indian dancer", ['gc063jf6555'], 15
+      it_behaves_like 'gdor coll', ckey, 'pj169kw1971', 291, "image", "Image", "east indian dancer", ['gc063jf6555'], 15
     end
     context "Immanuel Kant lectures" do
       ckey = '9153925'
