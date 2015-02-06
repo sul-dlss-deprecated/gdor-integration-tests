@@ -83,7 +83,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
   context "GSE Open Archive" do
-    it_behaves_like 'hydrus coll', 'tz959sb6952', 114, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 115, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "H. Bruce Franklin Collection" do
     it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
@@ -95,7 +95,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'hs468px3695', 3, "file", "Archive/Manuscript", nil, "death and estate papers", 'fk544dk9538', 10
   end
   context "John A. Blume Earthquake Engineering Center Technical Report Series" do
-    it_behaves_like 'hydrus coll', 'mz198fp9366', 164, 'file', ["Book"], ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
+    it_behaves_like 'hydrus coll', 'mz198fp9366', 165, 'file', ["Book"], ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
   context "Leland Stanford Papers" do
@@ -145,7 +145,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Book", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
   end
   context "Research Datasets for Image, Video, and Multimedia Systems Group @ Stanford" do
-    it_behaves_like 'hydrus coll', 'cm018rf5314', 10, 'file', ["Dataset", "Software/Multimedia"], nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
+    it_behaves_like 'hydrus coll', 'cm018rf5314', 12, 'file', ["Dataset", "Software/Multimedia"], nil, "Stanford Streaming Mobile Augmented Reality Dataset", 'ph459zk5920', 5
   end
   context "Research Datasets for MPEG" do
     it_behaves_like 'hydrus coll', 'dy168sr2794', 2, 'file', "Dataset", "qy869qz5226", "Visual Search (CDVS) Benchmark", 'qy869qz5226', 5
@@ -181,7 +181,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'dm482qr7820', 1, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 17, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 18, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "Stanford Student Letters and Memoirs" do
     it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Archive/Manuscript", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10
@@ -204,9 +204,6 @@ describe "Hydrus collections" do
   context "Towards in vivo estimation of reaction kinetics using high-throughput metabolomics data: a maximum likelihood approach" do
     it_behaves_like 'hydrus coll', 'ns069zc4473', 1, 'file', ['Software/Multimedia'], nil, "MATLAB scripts", 'bg158sn4020', 5
   end 
-  context "Visitations" do
-    it_behaves_like 'hydrus coll', 'nc548gj3912', 3, 'file', ['Archive/Manuscript'], nil, "theotokia", 'km857qm6697', 5
-  end  
   context "Undergraduate and Graduate Theses, Department of Anthropology" do
     it_behaves_like 'hydrus coll', 'rj822rp7129', 2, "file", "Book", nil, "Destabilizing the Photograph", 'gv923cc5855', 10
   end
@@ -222,8 +219,11 @@ describe "Hydrus collections" do
   context "Undergraduate Theses, Program in Feminist, Gender, and Sexuality Studies" do
     it_behaves_like 'hydrus coll', 'jr938vv9537', 7, "file", "Book", nil, "gay catholic men", 'by699sk7545', 3
   end
+  context "Visitations" do
+    it_behaves_like 'hydrus coll', 'nc548gj3912', 3, 'file', ['Archive/Manuscript'], nil, "theotokia", 'km857qm6697', 5
+  end  
   context "Vista Lab" do
-    it_behaves_like 'hydrus coll', 'qd500xn1572', 7, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
+    it_behaves_like 'hydrus coll', 'qd500xn1572', 8, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
   context "Water in the West" do
     it_behaves_like 'hydrus coll', 'bq187rh3787', 16, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
