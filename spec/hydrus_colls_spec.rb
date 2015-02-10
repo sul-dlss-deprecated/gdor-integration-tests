@@ -82,6 +82,9 @@ describe "Hydrus collections" do
   context "Forum on Future of Scientific Publishing" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
+  context "GSE International Comparative Education Master's Monographs" do
+    it_behaves_like 'hydrus coll', 'qd259nz6640', 13, 'file', 'Book', nil, "conditions of happiness", 'xr366xd9204', 10 
+  end
   context "GSE Open Archive" do
     it_behaves_like 'hydrus coll', 'tz959sb6952', 115, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
