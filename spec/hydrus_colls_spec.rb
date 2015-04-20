@@ -83,7 +83,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
   context "GSE International Comparative Education Master's Monographs" do
-    it_behaves_like 'hydrus coll', 'qd259nz6640', 13, 'file', 'Book', nil, "conditions of happiness", 'xr366xd9204', 10 
+    it_behaves_like 'hydrus coll', 'qd259nz6640', 20, 'file', 'Book', nil, "conditions of happiness", 'xr366xd9204', 10 
   end
   context "GSE Open Archive" do
     it_behaves_like 'hydrus coll', 'tz959sb6952', 115, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
@@ -130,7 +130,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ft617pg1817', 2, 'file', ["Video", "Sound recording"], nil, "Additional Material (Accession 2005-170)", 'zp321tx2887', 10
   end
   context "Payne Paleobiology Lab Data Files" do
-    it_behaves_like 'hydrus coll', 'ns899tx9783', 1, 'file', "Dataset", nil, "Metabolic dominance of bivalves", 'hs422jm3330', 5
+    it_behaves_like 'hydrus coll', 'ns899tx9783', 3, 'file', "Dataset", nil, "Metabolic dominance of bivalves", 'hs422jm3330', 5
   end
   context "Physics Undergrad Theses" do
     it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Book", nil, "scanning squid", 'gh325bb5942', 3
@@ -184,7 +184,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'dm482qr7820', 1, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 18, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 23, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "Stanford Student Letters and Memoirs" do
     it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Archive/Manuscript", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10
