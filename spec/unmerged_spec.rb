@@ -114,7 +114,7 @@ describe "DOR Digital Collections" do
     context "Women's International League for Peace and Freedom (WILPF)" do
       ckey = '6757885'
       coll_id = 'dn166mg9206'
-      it_behaves_like 'gdor coll', coll_id, 258, ["media", "file"], "Sound recording", "Eldora Spiegelberg", ['hn225qp6902'], 15
+      it_behaves_like 'gdor coll', coll_id, 256, ["media", "file"], "Sound recording", "Eldora Spiegelberg", ['hn225qp6902'], 15
       facet_query = "collection:#{coll_id}"
     end
   end # merged coll records
