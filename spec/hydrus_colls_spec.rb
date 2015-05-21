@@ -184,7 +184,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'dm482qr7820', 1, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 24, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 24, 'file', ['Dataset', 'Book', 'Video', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "Stanford Student Letters and Memoirs" do
     it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Archive/Manuscript", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10
