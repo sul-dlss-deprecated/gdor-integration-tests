@@ -144,6 +144,9 @@ describe "Hydrus collections" do
   context "Project MKULTRA collection" do
     it_behaves_like 'hydrus coll', 'fp666pd4654', 1, 'file', "Archive/Manuscript", nil, "Project MKULTRA collection", 'xf259xw8228', 5
   end
+  context "Reliability of Marine Structures Program collection" do
+    it_behaves_like 'hydrus coll', 'jx221pk5832', 39, 'file', "Book", nil, "second-order random waves", 'dd539xx3473', 10
+  end
   context "ReNUWIt Data Collection" do
     it_behaves_like 'hydrus coll', 'jd484mb4712', 2, 'file', "Book", nil, "onsite wastewater soil treatment units", 'sx869kz6742', 5
   end
