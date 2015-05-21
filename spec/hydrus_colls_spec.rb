@@ -123,6 +123,9 @@ describe "Hydrus collections" do
     # DATA FIXME:  is format 'Other' still best fit?
     it_behaves_like 'hydrus coll', 'kq629sd5182', 19, 'file', ['Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
+  context "Multimedia files for digital image processing class at stanford" do
+    it_behaves_like 'hydrus coll', 'ff984ns9763', 34, 'file', ["Archive/Manuscript", "Computer File"], nil, "code for winter 2013", 'gv471dj5607', 10
+  end
   context "Papers from the Gimon Conference on French Political Economy, April 2004" do
     it_behaves_like 'hydrus coll', 'nj859zd5622', 15, 'file', 'Book', nil, "the age of the code noir", 'py996pf3963', 10
   end
@@ -173,6 +176,9 @@ describe "Hydrus collections" do
   end
   context "The Stanford Flipside" do
     it_behaves_like 'hydrus coll', 'dq441rn2614', 3, "file", "Archive/Manuscript", nil, "stanford flipside 2008", 'bv723rv4628', 10
+  end
+  context "Stanford Geospatial Center Teaching Data" do
+    it_behaves_like 'hydrus coll', 'hy561cz6360', 3, "file", "Dataset", nil, "clowns of america", 'sp780kk0063', 10
   end
   context "Stanford LGBT Alumni Oral History Interviews" do
     it_behaves_like 'hydrus coll', 'kz963xt9682', 2, 'file', ['Sound recording', 'Archive/Manuscript'], "gk352dr4264", "transcripts LGBT alumni oral history", 'gk352dr4264', 20
