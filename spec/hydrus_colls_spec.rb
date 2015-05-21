@@ -86,7 +86,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'qd259nz6640', 20, 'file', 'Book', nil, "conditions of happiness", 'xr366xd9204', 10 
   end
   context "GSE Open Archive" do
-    it_behaves_like 'hydrus coll', 'tz959sb6952', 115, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 117, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "H. Bruce Franklin Collection" do
     it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
@@ -98,7 +98,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'hs468px3695', 3, "file", "Archive/Manuscript", nil, "death and estate papers", 'fk544dk9538', 10
   end
   context "John A. Blume Earthquake Engineering Center Technical Report Series" do
-    it_behaves_like 'hydrus coll', 'mz198fp9366', 165, 'file', ["Book"], ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
+    it_behaves_like 'hydrus coll', 'mz198fp9366', 166, 'file', ["Book"], ["dv756jr9637", "nh929nm1593"], "damage diagnosis algorithms", 'wg007jn8560', 5
     #it_behaves_like "language", facet_query # 157 recs missing language as of 2014-05-23
   end
   context "Leland Stanford Papers" do
@@ -184,7 +184,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'dm482qr7820', 1, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 23, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 24, 'file', ['Dataset', 'Book', 'Archive/Manuscript', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "Stanford Student Letters and Memoirs" do
     it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Archive/Manuscript", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10
@@ -199,7 +199,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'gn946cw3927', 1, "file", "Video", 'ts408hz9199', "stanford university videos 1939", 'ts408hz9199', 20
   end
   context "SUL staff publications" do
-    it_behaves_like 'hydrus coll', 'hn730ks3626', 5, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
+    it_behaves_like 'hydrus coll', 'hn730ks3626', 7, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
   context "Temperature variation effects on intertidal communities collection" do
     it_behaves_like 'hydrus coll', 'wj675xq3748', 1, 'file', ['Dataset'], nil, "growth rates of intertidal consumers", 'mz343tz6255', 5
@@ -229,7 +229,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'qd500xn1572', 8, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
   context "Water in the West" do
-    it_behaves_like 'hydrus coll', 'bq187rh3787', 16, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
+    it_behaves_like 'hydrus coll', 'bq187rh3787', 19, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
   end
   context "Yotsuba Society Archives - 4Chan Imageboard Files" do
     it_behaves_like 'hydrus coll', 'rw352rk5082', 1, "file", "Archive/Manuscript", 'tf565pz4260', "4chan archive", 'tf565pz4260', 10
