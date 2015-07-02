@@ -53,7 +53,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'hn807kb3349', 3, 'file', ["Book", "Archive/Manuscript"], nil, "chuck audio programming", 'jv545yc8727', 10
   end
   context "CISAC honors theses" do
-    it_behaves_like 'hydrus coll', 'md903dt5665', 13, 'file', 'Book', nil, "anarchy or regulation", 'zs241cm7504', 10
+    it_behaves_like 'hydrus coll', 'md903dt5665', 30, 'file', 'Book', nil, "anarchy or regulation", 'zs241cm7504', 10
   end
   context "City Nature" do
     it_behaves_like 'hydrus coll', 'zh869cy6686', 3, 'file', ['Book', 'Dataset'], nil, "naturehoods describing urban nature", 'yj038bt1548', 10
@@ -74,7 +74,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'xv924ks7647', 3, 'file', 'Book', nil, "deduceit", 'bg823wn2892', 3
   end
   context "Engineering undergrad theses" do
-    it_behaves_like 'hydrus coll', 'jg722zc0626', 36, 'file', 'Book', nil, "uclinux", 'ng517gq2855', 3
+    it_behaves_like 'hydrus coll', 'jg722zc0626', 41, 'file', 'Book', nil, "uclinux", 'ng517gq2855', 3
   end
   context "Folding@home" do
     it_behaves_like 'hydrus coll', 'cj269gn0736', 8, 'file', 'Dataset', nil, "hp35 trajectory data", 'bd829sf1034', 3
@@ -223,7 +223,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'sn758bh0099', 4, "file", "Book", nil, "dialectical critique of transgression", 'tp540zr1609', 10
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
-    it_behaves_like 'hydrus coll', 'qs035dj7859', 10, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
+    it_behaves_like 'hydrus coll', 'qs035dj7859', 16, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
   end
   context "Undergraduate Theses, Department of Biology, 2013-2014" do
     it_behaves_like 'hydrus coll', 'fr625dm6043', 49, "file", "Book", nil, "Ablation of Quiescent Neural Stem Cells", 'dz807gb9398', 5
