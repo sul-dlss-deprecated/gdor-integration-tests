@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Hydrus collections" do
-    
+
   shared_examples_for 'hydrus collection object' do | solr_doc_id |
     it "should have display_type of file" do
       resp = solr_response({'qt'=>'document', 'id'=>solr_doc_id, 'fl'=>'id,display_type', 'facet'=>false})
@@ -14,7 +14,7 @@ describe "Hydrus collections" do
       resp.should include('display_type' => 'file')
     end
   end
-  
+
   # tests for hydrus collections
   # coll_druid: the druid of the collection object
   # num_items: the number of items in this collection
@@ -40,7 +40,7 @@ describe "Hydrus collections" do
     else
       it_behaves_like "author field present", facet_query
     end
-    # as of 2014-03, there is no way to input language into Hydrus metadata, 
+    # as of 2014-03, there is no way to input language into Hydrus metadata,
     # so language can't be required until that is fixed.
 #    it_behaves_like "language", facet_query
   end
@@ -83,10 +83,10 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ck552zg2217', 14, 'file', 'Book', nil, "open access to manuscripts", 'fx147cs4847', 10
   end
   context "GSE International Comparative Education Master's Monographs" do
-    it_behaves_like 'hydrus coll', 'qd259nz6640', 21, 'file', 'Book', nil, "conditions of happiness", 'xr366xd9204', 10 
+    it_behaves_like 'hydrus coll', 'qd259nz6640', 21, 'file', 'Book', nil, "conditions of happiness", 'xr366xd9204', 10
   end
   context "GSE Open Archive" do
-    it_behaves_like 'hydrus coll', 'tz959sb6952', 117, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 129, 'file', ["Book", 'Archive/Manuscript'], nil, "acculturative stress and coping", 'yg867nn1610', 5
   end
   context "H. Bruce Franklin Collection" do
     it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
@@ -121,7 +121,7 @@ describe "Hydrus collections" do
   end
   context "ME310 2013" do
     # DATA FIXME:  is format 'Other' still best fit?
-    it_behaves_like 'hydrus coll', 'kq629sd5182', 19, 'file', ['Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
+    it_behaves_like 'hydrus coll', 'kq629sd5182', 25, 'file', ['Book', 'Other'], nil, "audievolve", 'qt429km6702', 3
   end
   context "Multimedia files for digital image processing class at stanford" do
     it_behaves_like 'hydrus coll', 'ff984ns9763', 34, 'file', ["Archive/Manuscript", "Dataset"], nil, "code for winter 2013", 'gv471dj5607', 10
@@ -136,7 +136,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'ns899tx9783', 3, 'file', "Dataset", nil, "Metabolic dominance of bivalves", 'hs422jm3330', 5
   end
   context "Physics Undergrad Theses" do
-    it_behaves_like 'hydrus coll', 'ds247vz0452', 20, 'file', "Book", nil, "scanning squid", 'gh325bb5942', 3
+    it_behaves_like 'hydrus coll', 'ds247vz0452', 25, 'file', "Book", nil, "scanning squid", 'gh325bb5942', 3
   end
   context "Pleistocene Lake Surprise" do
     it_behaves_like 'hydrus coll', 'wm362dj5692', 6, 'file', ['Book', 'Dataset'], nil, "Pleistocene to middle Holocene", 'cb924rw5595', 10
@@ -169,7 +169,7 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'sc642pw6867', 8, "file", "Dataset", nil, "touch receptor neurons", 'qg053ym5844', 10
   end
   context "Software and data produced by Baker Research Group" do
-    it_behaves_like 'hydrus coll', 'qy070zf4368', 5, 'file', ["Dataset", "Software/Multimedia"], nil, "dynamic structural analysis", 'sw589ts9300', 10
+    it_behaves_like 'hydrus coll', 'qy070zf4368', 6, 'file', ["Dataset", "Software/Multimedia"], nil, "dynamic structural analysis", 'sw589ts9300', 10
   end
   context "Stanford Artificial Intelligence Laboratory Records" do
     it_behaves_like 'hydrus coll', 'jb056mm1304', 3, "file", ["Image", "Archive/Manuscript"], ["pb496bf3201", "hb976hq8639", "qz957bs6680"],  "35th reunion 2009", 'pb496bf3201', 5
@@ -190,10 +190,10 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'xx313vx3974', 3, 'file', 'Book', nil, "conservative christian homeschooling", 'tw648nr5460', 10
   end
   context "Stanford Project for Open Knowledge in Epidemiology (SPOKE) collection" do
-    it_behaves_like 'hydrus coll', 'dm482qr7820', 1, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
+    it_behaves_like 'hydrus coll', 'dm482qr7820', 3, 'file', 'Software/Multimedia', nil, "decomposition package for stata", 'gw696hj6227', 10
   end
   context "Stanford Research Data" do
-    it_behaves_like 'hydrus coll', 'md919gh6774', 26, 'file', ['Dataset', 'Book', 'Video', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
+    it_behaves_like 'hydrus coll', 'md919gh6774', 34, 'file', ['Dataset', 'Book', 'Video', 'Software/Multimedia'], nil, "high angular resolution", 'yx282xq2090', 3
   end
   context "Stanford Student Letters and Memoirs" do
     it_behaves_like 'hydrus coll', 'mt423yd8582', 1, "file", "Archive/Manuscript", 'jv222bg0652',  "letters and memoirs", 'jv222bg0652', 10
@@ -208,19 +208,19 @@ describe "Hydrus collections" do
     it_behaves_like 'hydrus coll', 'gn946cw3927', 1, "file", "Video", 'ts408hz9199', "stanford university videos 1939", 'ts408hz9199', 20
   end
   context "SUL staff publications" do
-    it_behaves_like 'hydrus coll', 'hn730ks3626', 7, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
+    it_behaves_like 'hydrus coll', 'hn730ks3626', 9, 'file', ['Book'], nil, "academy unbound", 'bd701dh8028', 3
   end
   context "Temperature variation effects on intertidal communities collection" do
     it_behaves_like 'hydrus coll', 'wj675xq3748', 1, 'file', ['Dataset'], nil, "growth rates of intertidal consumers", 'mz343tz6255', 5
   end
   context "Towards in vivo estimation of reaction kinetics using high-throughput metabolomics data: a maximum likelihood approach" do
     it_behaves_like 'hydrus coll', 'ns069zc4473', 1, 'file', ['Software/Multimedia'], nil, "MATLAB scripts", 'bg158sn4020', 5
-  end 
+  end
   context "Undergraduate and Graduate Theses, Department of Anthropology" do
-    it_behaves_like 'hydrus coll', 'rj822rp7129', 2, "file", "Book", nil, "Destabilizing the Photograph", 'gv923cc5855', 10
+    it_behaves_like 'hydrus coll', 'rj822rp7129', 10, "file", "Book", nil, "Destabilizing the Photograph", 'gv923cc5855', 10
   end
   context "Undergraduate Honors Theses, Department of English" do
-    it_behaves_like 'hydrus coll', 'sn758bh0099', 4, "file", "Book", nil, "dialectical critique of transgression", 'tp540zr1609', 10
+    it_behaves_like 'hydrus coll', 'sn758bh0099', 10, "file", "Book", nil, "dialectical critique of transgression", 'tp540zr1609', 10
   end
   context "Undergraduate Honors Theses, Graduate School of Education" do
     it_behaves_like 'hydrus coll', 'qs035dj7859', 16, "file", "Book", nil, "Civic Engagement in Anakbayan", 'jw598xm2819', 3
@@ -233,9 +233,9 @@ describe "Hydrus collections" do
   end
   context "Visitations" do
     it_behaves_like 'hydrus coll', 'nc548gj3912', 3, 'file', ['Archive/Manuscript'], nil, "theotokia", 'km857qm6697', 5
-  end  
+  end
   context "Vista Lab" do
-    it_behaves_like 'hydrus coll', 'qd500xn1572', 8, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
+    it_behaves_like 'hydrus coll', 'qd500xn1572', 9, "file", "Dataset", nil, "Asynchronous broadband signals", 'hj582pj3902', 3
   end
   context "Water in the West" do
     it_behaves_like 'hydrus coll', 'bq187rh3787', 19, "file", "Book", nil, "well runs dry", 'pt977vw1969', 10
@@ -245,5 +245,5 @@ describe "Hydrus collections" do
     facet_query = "collection:rw352rk5082"
     it_behaves_like "language", facet_query
   end
-  
+
 end
