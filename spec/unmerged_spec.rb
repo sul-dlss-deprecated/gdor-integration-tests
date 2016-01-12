@@ -84,7 +84,7 @@ describe "DOR Digital Collections" do
       facet_query = "collection:#{coll_id}"
       #it_behaves_like "date fields present", facet_query
       #it_behaves_like "author field present", #corporate authors are present, but not personal name authors
-      it_behaves_like "language", facet_query 
+      it_behaves_like "language", facet_query
       #regarding format facet - many of the objects being delivered are transcripts (and not the related sound recordings) e.g. cx374hh1624 - but all items are typed as sound recordings until hybrid objects are supported per Hannah June 2014
     end
     context "Programs in Human Biology, Lectures" do
@@ -118,7 +118,7 @@ describe "DOR Digital Collections" do
       facet_query = "collection:#{coll_id}"
     end
   end # merged coll records
-  
+
   context "merged item records" do
     context "Caroline Batchelor maps" do
       ckey = '10357851'
@@ -133,7 +133,7 @@ describe "DOR Digital Collections" do
 
     context "Glen McLaughlin Maps" do
       coll_id = 'zb871zd0767'
-      coll_size = 737
+      coll_size = 711
       it_behaves_like 'gdor coll', coll_id, coll_size, 'image', "Map", "AMERIQUE", ['jk190bb4635'], 20
       facet_query = "collection:#{coll_id}"
       it_behaves_like "date fields present", facet_query
@@ -152,10 +152,10 @@ describe "DOR Digital Collections" do
     #   it_behaves_like "author field present except", facet_query, ["3320159", "3901701"]
     # end
   end # merged items
-  
+
   context "no marc coll record" do
     # id of collection record in Solr is druid from DOR
-  
+
     context "Bob Fitch photography archive - Cesar Chavez" do
       coll_id = 'zp940yp4275'
       it_behaves_like 'gdor coll', coll_id, 90, 'image', "Image", "dorothy day united farm workers union", ['bv989yj8759'], 10
@@ -192,10 +192,10 @@ describe "DOR Digital Collections" do
       #it_behaves_like "author field present", facet_query # 13 recs missing author as of 2014-05-23
       #it_behaves_like "language", facet_query # 13 recs missing language as of 2014-05-23
     end
-    
+
     context "Walters Manuscripts" do
       coll_id = 'ww121ss5000'
-      it_behaves_like 'gdor coll', coll_id, 299, 'image', "Archive/Manuscript", "walters brasses", ['cn006dx2288'], 3
+      it_behaves_like 'gdor coll', coll_id, 297, 'image', "Archive/Manuscript", "walters brasses", ['cn006dx2288'], 3
       facet_query = "collection:#{coll_id}"
       it_behaves_like "date fields present", facet_query
       #it_behaves_like "author field present", facet_query # 298 recs missing author as of 2014-05-23
@@ -203,5 +203,5 @@ describe "DOR Digital Collections" do
       #collection in DOR has 298 accessioned objects, but only 294 are indexing, despite great efforts. changing the number to 294 from 298 on Nov 24, 2014 to ensure that integratino tests pass - LW
     end
   end # no marc coll record
-  
+
 end

@@ -48,12 +48,12 @@ shared_examples_for 'SW field present except' do | field, facet_query, exp_ids |
     if exp_ids.kind_of? String
       regex = exp_ids
     elsif exp_ids.kind_of? Array
-      exp_ids.each { |id| 
+      exp_ids.each { |id|
         if regex.size == 0
           regex << id
         else
           regex << "|#{id}"
-        end 
+        end
       }
     end
     if regex.empty?
@@ -86,7 +86,7 @@ shared_examples_for "expected facet values" do | facet_query, field, values |
     if values.kind_of? String
       fq_arr << "-#{field}:\"#{values}\""
     elsif values.kind_of? Array
-      values.each { |val|  
+      values.each { |val|
         fq_arr << "-#{field}:\"#{val}\""
       }
     end
@@ -98,12 +98,12 @@ end
 # tests for no records with a different format value than what is specified
 # with 2014 sw ui redesign work, "format" has been replaced by "format_main_ssim" per INDEX-145
 shared_examples_for "expected format_main_ssim values" do | facet_query, values |
-  it_behaves_like "expected facet values", facet_query, "format_main_ssim", values  
+  it_behaves_like "expected facet values", facet_query, "format_main_ssim", values
 end
 
 # tests for no records with a different display_type value than what is specified
 shared_examples_for "expected display_type values" do | facet_query, values |
-  it_behaves_like "expected facet values", facet_query, "display_type", values  
+  it_behaves_like "expected facet values", facet_query, "display_type", values
 end
 
 
@@ -190,7 +190,7 @@ shared_examples_for 'all items in collection' do | coll_id, num_exp |
 end
 
 # tests for required stored fields for item and collection records, merged or unmerged
-# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
+# solr_doc_id - the id of this item's Solr doc; could be ckey or druid
 # druid - the druid for this item
 shared_examples_for 'gdor fields present' do | solr_doc_id, druid |
   before(:all) do
@@ -202,10 +202,10 @@ shared_examples_for 'gdor fields present' do | solr_doc_id, druid |
     @resp.should include("druid" => druid)
   end
   it "url_fulltext" do
-    @resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
+    @resp.should include("url_fulltext" => ["https://purl.stanford.edu/#{druid}"])
   end
   it "display_type" do
-    @resp.should include("display_type" => /file|image/) 
+    @resp.should include("display_type" => /file|image/)
     @resp.should include("display_type" => 'sirsi') if @merged
   end
   it "should have modsxml field if no sirsi record" do
@@ -219,7 +219,7 @@ shared_examples_for 'gdor fields present' do | solr_doc_id, druid |
 end
 
 # tests for required stored fields for item record, merged or unmerged
-# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
+# solr_doc_id - the id of this item's Solr doc; could be ckey or druid
 # druid - the druid for this item
 # coll_solr_doc_id - the id of this item's collection obj Solr doc; could be ckey or druid
 shared_examples_for 'item gdor fields present' do | solr_doc_id, druid, coll_solr_doc_id |
@@ -252,7 +252,7 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
     resp.should include(exp_ids).in_first(max_res_num)
   end
   it "should have gdor fields" do
-    # FIXME:  would like to DRY this up, but 
+    # FIXME:  would like to DRY this up, but
     # can't call 'item gdor fields present' from here for each doc due to nested examples
     exp_ids.each { |solr_doc_id|
       resp = solr_resp_single_doc(solr_doc_id)
@@ -264,20 +264,20 @@ shared_examples_for 'DOR item objects' do | query_str, exp_ids, max_res_num, col
 
       druid = resp['response']['docs'][0]['druid']
       if solr_doc_id != druid
-        # DOR item is merged with MARC 
+        # DOR item is merged with MARC
         solr_doc_id.should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
         resp.should include("druid" => druid )
         resp.should include('display_type' => 'sirsi')
-        resp.should include("url_fulltext" => "http://purl.stanford.edu/#{druid}")
+        resp.should include("url_fulltext" => ["https://purl.stanford.edu/#{druid}"])
         resp.should_not include('modsxml')
         # there should be no record for the druid and if there is, we want the id
         solr_resp_single_doc(druid).should_not include("id" => /.+/)
       else
         solr_doc_id.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
         resp.should include("druid" => solr_doc_id)
-        resp.should include("url_fulltext" => "http://purl.stanford.edu/#{solr_doc_id}")
+        resp.should include("url_fulltext" => "https://purl.stanford.edu/#{solr_doc_id}")
         resp.should include("modsxml" => /http:\/\/www\.loc\.gov\/mods\/v3/ )
-      end  
+      end
     }
   end
 end # DOR item objects
@@ -291,13 +291,13 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
     @resp = solr_response({'fq'=>facet_query, 'rows'=>coll_size, 'fl'=>"id,druid,url_fulltext,file_id,display_type,modsxml,collection,collection_with_title", 'facet'=>false})
     @coll_solr_doc_id = facet_query.split(':').last
   end
-  
+
   it "should have exp fields" do
-    # FIXME:  would like to DRY this up, but 
+    # FIXME:  would like to DRY this up, but
     # can't call 'item gdor fields present' from here for each doc id due to nested examples
     # also doc is hash, not Rspec::Solr::SolrResponseHash
     num_merged = 0
-    @resp['response']['docs'].each { |solr_doc| 
+    @resp['response']['docs'].each { |solr_doc|
       # FIXME: it would be awesome if any failures below would indicate the solr doc id of the failed record
       solr_doc_id = solr_doc['id']
       druid = solr_doc['druid']
@@ -306,7 +306,7 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
       num_merged += 1 if merged
 
       solr_doc['collection'].should include(@coll_solr_doc_id)
-      solr_doc['collection_with_title'].should be_any {|s| s =~ Regexp.new("^#{@coll_solr_doc_id}-\\|-.*")}      
+      solr_doc['collection_with_title'].should be_any {|s| s =~ Regexp.new("^#{@coll_solr_doc_id}-\\|-.*")}
       display_types = solr_doc['display_type']
       display_types.should be_any {|s| s =~ /file|image/}
       solr_doc['file_id'].size.should > 0
@@ -314,19 +314,19 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
       if merged
         solr_doc_id.should_not =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
         display_types.should include('sirsi')
-        solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{druid}")
+        solr_doc['url_fulltext'].should include("https://purl.stanford.edu/#{druid}")
         solr_doc['modsxml'].should be_nil
         # there should be no record for the druid and if there is, we want the id
         solr_resp_single_doc(druid).should_not include("id" => /.+/)
       else
         solr_doc_id.should =~ /^[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}$/
-        solr_doc['url_fulltext'].should include("http://purl.stanford.edu/#{solr_doc_id}")
+        solr_doc['url_fulltext'].should include("https://purl.stanford.edu/#{solr_doc_id}")
         solr_doc['modsxml'].should =~ /http:\/\/www\.loc\.gov\/mods\/v3/
       end
     }
     num_merged.should == exp_num_merged
   end
-  
+
   it "merged records should not be missing gdor fields" do
     resp = solr_resp_doc_ids_only('fq'=>[facet_query, "-druid:*"])
     if exp_num_merged == coll_size
@@ -339,7 +339,7 @@ shared_examples_for 'expected merged items' do | facet_query, exp_num_merged, co
 end # expected merged items
 
 # tests for required stored fields for collection record, merged or unmerged
-# solr_doc_id - the id of this item's Solr doc; could be ckey or druid 
+# solr_doc_id - the id of this item's Solr doc; could be ckey or druid
 # druid - the druid for this item
 shared_examples_for 'collection gdor fields present' do | solr_doc_id, druid |
   before(:all) do
