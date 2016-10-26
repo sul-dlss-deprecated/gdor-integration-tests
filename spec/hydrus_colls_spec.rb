@@ -91,6 +91,9 @@ describe "Hydrus collections" do
   context "H. Bruce Franklin Collection" do
     it_behaves_like 'hydrus coll', 'pn278bq2224', 11, "file", "Archive/Manuscript", nil,"Advisory Board decision in the matter of professor H. Bruce Franklin", 'cm175mf2096', 5
   end
+  context "GSE Open Archive", :wip => true do
+    it_behaves_like 'hydrus coll', 'tz959sb6952', 97, 'file', "Manuscript/Archive", nil, "acculturative stress and coping", 'yg867nn1610', 5
+  end
   context "Hopkins Marine Station collection" do
     it_behaves_like 'hydrus coll', 'pn808wc6253', 9, 'file', ["Dataset", "Archive/Manuscript"], ["fp045wx3019", "gk364tm7562", "gr102xg7009", "tt999fm2734", "xp974kw7556", "yb742ts0531"], "sea anemone distribution", 'fp045wx3019', 10
   end
